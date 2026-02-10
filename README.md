@@ -1,4 +1,4 @@
-# Hi 👋, I'm EklavyajhaAI07
+# Hi 👋, My self Eklavya DilipBhai Jha
 
 ### A developer & explorer of the world of AI
 
