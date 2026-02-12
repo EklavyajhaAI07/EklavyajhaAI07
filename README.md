@@ -2,7 +2,7 @@
 
 ### A developer & explorer of the world of AI
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&label=Profile views&color=0e75b6&style=flat" alt="EklavyajhaAI07" /> </p>
+<p align="left"> <img src="[https://komarev.com/ghpvc/?username=EklavyajhaAI07&label=Profile views&color=0e75b6&style=flat](https://avatars.githubusercontent.com/u/256036031?v=4)" alt="EklavyajhaAI07" /> </p>
 
 - 🔭 I'm currently working on **a Web-App Development.**
 
