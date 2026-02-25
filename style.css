@@ -381,8 +381,10 @@ body {
     transition: transform 0.6s ease;
 }
 
-.image-wrapper:hover .floating-info {
-    transform: translate(-10px, -10px);
+.status-top {
+    margin-bottom: 2.5rem;
+    display: inline-block;
+    min-width: 280px;
 }
 
 .visual-card {
