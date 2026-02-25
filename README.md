@@ -15,7 +15,7 @@
 - 💬 Ask me about **AI fundamentals, applied systems, LLM, prompt engineering, AI web apps, hackathons, & turning ideas into prototypes. AI in education, safety & problem-solving enthusiast.**
 
 - 📫 How to reach me **eklavyaprivate22@gmail.com**
-
+- My Portfolio Site: **https://eklavyajhaai07.github.io/EklavyajhaAI07/**
 - ⚡ Fun fact **Breaking complex systems into first principles - AI, startups, or problems. Learning as engineering: understand deeply, optimize later.**
 
 <h3 align="left">Connect with me:</h3>
