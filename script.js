@@ -367,7 +367,8 @@ function renderProjects() {
                         </div>
                     </a>
                     ${isAdmin ? `<div class="admin-controls">
-                        <button class="admin-btn delete" onclick="deleteProject(${proj.id})">Delete Project</button>
+                        <button class="admin-btn" onclick="editProject(${proj.id})">Edit</button>
+                        <button class="admin-btn delete" onclick="deleteProject(${proj.id})">Delete</button>
                     </div>` : ''}
                 </div>
             </article>
@@ -404,7 +405,8 @@ function renderSkills() {
                 <h3>${skill.title}</h3>
                 <h4>${skill.desc}</h4>
                 ${isAdmin ? `<div class="admin-controls">
-                    <button class="admin-btn delete" onclick="deleteSkill(${skill.id})">Delete Skill</button>
+                    <button class="admin-btn" onclick="editSkill(${skill.id})">Edit</button>
+                    <button class="admin-btn delete" onclick="deleteSkill(${skill.id})">Delete</button>
                 </div>` : ''}
             </div>
         `;
@@ -522,6 +524,21 @@ window.addProject = () => {
     saveAndRender();
 };
 
+window.editProject = (id) => {
+    const proj = portfolioData.projects.find(p => p.id === id);
+    if (!proj) return;
+
+    proj.title = prompt("Project Title:", proj.title) || proj.title;
+    proj.desc = prompt("Project Description:", proj.desc) || proj.desc;
+    proj.year = prompt("Year:", proj.year) || proj.year;
+    proj.cat = prompt("Category:", proj.cat) || proj.cat;
+    proj.link = prompt("GitHub Link:", proj.link) || proj.link;
+    proj.img = prompt("Image URL:", proj.img) || proj.img;
+    proj.gradient = prompt("Gradient:", proj.gradient) || proj.gradient;
+
+    saveAndRender();
+};
+
 window.deleteSkill = (id) => {
     portfolioData.skills = portfolioData.skills.filter(s => s.id !== id);
     saveAndRender();
@@ -539,6 +556,17 @@ window.addSkill = () => {
     };
 
     portfolioData.skills.push(newSkill);
+    saveAndRender();
+};
+
+window.editSkill = (id) => {
+    const skill = portfolioData.skills.find(s => s.id === id);
+    if (!skill) return;
+
+    skill.title = prompt("Skill Title:", skill.title) || skill.title;
+    skill.icon = prompt("Lucide Icon Name:", skill.icon) || skill.icon;
+    skill.desc = prompt("Skill Description:", skill.desc) || skill.desc;
+
     saveAndRender();
 };
 
