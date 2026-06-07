@@ -54,12 +54,14 @@
 
 /* Configuration & Variables */
 :root {
-    --bg: #000000;
-    --fg: #ffffff;
-    --fg-muted: #888888;
-    --accent: #0066ff;
-    --glass: rgba(255, 255, 255, 0.05);
-    --border: rgba(255, 255, 255, 0.1);
+    --bg: #030305;
+    --fg: #f1f1f3;
+    --fg-muted: #a0a0b0;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.5);
+    --secondary: #06b6d4;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
     --header-height: 6rem;
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Outfit', sans-serif;
@@ -212,8 +214,9 @@ body {
     right: -10%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
-    filter: blur(100px);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    filter: blur(150px);
+    opacity: 0.6;
 }
 
 .hero-tagline {
@@ -231,6 +234,9 @@ body {
     font-size: clamp(4rem, 12vw, 10rem);
     line-height: 0.85;
     letter-spacing: -4px;
+    background: linear-gradient(to bottom, var(--fg) 40%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .title-row {
@@ -260,11 +266,12 @@ body {
     /* Increased gap for better breathing room */
 
     /* New Styles */
-    background: linear-gradient(135deg, #1e1e2e, #2a2a40);
+    background: var(--glass);
+    backdrop-filter: blur(10px);
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     /* Capsule shape */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -272,9 +279,9 @@ body {
     width: 40px;
     height: 2px;
     /* Thicker line for visibility */
-    background: #0074d9;
+    background: var(--accent);
     /* Action color */
-    box-shadow: 0 0 10px rgba(0, 116, 217, 0.5);
+    box-shadow: 0 0 10px var(--accent-glow);
     /* Subtle glow */
 }
 
@@ -388,19 +395,17 @@ body {
 }
 
 .visual-card {
-    background: linear-gradient(135deg, #1e1e2e, #2a2a40);
-    /* Dark base */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Subtle border */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    /* Depth effect */
     transition: transform 0.3s ease;
 }
 
 .card-tag {
-    background: #0074d9;
+    background: var(--accent);
     /* Blue tag */
     color: white;
     padding: 4px 10px;
@@ -556,6 +561,7 @@ body {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skill-card::before {
@@ -948,6 +954,79 @@ html.lenis {
     .status-top {
         min-width: 100%;
     }
+}
+
+/* Admin Styles */
+.admin-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.admin-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.3s;
+}
+
+.admin-btn.delete {
+    background: #ff4444;
+}
+
+.admin-btn:hover {
+    opacity: 0.8;
+}
+
+#login-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: var(--bg);
+    padding: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 2rem;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    color: var(--fg);
+    border-radius: 8px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* Global Fixes */
