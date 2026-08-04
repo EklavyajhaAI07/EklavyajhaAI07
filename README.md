@@ -1,41 +1,248 @@
-# Hi 👋, My self Eklavya DilipBhai Jha
-
-### A developer & explorer of the world of AI
-
-<p align="center"> <img src="https://avatars.githubusercontent.com/u/256036031?v=4" alt="EklavyajhaAI07" /> </p>
-
-- 🔭 I'm currently working on **a Web-App Development.**
-
-- 🌱 I'm currently learning **Core to Advanced Artificial Intelligence concepts with thier frameworks & Libraries.**
-
-- 👯 I'm looking to collaborate on **Start-up projects & Business Development ideas.**
-
-- 🤝 I'm looking for help with **learning AI-LLM models Building & Training.**
-
-- 💬 Ask me about **AI fundamentals, applied systems, LLM, prompt engineering, AI web apps, hackathons, & turning ideas into prototypes. AI in education, safety & problem-solving enthusiast.**
-
-- 📫 How to reach me **eklavyaprivate22@gmail.com**
-- My Portfolio Site: **https://eklavya.dpdns.org/**
-- ⚡ Fun fact **Breaking complex systems into first principles - AI, startups, or problems. Learning as engineering: understand deeply, optimize later.**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://github.com/EklavyajhaAI07" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="EklavyajhaAI07" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/eklavya-jha-23a54b377 " target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/eklavya-jha-23a54b377 " height="30" width="40" /></a>
-<a href="https://instagram.com/https://www.instagram.com/in/eklavyajha_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="https://www.instagram.com/in/eklavyajha_" height="30" width="40" /></a>
+<!-- ===================== BANNER ===================== -->
+<p align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0F172A,100:7C3AED&text=Eklavya%20Jha&fontColor=ffffff&fontSize=52&animation=fadeIn&fontAlignY=38&desc=AI%20Engineer%20%7C%20Builder%20%7C%20Founder%20Mindset&descAlignY=60"/>
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/android" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=androidstudio" alt="android" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/azure" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=azure" alt="azure" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/c" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=c" alt="c" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/canvasjs" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="canvasjs" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/cplusplus" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=cpp" alt="cplusplus" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/css3" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=css" alt="css3" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/dart" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=dart" alt="dart" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/django" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=django" alt="django" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/docker" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=docker" alt="docker" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/dotnet" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=dotnet" alt="dotnet" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/express" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=express" alt="express" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/fastapi" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=fastapi" alt="fastapi" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/figma" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=figma" alt="figma" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/firebase" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=firebase" alt="firebase" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/flask" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=flask" alt="flask" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/flutter" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=flutter" alt="flutter" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/git" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=git" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/hadoop" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" alt="hadoop" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/heroku" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=heroku" alt="heroku" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/html5" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=html" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/huggingface" target="_blank" rel="noreferrer"> <img src="https://cdn.simpleicons.org/huggingface" alt="huggingface" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/illustrator" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=illustrator" alt="illustrator" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/linux" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=linux" alt="linux" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mongodb" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=mongodb" alt="mongodb" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mysql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=mysql" alt="mysql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/numpy" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="numpy" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/ollama" target="_blank" rel="noreferrer"> <img src="https://cdn.simpleicons.org/ollama" alt="ollama" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/opencv" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=opencv" alt="opencv" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/oracle" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/pandas" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/photoshop" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=photoshop" alt="photoshop" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/postgresql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=postgres" alt="postgresql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/python" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=py" alt="python" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/pytorch" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=pytorch" alt="pytorch" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/react" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=react" alt="react" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/scikit_learn" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=scikitlearn" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/sqlite" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=sqlite" alt="sqlite" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/streamlit" target="_blank" rel="noreferrer"> <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="streamlit" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/tensorflow" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=tensorflow" alt="tensorflow" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/typescript" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=ts" alt="typescript" width="40" height="40"/> </a></p>
+<h1 align="center">Hi 👋, I'm Eklavya DilipBhai Jha</h1>
 
+<h3 align="center">
+AI Engineering Student • LLM & Agentic AI Builder • Campus Ambassador @ E-Cell IIT Bombay
+</h3>
 
-# 💻 Tech Stack:
- ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)  ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)  ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)  ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)  ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)  ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)  ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)  ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)  ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)  ![Web3.js](https://img.shields.io/badge/web3.js-F16822?style=for-the-badge&logo=web3.js&logoColor=white)  ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)  ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white)  ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)  ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)  ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)  ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)  ![Adobe Lightroom](https://img.shields.io/badge/Adobe%20Lightroom-31A8FF.svg?style=for-the-badge&logo=Adobe%20Lightroom&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)  ![Gimp](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF)  ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)  ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)  ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)  ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)  ![Cisco](https://img.shields.io/badge/cisco-%23049fd9.svg?style=for-the-badge&logo=cisco&logoColor=black)  ![AMD](https://img.shields.io/badge/AMD-%23000000.svg?style=for-the-badge&logo=amd&logoColor=white)  ![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=Twilio&logoColor=white)  ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)  ![Meta](https://img.shields.io/badge/Meta-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white)  ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+<p align="center">
+I build AI products, automate real workflows, lead technical communities — and think like an engineer <i>and</i> a founder.
+</p>
 
-### ✍️ Dev Quote
-<p> <a> <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" width="800" height="250"/> </a> </p>
+<p align="center">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=1000&color=A78BFA&center=true&vCenter=true&width=750&lines=Building+Agentic+AI+%26+LLM+Systems;Shipping+RAG+%26+Automation+Workflows;Campus+Ambassador+%40+E-Cell+IIT+Bombay;Hackathon+Builder+%7C+Team+StackForge;Turning+Ideas+into+AI+Products"/>
+</p>
+
+<p align="center">
+<a href="https://github.com/EklavyajhaAI07">
+<img src="https://img.shields.io/github/followers/EklavyajhaAI07?style=for-the-badge&logo=github&color=7C3AED&labelColor=0F172A"/>
+</a>
+<img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=7C3AED&label=PROFILE+VIEWS"/>
+</p>
 
 ---
-[![](https://visitcount.itsvg.in/api?id=EklavyajhaAI07&icon=0&color=0)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+## 🚀 About Me
+
+```yaml
+Name: Eklavya DilipBhai Jha
+
+Focus:
+  - AI Engineering & LLM Systems
+  - Agentic AI & Multi-Agent Systems
+  - AI Automation & RAG Pipelines
+  - Full Stack + AI Web Applications
+  - Startup Building & Product Thinking
+
+Currently Learning:
+  Core to Advanced AI concepts, frameworks & LLM training
+
+Looking to Collaborate On:
+  Start-up projects & business development ideas
+
+Looking for Help With:
+  Building & training AI-LLM models
+
+Philosophy:
+  "Learning as engineering — understand deeply, optimize later."
+```
+
+---
+
+## 🎯 Current Focus
+
+- 🤖 Building **Agentic AI & Multi-Agent Systems**
+- 🔍 Shipping **RAG pipelines**, vector databases & embeddings-based apps
+- ⚙️ Automating real workflows with **n8n** and API integrations
+- 🌐 Building AI-integrated full-stack web applications
+- 🎓 Growing the startup ecosystem as **Campus Ambassador, E-Cell IIT Bombay**
+- 🛡️ Exploring **AI for Education** and **AI for Defence**
+
+---
+
+## 🧩 Featured Work & Project Experience
+
+| Area | What I've Built |
+|---|---|
+| 🤖 Agentic AI | Multi-agent workflows & AI-powered productivity systems |
+| 🔎 RAG Systems | Retrieval-Augmented Generation pipelines & internal knowledge bases |
+| ⚙️ Automation | n8n-based workflow automation, API integrations |
+| 🖥️ AI Web Apps | Full-stack applications with integrated LLM features |
+| 📄 Document AI | OCR & document processing pipelines |
+| 🧠 Local LLMs | Experiments with local model deployment (Ollama) |
+| 🚀 Deployment | End-to-end deployment pipelines (Docker, cloud platforms) |
+
+---
+
+## 🏆 Hackathons
+
+- 🎯 Qualified for the **Virtual Round of the Official Odoo Hackathon 2026** with **Team StackForge**
+- 🏁 Participated in multiple **national-level hackathons**
+- ⏱️ Built prototypes and pitched ideas under real time constraints, collaborating across technical teams
+
+---
+
+## 👑 Leadership & Entrepreneurship
+
+**Campus Ambassador — E-Cell, IIT Bombay**
+Active contributor to the **National Entrepreneurship Challenge (NEC)**
+
+- 🌱 Building campus startup ecosystem & community growth
+- 🧑‍🤝‍🧑 Team formation & startup awareness programs
+- 🗓️ Event planning: workshops, technical seminars, AI discussions, founder meetups
+- 📢 Networking, public speaking & leadership initiatives
+- 📊 Studies startup case studies, business models & founder decision frameworks
+
+---
+
+## 🌍 Community Impact
+
+Actively helps **students, developers & startup enthusiasts** through discussions, projects, technical events, and collaborations — sharing knowledge on AI fundamentals, LLMs, prompt engineering, and turning ideas into working prototypes.
+
+---
+
+## 🧠 AI Research & Skill Interests
+
+`Prompt Engineering` `AI Agent Design` `LLM Applications` `Model Evaluation`
+`Workflow Automation` `Vector Databases` `Embeddings` `Open-source AI` `Local AI Deployment`
+
+---
+
+## 🌐 Connect With Me
+
+<p align="center">
+
+<a href="mailto:eklavyaprivate22@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<a href="https://www.linkedin.com/in/eklavya-jha-23a54b377">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://www.instagram.com/eklavyajha_">
+<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
+</a>
+
+<a href="https://eklavya.dpdns.org/">
+<img src="https://img.shields.io/badge/Portfolio-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+</a>
+
+</p>
+
+---
+
+## 💻 Tech Stack
+
+### Languages & Core Tools
+<p align="center">
+<img src="https://skillicons.dev/icons?i=c,cpp,py,ts,html,css,git,github,linux,vscode,docker"/>
+</p>
+
+### AI / ML / LLM
+<p align="center">
+<img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" height="40" alt="numpy"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" height="40" alt="pandas"/>
+<img src="https://cdn.simpleicons.org/huggingface" width="40" height="40" alt="huggingface"/>
+<img src="https://cdn.simpleicons.org/ollama" width="40" height="40" alt="ollama"/>
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
+<img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black"/>
+</p>
+
+### Web, Backend & Automation
+<p align="center">
+<img src="https://skillicons.dev/icons?i=react,flutter,django,flask,express,fastapi,firebase,mongodb,mysql"/>
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
+<img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+<img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"/>
+<img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/>
+</p>
+
+### Design
+<p align="center">
+<img src="https://skillicons.dev/icons?i=figma,illustrator,photoshop"/>
+</p>
+
+---
+
+## 📚 Current Learning Roadmap
+
+```text
+Core AI / ML Foundations   █████████░ 90%
+LLM Fundamentals           ████████░░ 80%
+RAG & Vector Databases     ███████░░░ 70%
+Agentic / Multi-Agent AI   ██████░░░░ 60%
+LLM Training & Fine-tuning ████░░░░░░ 40%
+Distributed AI Systems     ███░░░░░░░ 30%
+```
+
+---
+
+## 📈 GitHub Statistics
+
+<p align="center">
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=EklavyajhaAI07&show_icons=true&theme=radical&hide_border=true"/>
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=EklavyajhaAI07&layout=compact&theme=radical&hide_border=true"/>
+</p>
+
+<p align="center">
+<img src="https://streak-stats.demolab.com?user=EklavyajhaAI07&theme=radical&hide_border=true"/>
+</p>
+
+<p align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=EklavyajhaAI07&theme=redical&hide_border=true"/>
+</p>
+
+<p align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=EklavyajhaAI07&theme=radical&no-frame=true&row=1&column=7"/>
+</p>
+
+---
+
+## 🎯 Goals 2026–2028
+
+- 🚀 Become a production-grade **AI Product Engineer**
+- 🏗️ Build scalable **AI startups**
+- 🌍 Contribute to **open source AI**
+- 🧠 Master **advanced LLM applications** & fine-tuning
+- 🕸️ Learn **distributed AI systems**
+- 🛡️ Explore **AI for Defence** & national-scale applications
+- 🌐 Build **globally useful software**
+
+---
+
+## ⚡ Fun Fact
+
+Breaking complex systems into first principles — AI, startups, or problems. Learning as engineering: understand deeply, optimize later.
+
+---
+
+## ✍️ Dev Quote
+<p align="center">
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" width="800" height="250"/>
+</p>
+
+---
+
+<p align="center">
+<img src="https://visitcount.itsvg.in/api?id=EklavyajhaAI07&icon=0&color=7"/>
+</p>
+
+<p align="center">
+⭐ Thanks for stopping by — let's build something great together.
+</p>
+
+<p align="center">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:0F172A,100:7C3AED"/>
+</p>
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) — remixed & extended manually -->
