@@ -5,6 +5,8 @@
 
 <h1 align="center">Hi 👋, I'm Eklavya DilipBhai Jha</h1>
 
+<p align="center"> <img src="https://avatars.githubusercontent.com/u/256036031?v=4" alt="EklavyajhaAI07" /> </p>
+
 <h3 align="center">
 AI Engineering Student • LLM & Agentic AI Builder • Campus Ambassador @ E-Cell IIT Bombay
 </h3>
@@ -202,8 +204,8 @@ Distributed AI Systems     ███░░░░░░░ 30%
 ## 📈 GitHub Statistics
 
 <p align="center">
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=EklavyajhaAI07&show_icons=true&theme=radical&hide_border=true"/>
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=EklavyajhaAI07&layout=compact&theme=radical&hide_border=true"/>
+<img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api?username=EklavyajhaAI07&show_icons=true&theme=radical&hide_border=true"/>
+<img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api/top-langs/?username=EklavyajhaAI07&layout=compact&theme=radical&hide_border=true"/>
 </p>
 
 <p align="center">
@@ -215,7 +217,7 @@ Distributed AI Systems     ███░░░░░░░ 30%
 </p>
 
 <p align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=EklavyajhaAI07&theme=radical&no-frame=true&row=1&column=7"/>
+<img src="https://github-profile-trophy-eklavyajha.vercel.app/?username=EklavyajhaAI07&theme=radical&no-frame=true&row=1&column=7"/>
 </p>
 
 ---
@@ -246,7 +248,7 @@ Breaking complex systems into first principles — AI, startups, or problems. Le
 ---
 
 <p align="center">
-<img src="https://visitcount.itsvg.in/api?id=EklavyajhaAI07&icon=0&color=7"/>
+<img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=7C3AED&label=PROFILE+VIEWS"/>
 </p>
 
 <p align="center">
