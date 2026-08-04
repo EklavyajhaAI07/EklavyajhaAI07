@@ -105,6 +105,17 @@ Actively helps **students, developers & startup enthusiasts** through discussion
 
 ---
 
+## 📈 Digital Presence & Growth Marketing
+
+Beyond AI engineering, I bring hands-on experience in **digital visibility and brand management**:
+
+- 🧭 **Google Business Profile (GBP) Optimization** — building and developing business profiles for better local SEO & discoverability
+- 💼 **LinkedIn Management** — content strategy, page growth & professional brand positioning
+- 📱 **Social Media / Instagram Management** — managed the Instagram page for **Founder's Crew, E-Cell GU**, driving engagement and community reach
+- 🔍 Practical understanding of **SEO fundamentals** for profiles, pages & content discoverability
+
+---
+
 ## 🧠 AI Research & Skill Interests
 
 `Prompt Engineering` `AI Agent Design` `LLM Applications` `Model Evaluation`
@@ -158,13 +169,14 @@ Actively helps **students, developers & startup enthusiasts** through discussion
 
 ### Web, Backend & Automation
 <p align="center">
-<img src="https://skillicons.dev/icons?i=react,flutter,django,flask,express,fastapi,firebase,mongodb,mysql"/>
+<img src="https://skillicons.dev/icons?i=react,flutter,django,flask,express,fastapi,firebase,supabase,mongodb,mysql"/>
 </p>
 <p align="center">
 <img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
 <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
 <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"/>
 <img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/>
+<img src="https://img.shields.io/badge/Google%20Business%20Profile-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
 </p>
 
 ### Design
