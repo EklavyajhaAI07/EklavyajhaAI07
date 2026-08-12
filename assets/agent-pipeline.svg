@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" width="900" height="340" font-family="ui-monospace,'Cascadia Code','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="System map: idea flows through an orchestrator into research, architect, builder and critic agents, then ships">
+<defs>
+  <clipPath id="af"><rect width="900" height="340" rx="14"/></clipPath>
+  <filter id="aglow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<g clip-path="url(#af)">
+  <rect width="900" height="340" fill="#070a14"/>
+  <text x="30" y="34" font-size="12" letter-spacing="3" fill="#4c5470">SYSTEM MAP // AGENT PIPELINE</text>
+  <text x="870" y="34" font-size="12" letter-spacing="2" fill="#4c5470" text-anchor="end">loop: discover &#8594; build &#8594; ship</text>
+
+  <path d="M 150 170 C 210 170 250 170 264 170" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 374 170 C 450 170 460 62 540 62" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 700 62 C 730 62 700 170 760 170" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 374 170 C 450 170 460 134 540 134" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 700 134 C 730 134 700 170 760 170" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 374 170 C 450 170 460 206 540 206" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 700 206 C 730 206 700 170 760 170" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 374 170 C 450 170 460 278 540 278" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 700 278 C 730 278 700 170 760 170" fill="none" stroke="#1e2440" stroke-width="2"/><path d="M 150 170 C 210 170 250 170 264 170" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 374 170 C 450 170 460 62 540 62" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 700 62 C 730 62 700 170 760 170" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 374 170 C 450 170 460 134 540 134" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 700 134 C 730 134 700 170 760 170" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 374 170 C 450 170 460 206 540 206" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 700 206 C 730 206 700 170 760 170" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 374 170 C 450 170 460 278 540 278" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><path d="M 700 278 C 730 278 700 170 760 170" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="5 11"><animate attributeName="stroke-dashoffset" values="64;0" dur="1.6s" repeatCount="indefinite"/></path><circle r="3.4" fill="#22d3ee"><animateMotion dur="2.2s" begin="-0.00s" repeatCount="indefinite" path="M 150 170 C 210 170 250 170 264 170"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="2.7s" begin="-0.45s" repeatCount="indefinite" path="M 374 170 C 450 170 460 62 540 62"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="3.2s" begin="-0.90s" repeatCount="indefinite" path="M 700 62 C 730 62 700 170 760 170"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="3.7s" begin="-1.35s" repeatCount="indefinite" path="M 374 170 C 450 170 460 134 540 134"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="2.2s" begin="-1.80s" repeatCount="indefinite" path="M 700 134 C 730 134 700 170 760 170"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="2.7s" begin="-2.25s" repeatCount="indefinite" path="M 374 170 C 450 170 460 206 540 206"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="3.2s" begin="-2.70s" repeatCount="indefinite" path="M 700 206 C 730 206 700 170 760 170"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="3.7s" begin="-3.15s" repeatCount="indefinite" path="M 374 170 C 450 170 460 278 540 278"/></circle><circle r="3.4" fill="#22d3ee"><animateMotion dur="2.2s" begin="-3.60s" repeatCount="indefinite" path="M 700 278 C 730 278 700 170 760 170"/></circle>
+
+  <g>
+    <rect x="30" y="142" width="120" height="56" rx="14" fill="#0b1020" stroke="#fbbf24" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="0s" repeatCount="indefinite"/></rect>
+    <text x="90" y="167" font-size="13" letter-spacing="2" fill="#fbbf24" text-anchor="middle">&#9672; IDEA</text>
+    <text x="90" y="186" font-size="11" fill="#a0a0b0" text-anchor="middle">raw input</text>
+  </g>
+
+  <g>
+    <circle cx="320" cy="170" r="54" fill="#0b1020" stroke="#a78bfa" stroke-width="2.5" stroke-opacity="0.35" filter="url(#aglow)"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="170" r="65" fill="none" stroke="#6366f1" stroke-opacity="0.45" stroke-dasharray="5 9">
+      <animateTransform attributeName="transform" type="rotate" from="0 320 170" to="360 320 170" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <text x="320" y="166" font-size="12" font-weight="700" letter-spacing="1" fill="#f1f1f3" text-anchor="middle">ORCHES-</text>
+    <text x="320" y="182" font-size="12" font-weight="700" letter-spacing="1" fill="#f1f1f3" text-anchor="middle">TRATOR</text>
+  </g>
+
+  
+  <g>
+    <rect x="540" y="40" width="160" height="44" rx="10" fill="#0b1020" stroke="#22d3ee" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="540" y="40" width="5" height="44" rx="2.5" fill="#22d3ee"/>
+    <text x="560" y="67" font-size="14" font-weight="700" letter-spacing="2" fill="#f1f1f3">RESEARCH</text>
+    <circle cx="682" cy="62" r="4" fill="#22d3ee">
+      <animate attributeName="fill-opacity" values="0.3;1;0.3" dur="2s" begin="-0.0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g>
+    <rect x="540" y="112" width="160" height="44" rx="10" fill="#0b1020" stroke="#6366f1" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="2.15s" repeatCount="indefinite"/></rect>
+    <rect x="540" y="112" width="5" height="44" rx="2.5" fill="#6366f1"/>
+    <text x="560" y="139" font-size="14" font-weight="700" letter-spacing="2" fill="#f1f1f3">ARCHITECT</text>
+    <circle cx="682" cy="134" r="4" fill="#6366f1">
+      <animate attributeName="fill-opacity" values="0.3;1;0.3" dur="2s" begin="-0.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g>
+    <rect x="540" y="184" width="160" height="44" rx="10" fill="#0b1020" stroke="#a78bfa" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="2.4s" repeatCount="indefinite"/></rect>
+    <rect x="540" y="184" width="5" height="44" rx="2.5" fill="#a78bfa"/>
+    <text x="560" y="211" font-size="14" font-weight="700" letter-spacing="2" fill="#f1f1f3">BUILDER</text>
+    <circle cx="682" cy="206" r="4" fill="#a78bfa">
+      <animate attributeName="fill-opacity" values="0.3;1;0.3" dur="2s" begin="-0.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g>
+    <rect x="540" y="256" width="160" height="44" rx="10" fill="#0b1020" stroke="#e879f9" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="2.65s" repeatCount="indefinite"/></rect>
+    <rect x="540" y="256" width="5" height="44" rx="2.5" fill="#e879f9"/>
+    <text x="560" y="283" font-size="14" font-weight="700" letter-spacing="2" fill="#f1f1f3">CRITIC</text>
+    <circle cx="682" cy="278" r="4" fill="#e879f9">
+      <animate attributeName="fill-opacity" values="0.3;1;0.3" dur="2s" begin="-1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g>
+    <rect x="760" y="142" width="116" height="56" rx="14" fill="#0b1020" stroke="#34d399" stroke-width="2" stroke-opacity="0.35"><animate attributeName="stroke-opacity" values="0.35;1;0.35;0.35" keyTimes="0;0.07;0.22;1" dur="6.5s" begin="3.4s" repeatCount="indefinite"/></rect>
+    <text x="818" y="167" font-size="13" letter-spacing="2" fill="#34d399" text-anchor="middle">SHIP &#9656;</text>
+    <text x="818" y="186" font-size="11" fill="#a0a0b0" text-anchor="middle">live on vercel</text>
+  </g>
+
+  <text x="30" y="324" font-size="12" fill="#a0a0b0">multi-agent orchestration &#8212; how every build runs &#183; CrewAI &#183; RAG &#183; automation</text>
+</g>
+<rect x="1" y="1" width="898" height="338" rx="14" fill="none" stroke="#1e2440" stroke-width="2"/>
+</svg>
