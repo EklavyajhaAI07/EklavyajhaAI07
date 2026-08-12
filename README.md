@@ -1,194 +1,149 @@
-<!-- ===================== BANNER ===================== -->
-<p align="center">
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0F172A,100:7C3AED&text=Eklavya%20Jha&fontColor=ffffff&fontSize=52&animation=fadeIn&fontAlignY=38&desc=AI%20Engineer%20%7C%20Builder%20%7C%20Founder%20Mindset&descAlignY=60"/>
-</p>
+<!-- ============================================================
+     EKLAVYA JHA — GitHub Profile README
+     Handcrafted animated SVGs in /assets (SMIL — no JS needed)
+     This repo doubles as the portfolio site: do NOT delete
+     index.html, style.css, script.js or CNAME.
+     ============================================================ -->
 
-<h1 align="center">Hi 👋, I'm Eklavya DilipBhai Jha</h1>
-
-<p align="center"> <img src="https://avatars.githubusercontent.com/u/256036031?v=4" alt="EklavyajhaAI07" /> </p>
-
-<h3 align="center">
-AI Engineering Student • LLM & Agentic AI Builder • Campus Ambassador @ E-Cell IIT Bombay
-</h3>
+<div align="center">
+  <img src="assets/header.svg" width="100%" alt="Eklavya Jha — AI Engineer · Agentic Systems · Founder Mindset" />
+</div>
 
 <p align="center">
-I build AI products, automate real workflows, lead technical communities — and think like an engineer <i>and</i> a founder.
-</p>
-
-<p align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=1000&color=A78BFA&center=true&vCenter=true&width=750&lines=Building+Agentic+AI+%26+LLM+Systems;Shipping+RAG+%26+Automation+Workflows;Campus+Ambassador+%40+E-Cell+IIT+Bombay;Hackathon+Builder+%7C+Team+StackForge;Turning+Ideas+into+AI+Products"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=3000&pause=900&color=A78BFA&center=true&vCenter=true&width=720&height=42&lines=Building+Agentic+AI+%26+LLM+Systems;Odoo+Hackathon+2026+%E2%80%94+Grand+Finale+Finalist;Campus+Ambassador+%40+E-Cell+IIT+Bombay;Shipping+RAG+pipelines+%26+automation;Turning+ideas+into+AI+products" alt="typing intro" />
 </p>
 
 <p align="center">
-<a href="https://github.com/EklavyajhaAI07">
-<img src="https://img.shields.io/github/followers/EklavyajhaAI07?style=for-the-badge&logo=github&color=7C3AED&labelColor=0F172A"/>
-</a>
-<img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=7C3AED&label=PROFILE+VIEWS"/>
+  <a href="https://github.com/EklavyajhaAI07"><img src="https://img.shields.io/github/followers/EklavyajhaAI07?style=for-the-badge&logo=github&color=6366f1&labelColor=070a14" alt="followers" /></a>
+  <a href="https://eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-eklavya.dpdns.org-22d3ee?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=070a14" alt="Portfolio" /></a>
+  <img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=a78bfa&label=PROFILE+VIEWS" alt="profile views" />
 </p>
 
----
+<img src="assets/divider.svg" width="100%" alt="" />
 
-## 🚀 About Me
+## 🧠 The agent console
+
+<div align="center">
+  <img src="assets/terminal.svg" width="100%" alt="A CrewAI run: orchestrator spawns research, architect, builder, critic and deploy agents — mission complete, 3x hackathon finalist" />
+</div>
 
 ```yaml
 Name: Eklavya DilipBhai Jha
-
-Focus:
-  - AI Engineering & LLM Systems
-  - Agentic AI & Multi-Agent Systems
-  - AI Automation & RAG Pipelines
-  - Full Stack + AI Web Applications
-  - Startup Building & Product Thinking
-
-Currently Learning:
-  Core to Advanced AI concepts, frameworks & LLM training
-
-Looking to Collaborate On:
-  Start-up projects & business development ideas
-
-Looking for Help With:
-  Building & training AI-LLM models
-
-Philosophy:
-  "Learning as engineering — understand deeply, optimize later."
+Focus: [Agentic & Multi-Agent AI, LLM Systems, RAG Pipelines, AI Automation, Full-Stack + AI Apps]
+Currently Learning: core → advanced AI frameworks & LLM training
+Open To: startup collaborations, AI product builds, business development ideas
+Philosophy: "Learning as engineering — understand deeply, optimize later."
 ```
 
----
+<img src="assets/divider.svg" width="100%" alt="" />
 
-## 🎯 Current Focus
+## 🕸️ How every build runs
 
-- 🤖 Building **Agentic AI & Multi-Agent Systems**
-- 🔍 Shipping **RAG pipelines**, vector databases & embeddings-based apps
-- ⚙️ Automating real workflows with **n8n** and API integrations
-- 🌐 Building AI-integrated full-stack web applications
-- 🎓 Growing the startup ecosystem as **Campus Ambassador, E-Cell IIT Bombay**
-- 🛡️ Exploring **AI for Education** and **AI for Defence**
+<div align="center">
+  <img src="assets/agent-pipeline.svg" width="100%" alt="System map: an idea flows through the orchestrator into research, architect, builder and critic agents, then ships" />
+</div>
 
----
+<img src="assets/divider.svg" width="100%" alt="" />
 
-## 🧩 Featured Work & Project Experience
+## 🚀 Featured builds
 
-| Area | What I've Built |
-|---|---|
-| 🤖 Agentic AI | Multi-agent workflows & AI-powered productivity systems |
-| 🔎 RAG Systems | Retrieval-Augmented Generation pipelines & internal knowledge bases |
-| ⚙️ Automation | n8n-based workflow automation, API integrations |
-| 🖥️ AI Web Apps | Full-stack applications with integrated LLM features |
-| 📄 Document AI | OCR & document processing pipelines |
-| 🧠 Local LLMs | Experiments with local model deployment (Ollama) |
-| 🚀 Deployment | End-to-end deployment pipelines (Docker, cloud platforms) |
+<table>
+<tr>
+<td width="50%" valign="top">
 
----
+<h3 align="center">📄 mdgen-ai</h3>
+<p align="center"><em>AI-powered README generator — 50+ users onboarded</em></p>
 
-## 🏆 Hackathons
+Transforms text, code, PDFs, images, PPTs or a GitHub URL into a polished, professional README in seconds. Full product build: Google/GitHub OAuth, Razorpay payments, Resend emails, AI crawler blocking, SEO — deployed on Vercel + Railway. <!-- ADD LIVE + REPO LINKS -->
 
-- 🎯 Qualified for the **Virtual Round of the Official Odoo Hackathon 2026** with **Team StackForge**
-- 🏁 Participated in multiple **national-level hackathons**
-- ⏱️ Built prototypes and pitched ideas under real time constraints, collaborating across technical teams
+</td>
+<td width="50%" valign="top">
 
----
+<h3 align="center">🎬 Viral AI</h3>
+<p align="center"><em>7-agent content intelligence platform · Craftathon 2k26</em></p>
 
-## 👑 Leadership & Entrepreneurship
+CrewAI orchestration where each agent owns one job — trend discovery across 5 platforms, hooks, captions, hashtags, thumbnails, virality scoring — chained into structured, actionable output instead of raw AI responses. Next.js · FastAPI · MongoDB · Redis. <!-- ADD REPO LINK -->
 
-**Campus Ambassador — E-Cell, IIT Bombay**
-Active contributor to the **National Entrepreneurship Challenge (NEC)**
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-- 🌱 Building campus startup ecosystem & community growth
-- 🧑‍🤝‍🧑 Team formation & startup awareness programs
-- 🗓️ Event planning: workshops, technical seminars, AI discussions, founder meetups
-- 📢 Networking, public speaking & leadership initiatives
-- 📊 Studies startup case studies, business models & founder decision frameworks
-
----
-
-## 🌍 Community Impact
-
-Actively helps **students, developers & startup enthusiasts** through discussions, projects, technical events, and collaborations — sharing knowledge on AI fundamentals, LLMs, prompt engineering, and turning ideas into working prototypes.
-
----
-
-## 📈 Digital Presence & Growth Marketing
-
-Beyond AI engineering, I bring hands-on experience in **digital visibility and brand management**:
-
-- 🧭 **Google Business Profile (GBP) Optimization** — building and developing business profiles for better local SEO & discoverability
-- 💼 **LinkedIn Management** — content strategy, page growth & professional brand positioning
-- 📱 **Social Media / Instagram Management** — managed the Instagram page for **Founder's Crew, E-Cell GU**, driving engagement and community reach
-- 🔍 Practical understanding of **SEO fundamentals** for profiles, pages & content discoverability
-
----
-
-## 🧠 AI Research & Skill Interests
-
-`Prompt Engineering` `AI Agent Design` `LLM Applications` `Model Evaluation`
-`Workflow Automation` `Vector Databases` `Embeddings` `Open-source AI` `Local AI Deployment`
-
----
-
-## 🌐 Connect With Me
-
+<h3 align="center">⚖️ CourtFlow AI</h3>
 <p align="center">
-
-<a href="mailto:eklavyaprivate22@gmail.com">
-<img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-<a href="https://www.linkedin.com/in/eklavya-jha-23a54b377">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="https://www.instagram.com/eklavyajha_">
-<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
-</a>
-
-<a href="https://eklavya.dpdns.org/">
-<img src="https://img.shields.io/badge/Portfolio-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white"/>
-</a>
-
+  <a href="https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0"><img src="https://img.shields.io/badge/CODE-0b1020?style=for-the-badge&logo=github" alt="Code" /></a>
 </p>
 
----
+AI-powered court scheduling that predicts hearing durations from historical case data and auto-allocates judges, courtrooms and slots — replacing manual cause lists. Next.js + TypeScript front, Python ML inference APIs behind. Built at PU CODE Hackathon 3.0.
 
-## 💻 Tech Stack
+</td>
+<td width="50%" valign="top">
+
+<h3 align="center">📊 FinPB Agent</h3>
+<p align="center">
+  <a href="https://github.com/EklavyajhaAI07/Analysis-Agent-FinPB"><img src="https://img.shields.io/badge/CODE-0b1020?style=for-the-badge&logo=github" alt="Code" /></a>
+</p>
+
+FinPlay Bharat's intelligent analysis engine — a fully customizable AI assistant where you bring your own API provider, name the agent, and define the master prompt that shapes its behavior. Flexible conversational AI for financial learning and Q&A.
+
+</td>
+</tr>
+</table>
+
+<img src="assets/divider.svg" width="100%" alt="" />
+
+## 🏆 Hackathon record
+
+| Event | Result |
+|---|---|
+| 🟣 **Odoo Hackathon 2026** — TransitOps, Team StackForge | **Grand Finale Finalist** · out of 20,000+ applicants · with [Het Patel](https://github.com/Het161) |
+| 🔬 **HackBaroda 2026** — CiteMind, Team Society | **Finalist** · AI citation-memory platform · with [Het Patel](https://github.com/Het161) |
+| 🛰️ **ISRO Bharatiya Antariksh Hackathon** — AEGIS | Air-gapped predictive AI copilot (LightGBM · SHAP · Ollama · RAG) · with [Het Patel](https://github.com/Het161) |
+| 🚺 **Cognivia (IEEE WIE × PDPU)** | **4th of 153 teams** · proactive AI safety system for women |
+| 🤖 **FlowZint AI Hackathon 2026** | **Top 100 Finalist — Silver Tier** · support chatbot track |
+| 🏗️ **SEMICON India 2026** — Team DriftLock | Wafer-image localization · with [Het Patel](https://github.com/Het161) |
+| 🏖️ **Hacker House Goa 2026 — Open Trials** | Builder ID Card Generator · with [Het Patel](https://github.com/Het161) |
+| 🎬 **Craftathon 2k26** | Viral AI — 7-agent CrewAI content platform |
+| 🇮🇳 **India AI Impact Buildathon** | Among 40,000+ participants · AI fraud-prevention track |
+
+## 👑 Leadership & community
+
+- 🎓 **Campus Ambassador — E-Cell, IIT Bombay** · active contributor to the National Entrepreneurship Challenge
+- 🚀 **Founder's Crew, E-Cell Gandhinagar University** — content writer & Instagram manager, building the campus startup ecosystem
+- ✨ **Google Student Ambassador events** — *Top Prompt Creator (Pitch Night)* & *Freshers' Party Champion* with Gemini
+- 📈 Hands-on with **GBP optimization, LinkedIn strategy & SEO** — engineering *and* distribution
+
+<img src="assets/divider.svg" width="100%" alt="" />
+
+## 🛠️ Arsenal
 
 ### Languages & Core Tools
 <p align="center">
-<img src="https://skillicons.dev/icons?i=c,cpp,py,ts,html,css,git,github,linux,vscode,docker"/>
+  <img src="https://skillicons.dev/icons?i=c,cpp,py,ts,html,css,git,github,linux,vscode,docker" alt="core tools" />
 </p>
 
 ### AI / ML / LLM
 <p align="center">
-<img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" height="40" alt="numpy"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" height="40" alt="pandas"/>
-<img src="https://cdn.simpleicons.org/huggingface" width="40" height="40" alt="huggingface"/>
-<img src="https://cdn.simpleicons.org/ollama" width="40" height="40" alt="ollama"/>
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
-<img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black"/>
+  <img src="https://skillicons.dev/icons?i=pytorch,tensorflow,opencv" alt="ai frameworks" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" height="40" alt="numpy" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" height="40" alt="pandas" />
+  <img src="https://cdn.simpleicons.org/huggingface" width="40" height="40" alt="huggingface" />
+  <img src="https://cdn.simpleicons.org/ollama/ffffff" width="40" height="40" alt="ollama" />
 </p>
 
 ### Web, Backend & Automation
 <p align="center">
-<img src="https://skillicons.dev/icons?i=react,flutter,django,flask,express,fastapi,firebase,supabase,mongodb,mysql"/>
+  <img src="https://skillicons.dev/icons?i=react,flutter,django,flask,express,fastapi,firebase,supabase,mongodb,mysql" alt="web stack" />
 </p>
 <p align="center">
-<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
-<img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
-<img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"/>
-<img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/>
-<img src="https://img.shields.io/badge/Google%20Business%20Profile-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
+  <img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n" />
+  <img src="https://img.shields.io/badge/CrewAI-6366f1?style=for-the-badge&logoColor=white" alt="CrewAI" />
+  <img src="https://img.shields.io/badge/RAG%20%2B%20VectorDB-a78bfa?style=for-the-badge&logoColor=white" alt="RAG" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="GCP" />
 </p>
 
-### Design
-<p align="center">
-<img src="https://skillicons.dev/icons?i=figma,illustrator,photoshop"/>
-</p>
-
----
-
-## 📚 Current Learning Roadmap
+## 📚 Learning roadmap
 
 ```text
 Core AI / ML Foundations   █████████░ 90%
@@ -199,64 +154,51 @@ LLM Training & Fine-tuning ████░░░░░░ 40%
 Distributed AI Systems     ███░░░░░░░ 30%
 ```
 
----
+<img src="assets/divider.svg" width="100%" alt="" />
 
-## 📈 GitHub Statistics
+## 📈 Signal metrics
 
-<p align="center">
-<img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api?username=EklavyajhaAI07&show_icons=true&theme=radical&hide_border=true"/>
-<img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api/top-langs/?username=EklavyajhaAI07&layout=compact&theme=radical&hide_border=true"/>
-</p>
+<div align="center">
+  <img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api?username=EklavyajhaAI07&show_icons=true&hide_border=true&bg_color=070a14&title_color=a78bfa&icon_color=22d3ee&text_color=f1f1f3&ring_color=6366f1" alt="GitHub stats" />
+  <img height="170" src="https://github-readme-stats-eklavyajha.vercel.app/api/top-langs/?username=EklavyajhaAI07&layout=compact&hide_border=true&bg_color=070a14&title_color=a78bfa&text_color=f1f1f3" alt="Top languages" />
+</div>
 
-<p align="center">
-<img src="https://streak-stats.demolab.com?user=EklavyajhaAI07&theme=radical&hide_border=true"/>
-</p>
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=EklavyajhaAI07&hide_border=true&background=070a14&ring=6366f1&fire=e879f9&currStreakLabel=a78bfa&sideLabels=f1f1f3&currStreakNum=f1f1f3&sideNums=f1f1f3&dates=a0a0b0" alt="streak" />
+</div>
 
-<p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=EklavyajhaAI07&theme=redical&hide_border=true"/>
-</p>
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=EklavyajhaAI07&bg_color=070a14&color=a78bfa&line=6366f1&point=22d3ee&area=true&area_color=6366f1&hide_border=true" alt="activity graph" />
+</div>
 
-<p align="center">
-<img src="https://github-profile-trophy-eklavyajha.vercel.app/?username=EklavyajhaAI07&theme=radical&no-frame=true&row=1&column=7"/>
-</p>
+<div align="center">
+  <img src="https://github-profile-trophy-eklavyajha.vercel.app/?username=EklavyajhaAI07&theme=radical&no-frame=true&row=1&column=7" alt="trophies" />
+</div>
 
----
+## 🐍 The snake eats my contributions
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/EklavyajhaAI07/EklavyajhaAI07/output/github-snake-dark.svg" />
+    <img src="https://raw.githubusercontent.com/EklavyajhaAI07/EklavyajhaAI07/output/github-snake.svg" alt="contribution snake" />
+  </picture>
+</div>
+
+<img src="assets/divider.svg" width="100%" alt="" />
 
 ## 🎯 Goals 2026–2028
 
-- 🚀 Become a production-grade **AI Product Engineer**
-- 🏗️ Build scalable **AI startups**
-- 🌍 Contribute to **open source AI**
-- 🧠 Master **advanced LLM applications** & fine-tuning
-- 🕸️ Learn **distributed AI systems**
-- 🛡️ Explore **AI for Defence** & national-scale applications
-- 🌐 Build **globally useful software**
+Production-grade **AI Product Engineer** → scalable **AI startups** → open-source contributions → advanced **LLM fine-tuning** → distributed AI systems → globally useful software.
 
----
-
-## ⚡ Fun Fact
-
-Breaking complex systems into first principles — AI, startups, or problems. Learning as engineering: understand deeply, optimize later.
-
----
-
-## ✍️ Dev Quote
-<p align="center">
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" width="800" height="250"/>
-</p>
-
----
+## 🌐 Connect
 
 <p align="center">
-<img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=7C3AED&label=PROFILE+VIEWS"/>
+  <a href="mailto:eklavyaprivate22@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/eklavya-jha-23a54b377"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.instagram.com/eklavyajha_"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
+  <a href="https://eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-6366f1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
 </p>
 
-<p align="center">
-⭐ Thanks for stopping by — let's build something great together.
-</p>
-
-<p align="center">
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:0F172A,100:7C3AED"/>
-</p>
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) — remixed & extended manually -->
+<div align="center">
+  <img src="assets/footer.svg" width="100%" alt="Shipped. Loading the next build." />
+</div>
