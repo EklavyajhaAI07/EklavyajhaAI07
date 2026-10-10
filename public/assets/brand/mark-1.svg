@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="20" fill="#0B0D12" />
+  <text x="50" y="55" font-family="-apple-system, system-ui, sans-serif" font-weight="700" font-size="44" fill="#F4F5F7" text-anchor="middle" dominant-baseline="middle">
+    EJ<tspan fill="#3B82F6">.</tspan>
+  </text>
+</svg>

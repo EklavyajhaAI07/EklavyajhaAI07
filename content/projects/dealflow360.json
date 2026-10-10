@@ -1,0 +1,19 @@
+{
+  "id": "dealflow360",
+  "title": "Dealflow360",
+  "oneLine": "Internal workspace plus customer portal for quotes, approvals, inventory and billing.",
+  "status": "live",
+  "kind": "hackathon-build",
+  "description": "The project from the Odoo Hackathon 2026 offline final (Grand Finale). Includes an internal workspace and a customer portal.",
+  "role": "Team StackForge hackathon build",
+  "tech": ["AI integrations (LLM APIs)", "Full-stack app", "MS SQL"],
+  "links": [
+    { "label": "Demo", "url": "https://dealflow360-iota.vercel.app/", "type": "demo" },
+    { "label": "Presentation Video", "url": "https://youtu.be/ylkIJPtoX-8", "type": "video" }
+  ],
+  "screenshots": [],
+  "roadmap": [],
+  "featured": true,
+  "featuredOrder": 2,
+  "showOn": ["recruiter", "teams"]
+}

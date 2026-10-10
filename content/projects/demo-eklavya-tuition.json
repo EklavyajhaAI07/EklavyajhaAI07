@@ -1,0 +1,17 @@
+{
+  "id": "demo-eklavya-tuition",
+  "title": "Eklavya Group Tuition",
+  "oneLine": "A landing page for an educational institute.",
+  "status": "demo-template",
+  "kind": "demo-template",
+  "description": "Demo pamphlet/theme website.",
+  "role": "Demo template developer",
+  "tech": ["Next.js", "Web template"],
+  "links": [
+    { "label": "Live Demo", "url": "https://eklavyajhaai07.github.io/eklavya-group-tuition-website/", "type": "demo" }
+  ],
+  "screenshots": [],
+  "roadmap": [],
+  "featured": false,
+  "showOn": ["clients"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "courtflow-ai",
+  "title": "CourtFlow AI",
+  "oneLine": "An AI-powered legal platform for case management.",
+  "status": "live",
+  "kind": "hackathon-build",
+  "description": "Hackathon build for PU CODE Hackathon 3.0 (Finalist). Features case tracking and AI assistance.",
+  "role": "Hackathon build",
+  "tech": ["Next.js", "TypeScript", "Python ML APIs"],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0", "type": "repo" }
+  ],
+  "screenshots": [],
+  "roadmap": [],
+  "featured": false,
+  "showOn": ["teams"]
+}

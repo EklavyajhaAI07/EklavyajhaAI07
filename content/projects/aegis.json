@@ -1,0 +1,15 @@
+{
+  "id": "aegis",
+  "title": "AEGIS",
+  "oneLine": "Air-gapped predictive AI copilot.",
+  "status": "live",
+  "kind": "hackathon-build",
+  "description": "Hackathon build for Bharatiya Antariksh Hackathon 2026. Space debris tracking using AI algorithms.",
+  "role": "Hackathon build",
+  "tech": ["AI algorithms"],
+  "links": [],
+  "screenshots": [],
+  "roadmap": [],
+  "featured": false,
+  "showOn": ["teams"]
+}

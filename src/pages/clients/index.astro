@@ -1,0 +1,201 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ConnectSection from '../../components/ConnectSection.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import AnimationStage from '../../components/animation/AnimationStage.astro';
+import StickyCtaBar from '../../components/StickyCtaBar.astro';
+import { 
+  copyDeck, 
+  getProjectById,
+  stats,
+  journey,
+  clientsPage
+} from '../../lib/content';
+import type { ProjectData } from '../../lib/schema';
+
+const title = `Eklavya Jha | AI-Powered Full Stack Developer`;
+const description = copyDeck.clients.headline[0];
+
+// Specific projects for clients page
+const vasudha = getProjectById('vasudha-manager');
+const viralAi = getProjectById('viral-content-ai');
+const demoSahi = getProjectById('demo-sahi-gulab-jamun');
+const demoTuition = getProjectById('demo-eklavya-tuition');
+
+// Data bindings for Animation Stage
+const featuredProjects = clientsPage.animation.projects
+  .map(id => getProjectById(id))
+  .filter(Boolean) as ProjectData[];
+
+const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
+
+---
+
+<Base
+  title={title}
+  description={description}
+  canonicalPath="/clients/"
+  audience="clients"
+>
+  <Header currentAudience="clients" />
+
+  <main id="main-content">
+    <!-- 25-Second GSAP Intro Animation System & Dark Stage -->
+    <AnimationStage
+      audience="clients"
+      featuredProjects={featuredProjects}
+      stats={animStats}
+      journey={journey}
+      headline={copyDeck.clients.headline[0]}
+      endCard={copyDeck.clients.endCard[0]}
+      primaryCta={{ label: "Discuss Your Project", href: "#connect" }}
+      secondaryCta={{ label: "View Case Study", href: "#case-study" }}
+    />
+
+    <section id="proof-strip-section" class="proof-strip">
+      <div class="container">
+        <ul class="proof-list">
+          <li>A live client system (Vasudha)</li>
+          <li>5x Hackathon Finalist</li>
+          <li>AI-powered full stack builds</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="what-i-build" class="page-section">
+      <div class="container text-center">
+        <h2 class="section-title">What I Build</h2>
+        <p class="large-text">AI-powered full stack web apps and prototypes.</p>
+      </div>
+    </section>
+
+    <section id="case-study" class="page-section bg-light">
+      <div class="container">
+        <h2 class="section-title">Case Study: Vasudha</h2>
+        <div class="case-study-card card">
+          <div class="cs-content">
+            <h3 class="cs-title">Vasudha: The Manager</h3>
+            <p class="cs-client">For a packaging trading business</p>
+            
+            <div class="cs-blocks">
+              <div class="cs-block">
+                <h4>The Need</h4>
+                <p>A web app for firm accounting and management.</p>
+              </div>
+              <div class="cs-block">
+                <h4>What I Built</h4>
+                <p>{vasudha?.description}</p>
+                <p><strong>Role:</strong> {vasudha?.role}</p>
+              </div>
+              <div class="cs-block">
+                <h4>What's Live Now</h4>
+                <p>Invoices, bills, payments, financial reports, team access, and backups.</p>
+              </div>
+              <div class="cs-block">
+                <h4>Coming Soon <span class="badge badge-neutral">Coming soon</span></h4>
+                <p>Double-entry bookkeeping and an owner assistant.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-example" class="page-section">
+      <div class="container">
+        <h2 class="section-title">AI Example</h2>
+        <div class="projects-grid">
+          {viralAi && <ProjectCard project={viralAi} />}
+        </div>
+      </div>
+    </section>
+
+    <section id="demo-templates" class="page-section bg-light">
+      <div class="container">
+        <h2 class="section-title">Demo Website Templates</h2>
+        <div class="projects-grid">
+          {demoSahi && <ProjectCard project={demoSahi} />}
+          {demoTuition && <ProjectCard project={demoTuition} />}
+        </div>
+      </div>
+    </section>
+
+    <section id="how-i-work" class="page-section">
+      <div class="container">
+        <h2 class="section-title">How I Work</h2>
+        <div class="process-grid">
+          {clientsPage.howIWork?.map((step, index) => (
+            <div class="process-step card">
+              <div class="step-number">{index + 1}</div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="page-section bg-light">
+      <div class="container text-center">
+        <h2 class="section-title">Pricing</h2>
+        <p class="large-text">On request.</p>
+      </div>
+    </section>
+
+    <ConnectSection currentAudience="clients" />
+  </main>
+
+  <StickyCtaBar currentAudience="clients" />
+  <Footer />
+</Base>
+
+<style>
+  /* Reuse hero and general styles */
+  .hero-stage { background-color: var(--stage-bg); color: var(--stage-text); padding: var(--space-12) 0 var(--space-16); position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .stage-inner { display: flex; flex-direction: column; gap: var(--space-10); }
+  .hero-content { max-width: 820px; display: flex; flex-direction: column; gap: var(--space-4); }
+  .profile-photo { width: 120px; height: 120px; border-radius: var(--radius-md); background-color: #fff; padding: 4px; object-fit: cover; margin-bottom: var(--space-4); }
+  .display-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--stage-text); }
+  .supporting-text { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--stage-muted); line-height: 1.55; max-width: 680px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-2) 0; }
+  .tag { font-size: 0.85rem; padding: 4px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-pill); color: var(--stage-muted); }
+  .availability { font-size: 0.95rem; color: #10B981; font-weight: 500; }
+  .hero-actions { display: flex; gap: var(--space-4); margin-top: var(--space-4); }
+  .btn { padding: 10px 20px; border-radius: var(--radius-btn); font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+  .btn-primary { background-color: var(--accent); color: #fff; }
+  .btn-primary:hover { background-color: var(--accent-strong); }
+  .btn-secondary { background-color: rgba(255, 255, 255, 0.1); color: var(--stage-text); }
+  .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.2); }
+  
+  .proof-strip { background-color: var(--surface-bg); border-bottom: 1px solid var(--border); padding: var(--space-4) 0; }
+  .proof-list { display: flex; flex-wrap: wrap; gap: var(--space-6); list-style: none; padding: 0; margin: 0; font-size: 0.9rem; font-weight: 500; color: var(--ink); justify-content: center; }
+  .proof-list li { display: flex; align-items: center; }
+  .proof-list li::before { content: "✓"; color: var(--accent); margin-right: 8px; font-weight: 700; }
+  
+  .page-section { padding: var(--space-16) 0; }
+  .bg-light { background-color: #F9FAFB; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-title { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: var(--space-8); }
+  .text-center { text-align: center; }
+  .large-text { font-size: 1.3rem; color: var(--ink); font-weight: 500; }
+  
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-6); }
+  .card { background-color: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-6); }
+  
+  .case-study-card { max-width: 800px; margin: 0 auto; padding: var(--space-8); }
+  .cs-title { font-size: 1.6rem; color: var(--ink); margin-bottom: 4px; }
+  .cs-client { font-size: 1rem; color: var(--ink-muted); font-style: italic; margin-bottom: var(--space-6); }
+  .cs-blocks { display: flex; flex-direction: column; gap: var(--space-6); }
+  .cs-block h4 { font-size: 1.1rem; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .cs-block p { color: var(--ink-muted); line-height: 1.6; }
+  
+  .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: var(--radius-pill); font-weight: 600; text-transform: uppercase; }
+  .badge-neutral { background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; }
+
+  .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-6); }
+  .process-step { position: relative; padding-top: var(--space-10); }
+  .step-number { position: absolute; top: var(--space-4); left: var(--space-6); font-size: 3rem; font-weight: 800; color: rgba(59, 130, 246, 0.1); line-height: 1; }
+  .process-step h3 { font-size: 1.2rem; color: var(--ink); margin-bottom: 8px; position: relative; z-index: 1; }
+  .process-step p { color: var(--ink-muted); line-height: 1.5; position: relative; z-index: 1; }
+</style>

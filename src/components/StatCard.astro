@@ -1,0 +1,56 @@
+---
+import type { StatData } from '../lib/schema';
+
+interface Props {
+  stat: StatData;
+}
+
+const { stat } = Astro.props;
+---
+
+<div class="stat-card card">
+  <div class="stat-figure">
+    {stat.prefix && <span class="stat-prefix">{stat.prefix}</span>}
+    <span class="stat-value">{stat.value.toLocaleString()}</span>
+    {stat.suffix && <span class="stat-suffix">{stat.suffix}</span>}
+  </div>
+  <p class="stat-label">{stat.label}</p>
+</div>
+
+<style>
+  .stat-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    text-align: center;
+  }
+
+  .stat-figure {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-strong);
+    line-height: 1.1;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .stat-suffix, .stat-prefix {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+</style>

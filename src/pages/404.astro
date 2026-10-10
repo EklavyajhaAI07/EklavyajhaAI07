@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "404: Page Not Found | Eklavya Jha";
+const description = "The requested page was not found. Explore Eklavya Jha's portfolio paths.";
+---
+
+<Base
+  title={title}
+  description={description}
+  canonicalPath="/404"
+  audience="home"
+>
+  <Header currentAudience="home" />
+
+  <main id="main-content" class="error-page-main">
+    <div class="container error-box">
+      <span class="error-tag">404 Error</span>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">
+        The page you are looking for doesn't exist or has moved. Choose a path below to explore Eklavya Jha's work:
+      </p>
+
+      <div class="paths-grid">
+        <a href="/recruiter-hr/" class="path-card">
+          <span class="path-title">Recruiters & HR</span>
+          <span class="path-arrow">→</span>
+        </a>
+        <a href="/teams-communities/" class="path-card">
+          <span class="path-title">Teams & Communities</span>
+          <span class="path-arrow">→</span>
+        </a>
+        <a href="/clients/" class="path-card">
+          <span class="path-title">Clients & Contract Work</span>
+          <span class="path-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="home-btn-wrap">
+        <a href="/" class="btn-home">Return to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .error-page-main {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--stage-bg);
+    color: var(--stage-text);
+    padding: var(--space-16) 0;
+  }
+
+  .error-box {
+    text-align: center;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .error-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .error-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .error-desc {
+    color: var(--stage-muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .paths-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    width: 100%;
+  }
+
+  .path-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-card);
+    color: var(--stage-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .path-card:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  .path-arrow {
+    color: var(--accent);
+  }
+
+  .home-btn-wrap {
+    margin-top: var(--space-6);
+  }
+
+  .btn-home {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: var(--radius-button);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-home:hover {
+    background-color: #2563EB;
+    transform: translateY(-1px);
+  }
+</style>

@@ -1,0 +1,18 @@
+{
+  "page": "clients",
+  "slug": "clients",
+  "sections": ["proofStrip", "whatIBuild", "caseStudy", "aiExample", "demoTemplates", "howIWork", "pricing", "connect"],
+  "projects": ["vasudha-manager", "viral-content-ai", "demo-sahi-gulab-jamun", "demo-eklavya-tuition"],
+  "animation": {
+    "projects": ["vasudha-manager", "viral-content-ai"],
+    "stats": ["finalist-5x"]
+  },
+  "howIWork": [
+    { "title": "Discover", "description": "We define the exact business problem you need solved." },
+    { "title": "Plan", "description": "I map out the features, technology stack, and timeline." },
+    { "title": "Build", "description": "I build the solution as a full-stack web application." },
+    { "title": "Deliver", "description": "You get a working, deployed product ready for your users." }
+  ],
+  "primaryCta": { "type": "connect", "channels": ["form"] },
+  "secondaryCta": { "type": "connect", "channels": ["instagram"] }
+}

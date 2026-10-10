@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --stage-bg: #0B0D12;
+  --stage-text: #F4F5F7;
+  --stage-muted: #9AA3B2;
+  --accent: #3B82F6;
+  --surface-bg: #F7F8FA;
+  --surface-card: #FFFFFF;
+  --ink: #0E1116;
+  --ink-muted: #5B6472;
+  --accent-strong: #1D4ED8;
+  --border: #E3E6EB;
+  --success: #16A34A;
+  --error: #DC2626;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  
+  /* Type Scale using clamp() for fluid typography */
+  /* Min width 320px, Max width 1280px */
+  --text-display: clamp(40px, 2.5rem + 5vw, 88px);
+  --text-h1-h2: clamp(28px, 1.75rem + 2vw, 48px);
+  --text-h3: clamp(20px, 1.25rem + 0.75vw, 28px);
+  --text-body: clamp(16px, 1rem + 0.15vw, 18px);
+  --text-small: clamp(13px, 0.8125rem + 0.1vw, 14px);
+
+  /* Spacing Scale (Base 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Border Radius */
+  --radius-card: 12px;
+  --radius-button: 10px;
+  --radius-pill: 999px;
+}

@@ -1,0 +1,179 @@
+---
+import { identity } from '../lib/content';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link">
+          <img
+            src="/assets/logo.svg"
+            alt="Eklavya Jha Logo"
+            width="32"
+            height="32"
+            class="footer-logo"
+          />
+          <span class="footer-name">{identity.name}</span>
+        </a>
+        <p class="footer-desc">
+          {identity.roleLine} · {identity.supportingLine}
+        </p>
+        <p class="footer-location">
+          Based in {identity.location.city}, {identity.location.region}, {identity.location.country}
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="nav-column">
+          <span class="col-title">Paths</span>
+          <a href="/recruiter-hr/">Recruiter / HR</a>
+          <a href="/teams-communities/">Teams & Communities</a>
+          <a href="/clients/">Clients</a>
+        </div>
+
+        <div class="nav-column">
+          <span class="col-title">Connect</span>
+          <a href="https://www.linkedin.com/in/eklavya-jha-23a54b377" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/EklavyajhaAI07" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/EklavyajhaAI07" target="_blank" rel="noopener">X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} {identity.name}. Built with Astro, GSAP & Vanilla CSS.
+      </p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #07090D;
+    color: var(--stage-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--space-8) 0 var(--space-6);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: var(--stage-text);
+  }
+
+  .footer-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+  }
+
+  .footer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
+    color: var(--stage-muted);
+    line-height: 1.5;
+  }
+
+  .footer-location {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .col-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--stage-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1);
+  }
+
+  .nav-column a {
+    color: var(--stage-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-column a:hover {
+    color: var(--stage-text);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.8rem;
+  }
+
+  .copyright {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .back-to-top {
+    color: var(--stage-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back-to-top:hover {
+    color: var(--stage-text);
+  }
+
+  @media (max-width: 640px) {
+    .footer-top {
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+  }
+</style>

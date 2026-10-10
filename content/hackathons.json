@@ -1,0 +1,37 @@
+[
+  { 
+    "id": "odoo-hackathon-2026-final", 
+    "event": "Odoo Hackathon 2026 (Odoo HQ Hackathon)", 
+    "round": "Offline Final (Grand Finale)",
+    "project": "dealflow360", 
+    "result": "finalist", 
+    "note": "Selected from 20,000+ applicants.",
+    "proof": { "url": "https://lnkd.in/p/dmg9SvCY", "publish": true } 
+  },
+  { 
+    "id": "bharatiya-antariksh-2026", 
+    "event": "Bharatiya Antariksh Hackathon 2026 (ISRO)", 
+    "project": "aegis",
+    "result": "participant", 
+    "proof": { "url": "https://lnkd.in/p/d5bMbe2e", "publish": true } 
+  },
+  { 
+    "id": "cognivia-2026", 
+    "event": "Cognivia (Navrachana University)", 
+    "project": "citemind",
+    "result": "finalist", 
+    "proof": { "url": "https://lnkd.in/p/df3K2Uf6", "publish": true } 
+  },
+  { 
+    "id": "hackthisfall-2026", 
+    "event": "HackThisFall", 
+    "project": "courtflow-ai",
+    "result": "participant", 
+    "proof": { "url": "https://lnkd.in/p/dpA9fT2r", "publish": true } 
+  },
+  { 
+    "id": "ideathon-nirma", 
+    "event": "Ideathon (Nirma University)", 
+    "result": "participant" 
+  }
+]

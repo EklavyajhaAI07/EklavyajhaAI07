@@ -1,0 +1,25 @@
+[
+  { 
+    "id": "finalist-5x", 
+    "label": "Hackathon Finalist", 
+    "value": 5, 
+    "suffix": "x", 
+    "proof": "hackathons", 
+    "showOn": ["recruiter", "teams", "clients"] 
+  },
+  { 
+    "id": "odoo-field", 
+    "label": "Odoo Grand Finale, selected from", 
+    "value": 20000, 
+    "prefix": "", 
+    "suffix": "+ applicants", 
+    "showOn": ["recruiter", "teams"] 
+  },
+  { 
+    "id": "cognivia-rank", 
+    "label": "Cognivia: 4th of", 
+    "value": 152, 
+    "suffix": " teams", 
+    "showOn": ["teams"] 
+  }
+]

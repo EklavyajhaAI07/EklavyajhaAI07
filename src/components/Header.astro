@@ -1,0 +1,203 @@
+---
+import { identity } from '../lib/content';
+
+interface Props {
+  currentAudience?: 'recruiter' | 'teams' | 'clients' | 'home';
+  showAnimationControls?: boolean;
+}
+
+const { currentAudience = 'home', showAnimationControls = false } = Astro.props;
+---
+
+<header class="site-header" id="top">
+  <div class="header-inner container">
+    <a href="/" class="brand-link" aria-label="Eklavya Jha Home">
+      <img
+        src="/assets/logo.svg"
+        alt="Eklavya Jha Monogram Logo"
+        class="header-logo"
+        width="38"
+        height="38"
+      />
+      <div class="brand-text">
+        <span class="brand-name">{identity.name}</span>
+        <span class="brand-role">{identity.roleLine}</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" aria-label="Main Navigation">
+      {showAnimationControls && (
+        <div class="anim-controls">
+          <button id="btn-skip-anim" class="btn-ctrl" type="button" aria-label="Skip animation">
+            Skip
+          </button>
+          <button id="btn-replay-anim" class="btn-ctrl" type="button" aria-label="Replay animation" style="display: none;">
+            Replay
+          </button>
+          <button id="btn-sound-toggle" class="btn-ctrl sound-ctrl" type="button" aria-label="Toggle sound" aria-pressed="false">
+            <span class="sound-icon" aria-hidden="true">🔇</span>
+            <span class="sound-label">Sound</span>
+          </button>
+        </div>
+      )}
+
+      <div class="nav-links">
+        {currentAudience !== 'home' && (
+          <div class="path-switcher">
+            <span class="switcher-label">Other paths:</span>
+            {currentAudience !== 'recruiter' && <a href="/recruiter-hr/" class="nav-link">Recruiters</a>}
+            {currentAudience !== 'teams' && <a href="/teams-communities/" class="nav-link">Teams</a>}
+            {currentAudience !== 'clients' && <a href="/clients/" class="nav-link">Clients</a>}
+          </div>
+        )}
+        {currentAudience !== 'home' && (
+          <a href="/" class="nav-link">Home</a>
+        )}
+        <a href="#connect" class="nav-cta">Connect</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 50;
+    width: 100%;
+    padding: var(--space-4) 0;
+    background-color: var(--stage-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: var(--stage-text);
+  }
+
+  .header-logo {
+    display: block;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--stage-text);
+  }
+
+  .brand-role {
+    font-size: 0.8rem;
+    color: var(--stage-muted);
+    font-weight: 500;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .anim-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .btn-ctrl {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--stage-text);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-ctrl:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .path-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-pill);
+    margin-right: var(--space-2);
+  }
+
+  .switcher-label {
+    font-size: 0.78rem;
+    color: var(--stage-muted);
+  }
+
+  .nav-link {
+    color: var(--stage-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--stage-text);
+  }
+
+  .nav-cta {
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .nav-cta:hover {
+    background-color: var(--accent-strong);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .brand-role {
+      display: none;
+    }
+    .header-inner {
+      padding-left: var(--space-3);
+      padding-right: var(--space-3);
+    }
+  }
+</style>

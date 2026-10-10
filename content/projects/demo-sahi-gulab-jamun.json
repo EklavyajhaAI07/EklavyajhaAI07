@@ -1,0 +1,17 @@
+{
+  "id": "demo-sahi-gulab-jamun",
+  "title": "Sahi Gulab Jamun",
+  "oneLine": "An advertisement website for a food business.",
+  "status": "demo-template",
+  "kind": "demo-template",
+  "description": "Demo pamphlet/theme website.",
+  "role": "Demo template developer",
+  "tech": ["Next.js", "Web template"],
+  "links": [
+    { "label": "Live Demo", "url": "https://eklavyajhaai07.github.io/Advertisement-Website-Sahi-Gulab-Jamun/", "type": "demo" }
+  ],
+  "screenshots": [],
+  "roadmap": [],
+  "featured": false,
+  "showOn": ["clients"]
+}

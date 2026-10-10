@@ -1,0 +1,14 @@
+{
+  "channels": [
+    { "id": "email", "mode": "click-to-mail", "audiences": ["recruiter", "teams", "clients", "home"] },
+    { "id": "linkedin", "url": "https://www.linkedin.com/in/eklavya-jha-23a54b377", "audiences": ["recruiter", "teams", "clients", "home"] },
+    { "id": "github", "url": "https://github.com/EklavyajhaAI07", "audiences": ["recruiter", "teams", "clients", "home"] },
+    { "id": "x", "url": "https://x.com/EklavyajhaAI07", "audiences": ["recruiter", "teams", "clients", "home"] },
+    { "id": "discord", "mode": "copy-username", "username": "eklavyajha0207", "audiences": ["recruiter", "teams", "clients", "home"] },
+    { "id": "instagram", "url": "https://www.instagram.com/eklavyajha_", "audiences": ["clients"] }
+  ],
+  "form": { 
+    "enabled": true, 
+    "audienceOptions": ["Recruiter", "Teams & Communities", "Client", "Not sure"] 
+  }
+}

@@ -1,0 +1,13 @@
+[
+  { "id": "typescript", "name": "TypeScript", "category": "Languages", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams", "clients"] },
+  { "id": "javascript", "name": "JavaScript", "category": "Languages", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter", "teams"] },
+  { "id": "python", "name": "Python", "category": "Languages", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams"] },
+  { "id": "mssql", "name": "MS SQL", "category": "Languages", "level": "working", "proofProject": "dealflow360", "audiences": ["recruiter", "teams"] },
+  { "id": "multi-agent", "name": "Multi-agent systems (CrewAI, Browser Use)", "category": "AI / ML", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams", "clients"] },
+  { "id": "llm-api", "name": "LLM APIs (OpenAI / Gemini)", "category": "AI / ML", "level": "working", "proofProject": "dealflow360", "audiences": ["recruiter", "teams", "clients"] },
+  { "id": "fastapi", "name": "FastAPI", "category": "Web / Backend", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams"] },
+  { "id": "nextjs", "name": "Next.js", "category": "Web / Backend", "level": "working", "proofProject": "demo-sahi-gulab-jamun", "audiences": ["recruiter", "clients"] },
+  { "id": "mongodb", "name": "MongoDB", "category": "Web / Backend", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter"] },
+  { "id": "tailwind", "name": "Tailwind CSS", "category": "Web / Backend", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "security", "name": "Security Enhancements", "category": "Web / Backend", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter", "teams"] }
+]

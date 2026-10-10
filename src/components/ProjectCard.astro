@@ -1,0 +1,273 @@
+---
+import type { ProjectData } from '../lib/schema';
+
+interface Props {
+  project: ProjectData;
+}
+
+const { project } = Astro.props;
+
+// Status badge styling map
+const statusLabels: Record<string, string> = {
+  'live': 'Live',
+  'in-development': 'In Development',
+  'coming-soon': 'Coming Soon',
+  'demo-template': 'Demo Template',
+};
+
+const isLive = project.status === 'live';
+---
+
+<article class="project-card card" id={`project-${project.id}`}>
+  <div class="card-header">
+    <div class="header-left">
+      <h3 class="project-title">{project.title}</h3>
+      {project.clientLabel && (
+        <span class="client-label">for {project.clientLabel}</span>
+      )}
+    </div>
+    <span class={`status-badge ${isLive ? 'badge-live' : 'badge-neutral'}`}>
+      {statusLabels[project.status] || project.status}
+    </span>
+  </div>
+
+  <p class="one-line">{project.oneLine}</p>
+  <p class="description">{project.description}</p>
+
+  <div class="meta-block">
+    <div class="role-line">
+      <span class="meta-label">Role:</span>
+      <span class="meta-value">{project.role}</span>
+    </div>
+
+    <div class="tech-stack">
+      {project.tech.map((t) => (
+        <span class="tech-pill">{t}</span>
+      ))}
+    </div>
+  </div>
+
+  {project.roadmap && project.roadmap.length > 0 && (
+    <div class="roadmap-block">
+      <span class="roadmap-heading">Planned Enhancements:</span>
+      <ul class="roadmap-list">
+        {project.roadmap.map((item) => (
+          <li class="roadmap-item">
+            <span class="badge-neutral badge-sm">Coming soon</span>
+            <span>{item.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="card-links">
+    {project.links.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener"
+        class={`btn-link ${link.type === 'live' ? 'btn-live' : 'btn-outline'}`}
+      >
+        {link.type === 'live' ? '↗ Visit Live' : link.label}
+      </a>
+    ))}
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #D1D5DB;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .client-label {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
+  .badge-live {
+    background-color: #ECFDF5;
+    color: #059669;
+    border: 1px solid #A7F3D0;
+  }
+
+  .badge-neutral {
+    background-color: #F3F4F6;
+    color: #4B5563;
+    border: 1px solid #E5E7EB;
+  }
+
+  .badge-sm {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .one-line {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .description {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-2);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .role-line {
+    font-size: 0.82rem;
+    display: flex;
+    gap: 6px;
+  }
+
+  .meta-label {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .meta-value {
+    color: var(--ink-muted);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tech-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 9px;
+    background-color: var(--surface-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    color: var(--ink-muted);
+  }
+
+  .roadmap-block {
+    background-color: #F9FAFB;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .roadmap-heading {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .roadmap-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .roadmap-item {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+  }
+
+  .card-links {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: auto;
+    padding-top: var(--space-3);
+  }
+
+  .btn-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn-live {
+    background-color: var(--accent-strong);
+    color: #FFFFFF;
+  }
+
+  .btn-live:hover {
+    background-color: #173FB5;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--ink);
+    background-color: var(--surface-bg);
+  }
+</style>

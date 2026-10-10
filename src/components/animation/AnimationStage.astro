@@ -1,0 +1,975 @@
+---
+import AnimationControls from './AnimationControls.astro';
+import { identity } from '../../lib/content';
+import type { ProjectData, StatData, JourneyItemData } from '../../lib/schema';
+
+interface Props {
+  audience: 'recruiter' | 'teams' | 'clients';
+  featuredProjects: ProjectData[];
+  stats: StatData[];
+  journey: JourneyItemData[];
+  headline: string;
+  endCard: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+}
+
+const {
+  audience,
+  featuredProjects,
+  stats,
+  journey,
+  headline,
+  endCard,
+  primaryCta,
+  secondaryCta,
+} = Astro.props;
+
+// Selected core tools/tech for the stage 2 tech pill stream
+const toolsList = [
+  'FastAPI',
+  'Next.js',
+  'Python',
+  'TypeScript',
+  'PostgreSQL',
+  'Multi-Agent AI',
+  'Docker',
+  'Cloudflare',
+];
+---
+
+<section
+  id="animation-stage-container"
+  class={`anim-stage audience-${audience}`}
+  data-audience={audience}
+  aria-label="Interactive Presentation of Eklavya Jha"
+>
+  <AnimationControls />
+
+  <!-- Stage Canvas Wrapper (DOM/SVG only, no <canvas> for SEO) -->
+  <div class="anim-viewport container">
+
+    <!-- ================= STAGE 1: IDENTITY (0.0s - 5.0s) ================= -->
+    <div id="anim-stage-1" class="stage-layer stage-identity" aria-live="polite">
+      <div class="identity-top">
+        <!-- SVG Monogram / Initials Mark -->
+        <div class="anim-logo-mark" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#161B26" stroke="rgba(255,255,255,0.1)" />
+            <path d="M14 16H34V20H18V22H30V26H18V28H34V32H14V16Z" fill="var(--accent)" />
+            <circle cx="34" cy="16" r="3" fill="#60A5FA" />
+          </svg>
+        </div>
+
+        <div class="identity-badge">
+          <span class="badge-dot"></span>
+          <span>Ahmedabad, India</span>
+        </div>
+      </div>
+
+      <div class="identity-main">
+        <div class="identity-text-col">
+          <h1 class="anim-identity-name display-title">{identity.name}</h1>
+          <p class="anim-identity-role role-title">
+            <span class="highlight">AI-Powered Full Stack Developer</span>
+          </p>
+          <p class="anim-identity-supporting supporting-line">
+            Learning AI Engineering · Building real systems and multi-agent solutions.
+          </p>
+
+          <div class="anim-identity-tags tags-cluster">
+            {identity.tags.map((tag) => (
+              <span class="anim-identity-tag stage-tag">{tag}</span>
+            ))}
+          </div>
+
+          <div class="anim-identity-edu edu-badge">
+            <span class="edu-icon">🎓</span>
+            <span>{identity.college} · B.Tech CSE-AI (2025–2029)</span>
+          </div>
+        </div>
+
+        <div class="identity-photo-col">
+          <div class="anim-identity-photo photo-frame">
+            <img
+              src={identity.photo.src}
+              alt={identity.photo.alt}
+              class="photo-img"
+              width="150"
+              height="150"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STAGE 2: PROOF OF WORK (5.0s - 15.0s) ================= -->
+    <div id="anim-stage-2" class="stage-layer stage-proof" aria-hidden="true">
+      <div class="stage-header">
+        <span class="stage-eyebrow">Proof of Work</span>
+        <h2 class="stage-heading">{headline}</h2>
+      </div>
+
+      <!-- Real Stats Counter Row -->
+      <div class="anim-stats-row">
+        {stats.map((st) => (
+          <div class="anim-stat-card stat-item">
+            <div class="stat-number-wrap">
+              {st.prefix && <span class="stat-prefix">{st.prefix}</span>}
+              <span class="stat-number" data-target={st.value}>0</span>
+              {st.suffix && <span class="stat-suffix">{st.suffix}</span>}
+            </div>
+            <div class="stat-label">{st.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Featured Projects Carousel / Slider -->
+      <div class="anim-projects-viewport">
+        {featuredProjects.map((p) => (
+          <div class="anim-project-slide project-preview-card" data-project-id={p.id}>
+            <div class="preview-badge-row">
+              <span class={`status-badge badge-${p.status}`}>
+                {p.status === 'live' ? 'Live System' : p.status === 'in-development' ? 'In Development' : p.status}
+              </span>
+              <span class="role-badge">{p.role}</span>
+            </div>
+            <h3 class="preview-title">{p.title}</h3>
+            <p class="preview-outcome">{p.oneLine}</p>
+            <div class="preview-tech-list">
+              {p.tech.slice(0, 5).map((t) => (
+                <span class="tech-pill">{t}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <!-- Architecture Diagram for Teams Audience -->
+        {audience === 'teams' && (
+          <div class="anim-arch-diagram arch-container" aria-hidden="true">
+            <div class="arch-title">Multi-Agent System & Real-Time Pipeline</div>
+            <svg class="arch-svg" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="arch-path" d="M120 80 H220" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4" />
+              <path class="arch-path" d="M320 80 H420" stroke="var(--accent)" stroke-width="2" />
+              <path class="arch-path" d="M470 50 V30 H520" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+              <path class="arch-path" d="M470 110 V130 H520" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+            </svg>
+            <div class="arch-nodes-grid">
+              <div class="arch-node node-client">
+                <span class="node-tag">UI Client</span>
+                <span class="node-name">Next.js / Astro</span>
+              </div>
+              <div class="arch-node node-gateway">
+                <span class="node-tag">API Gateway</span>
+                <span class="node-name">FastAPI Async</span>
+              </div>
+              <div class="arch-node node-agents">
+                <span class="node-tag">Agent Swarm</span>
+                <span class="node-name">Claude & OpenAI</span>
+              </div>
+              <div class="arch-node node-db">
+                <span class="node-tag">Storage</span>
+                <span class="node-name">PostgreSQL / KV</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Tools & Tech Pills Stream -->
+      <div class="anim-tools-strip">
+        <span class="tools-label">Core Stack:</span>
+        <div class="tools-pills-wrap">
+          {toolsList.map((t) => (
+            <span class="anim-tool-pill tool-item">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STAGE 3: HARD WORK & JOURNEY (15.0s - 21.0s) ================= -->
+    <div id="anim-stage-3" class="stage-layer stage-journey" aria-hidden="true">
+      <div class="stage-header">
+        <span class="stage-eyebrow">Relentless Execution</span>
+        <h2 class="stage-heading">Building & Learning Journey</h2>
+      </div>
+
+      <div class="journey-track-wrap">
+        <!-- Connecting SVG Spine -->
+        <svg class="journey-spine-svg" viewBox="0 0 800 60" fill="none" preserveAspectRatio="none">
+          <path class="journey-spine-path" d="M 20 30 L 780 30" stroke="var(--accent)" stroke-width="3" />
+        </svg>
+
+        <div class="journey-nodes-row">
+          {journey.map((item) => (
+            <div class="anim-journey-node journey-node-card">
+              <div class="node-dot"></div>
+              <span class="node-date">{item.date}</span>
+              <p class="node-label">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STAGE 4: ACTION (21.0s - 25.0s) ================= -->
+    <div id="anim-stage-4" class="stage-layer stage-action" aria-hidden="true">
+      <div class="anim-action-glow glow-circle"></div>
+
+      <div class="action-card-content">
+        <span class="action-tag">Ready to Collaborate</span>
+        <h2 class="anim-end-card-line action-headline">{endCard}</h2>
+        <p class="action-subtext">
+          Explore complete projects, verified proofs, and direct channels below.
+        </p>
+
+        <div class="anim-actions-btns">
+          <a
+            href={primaryCta.href}
+            class="anim-action-cta anim-cta-primary btn btn-action-primary"
+          >
+            <span>{primaryCta.label}</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a
+            href={secondaryCta.href}
+            class="anim-action-cta anim-cta-secondary btn btn-action-secondary"
+          >
+            <span>{secondaryCta.label}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Indicator (visible when animation finishes) -->
+    <a href="#proof-strip-section" class="anim-scroll-down" id="anim-scroll-indicator" aria-label="Scroll down to page content">
+      <span>Scroll for Proof</span>
+      <span class="down-arrow">↓</span>
+    </a>
+  </div>
+</section>
+
+<script>
+  import { MasterTimelineController } from './timeline/master-timeline';
+  import { soundController } from './sound';
+
+  function initAnimation(): void {
+    const stageContainer = document.getElementById('animation-stage-container');
+    if (!stageContainer) return;
+
+    const audience     = stageContainer.dataset.audience as 'recruiter' | 'teams' | 'clients';
+    const progressFill = document.getElementById('anim-progress-fill');
+    const playPauseBtn = document.getElementById('btn-anim-playpause');
+    const iconPause    = playPauseBtn?.querySelector('.icon-pause') as HTMLElement | null;
+    const iconPlay     = playPauseBtn?.querySelector('.icon-play')  as HTMLElement | null;
+    const replayBtn    = document.getElementById('btn-anim-replay');
+    const skipBtn      = document.getElementById('btn-anim-skip');
+    const soundBtn     = document.getElementById('btn-anim-sound');
+    const iconMuted    = soundBtn?.querySelector('.icon-muted')   as HTMLElement | null;
+    const iconUnmuted  = soundBtn?.querySelector('.icon-unmuted') as HTMLElement | null;
+
+    // ── Sound preference UI sync ──────────────────────────────────────────
+    const isMuted = soundController.getMuted();
+    if (soundBtn) {
+      soundBtn.setAttribute('aria-pressed', (!isMuted).toString());
+      if (iconMuted)   iconMuted.style.display   = isMuted ? 'inline' : 'none';
+      if (iconUnmuted) iconUnmuted.style.display = isMuted ? 'none'   : 'inline';
+    }
+
+    // ── Controller init ───────────────────────────────────────────────────
+    const controller = new MasterTimelineController({
+      container: stageContainer,
+      audience,
+      onProgress: (progress) => {
+        if (progressFill) {
+          // Already rAF-batched inside MasterTimelineController
+          progressFill.style.width = `${Math.min(100, Math.round(progress * 100))}%`;
+        }
+      },
+      onStateChange: (state) => {
+        if (state === 'playing') {
+          if (iconPause) iconPause.style.display = 'inline';
+          if (iconPlay)  iconPlay.style.display  = 'none';
+        } else if (state === 'paused') {
+          if (iconPause) iconPause.style.display = 'none';
+          if (iconPlay)  iconPlay.style.display  = 'inline';
+        } else if (state === 'completed') {
+          if (replayBtn)    replayBtn.style.display    = 'inline-flex';
+          if (skipBtn)      skipBtn.style.display      = 'none';
+          if (playPauseBtn) playPauseBtn.style.display = 'none';
+        }
+      },
+    });
+
+    // ── Decide whether to animate or skip straight to end ────────────────
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const alreadySeen          = sessionStorage.getItem(`eklavya_anim_seen_${audience}`) === 'true';
+
+    if (prefersReducedMotion || alreadySeen) {
+      controller.skip();
+    } else {
+      // Defer play until the browser is idle / after first paint
+      // so GSAP doesn't compete with font/image decoding on load.
+      if ('requestIdleCallback' in window) {
+        (window as Window & { requestIdleCallback: (cb: () => void) => void })
+          .requestIdleCallback(() => controller.play());
+      } else {
+        // Fallback: small timeout gives the paint cycle room to finish
+        setTimeout(() => controller.play(), 80);
+      }
+    }
+
+    // ── Control button listeners ──────────────────────────────────────────
+    playPauseBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      controller.togglePlayPause();
+    });
+
+    replayBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (skipBtn)      skipBtn.style.display      = 'inline-flex';
+      if (playPauseBtn) playPauseBtn.style.display = 'inline-flex';
+      if (replayBtn)    replayBtn.style.display    = 'none';
+      controller.restart();
+    });
+
+    skipBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      controller.skip();
+    });
+
+    soundBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const unmuted = soundController.toggleMute();
+      soundBtn.setAttribute('aria-pressed', unmuted.toString());
+      if (iconMuted)   iconMuted.style.display   = unmuted ? 'none'   : 'inline';
+      if (iconUnmuted) iconUnmuted.style.display = unmuted ? 'inline' : 'none';
+    });
+
+    // ── Click on stage bg toggles play/pause ─────────────────────────────
+    stageContainer.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('button, a, input, select')) return;
+      controller.togglePlayPause();
+    });
+
+    // ── Cleanup on SPA page swap (Astro View Transitions) ────────────────
+    document.addEventListener('astro:before-swap', () => controller.destroy(), { once: true });
+  }
+
+  // Run after the page is fully interactive (fonts + images decoded).
+  // 'load' fires after DOMContentLoaded AND after all resources load,
+  // giving GSAP a clean, fully-painted starting canvas.
+  if (document.readyState === 'complete') {
+    initAnimation();
+  } else {
+    window.addEventListener('load', initAnimation, { once: true });
+  }
+</script>
+
+<style>
+  .anim-stage {
+    min-height: 85vh;
+    background-color: var(--stage-bg);
+    color: var(--stage-text);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .anim-viewport {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+
+  .stage-layer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ================= STAGE 1 STYLES ================= */
+  .stage-identity {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .identity-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 880px;
+  }
+
+  .identity-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--stage-muted);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10B981;
+  }
+
+  .identity-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-8);
+    align-items: center;
+    width: 100%;
+    max-width: 880px;
+  }
+
+  .identity-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .display-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--stage-text);
+  }
+
+  .role-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600;
+    color: var(--stage-text);
+  }
+
+  .highlight {
+    color: var(--accent);
+  }
+
+  .supporting-line {
+    font-size: 1.05rem;
+    color: var(--stage-muted);
+    max-width: 580px;
+    line-height: 1.5;
+  }
+
+  .tags-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: var(--space-2);
+  }
+
+  .stage-tag {
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-pill);
+    color: var(--stage-muted);
+  }
+
+  .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--stage-muted);
+    margin-top: var(--space-2);
+  }
+
+  .photo-frame {
+    width: 140px;
+    height: 140px;
+    border-radius: var(--radius-card);
+    background: #ffffff;
+    padding: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--radius-card) - 4px);
+  }
+
+  /* ================= STAGE 2 STYLES ================= */
+  .stage-proof {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    max-width: 880px;
+    width: 100%;
+  }
+
+  .stage-header {
+    text-align: center;
+  }
+
+  .stage-eyebrow {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .stage-heading {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--stage-text);
+    margin-top: 4px;
+  }
+
+  .anim-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .stat-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
+    padding: var(--space-4) var(--space-6);
+    text-align: center;
+    min-width: 180px;
+  }
+
+  .stat-number-wrap {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .stat-suffix, .stat-prefix {
+    color: var(--accent);
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--stage-muted);
+    margin-top: 4px;
+  }
+
+  .anim-projects-viewport {
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-preview-card {
+    background: rgba(22, 27, 38, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: var(--radius-card);
+    padding: var(--space-6);
+    max-width: 600px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: var(--space-3);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  }
+
+  .preview-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .badge-live {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+  }
+
+  .badge-in-development {
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+  }
+
+  .role-badge {
+    font-size: 0.78rem;
+    color: var(--stage-muted);
+  }
+
+  .preview-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .preview-outcome {
+    font-size: 0.95rem;
+    color: var(--stage-muted);
+    line-height: 1.4;
+  }
+
+  .preview-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tech-pill {
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    color: #D1D5DB;
+  }
+
+  /* Arch Diagram */
+  .arch-container {
+    background: rgba(16, 21, 30, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: var(--radius-card);
+    padding: var(--space-4) var(--space-6);
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+  }
+
+  .arch-title {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+
+  .arch-svg {
+    width: 100%;
+    height: 60px;
+  }
+
+  .arch-nodes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .arch-node {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .node-tag {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .node-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* Tools Strip */
+  .anim-tools-strip {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tools-label {
+    font-size: 0.82rem;
+    color: var(--stage-muted);
+    font-weight: 500;
+  }
+
+  .tools-pills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool-item {
+    font-size: 0.82rem;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-pill);
+    color: #E5E7EB;
+  }
+
+  /* ================= STAGE 3 STYLES ================= */
+  .stage-journey {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    max-width: 880px;
+    width: 100%;
+  }
+
+  .journey-track-wrap {
+    position: relative;
+    width: 100%;
+    padding: var(--space-6) 0;
+  }
+
+  .journey-spine-svg {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 1;
+  }
+
+  .journey-nodes-row {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  .journey-node-card {
+    background: rgba(22, 27, 38, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
+    padding: var(--space-4);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .node-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 2px solid var(--stage-bg);
+    box-shadow: 0 0 10px var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .node-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .node-label {
+    font-size: 0.85rem;
+    color: var(--stage-text);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  /* ================= STAGE 4 STYLES ================= */
+  .stage-action {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    max-width: 680px;
+    width: 100%;
+  }
+
+  .glow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .action-card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .action-tag {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .action-headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .action-subtext {
+    font-size: 1.05rem;
+    color: var(--stage-muted);
+    max-width: 520px;
+    line-height: 1.5;
+  }
+
+  .anim-actions-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+  }
+
+  .btn-action-primary {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .btn-action-primary:hover {
+    background-color: #2563EB;
+    transform: translateY(-2px);
+  }
+
+  .btn-action-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 24px;
+    border-radius: var(--radius-button);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-action-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Scroll Down Indicator */
+  .anim-scroll-down {
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--stage-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .anim-scroll-down:hover {
+    color: #fff;
+  }
+
+  .anim-completed .anim-scroll-down {
+    display: inline-flex;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -6px); }
+    60% { transform: translate(-50%, -3px); }
+  }
+
+  @media (max-width: 768px) {
+    .identity-main {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .identity-top {
+      justify-content: center;
+    }
+
+    .identity-text-col {
+      align-items: center;
+    }
+
+    .tags-cluster {
+      justify-content: center;
+    }
+
+    .identity-photo-col {
+      order: -1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .journey-nodes-row {
+      grid-template-columns: 1fr;
+    }
+
+    .journey-spine-svg {
+      display: none;
+    }
+
+    .arch-nodes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

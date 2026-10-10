@@ -1,0 +1,53 @@
+{
+  "master": {
+    "headline": [
+      "Building AI-Powered Products That Work.",
+      "Turning Ideas Into Practical AI Products.",
+      "Full-Stack Development, Powered by AI.",
+      "Building Intelligent Products for Real Problems.",
+      "From Idea to Working AI Product."
+    ],
+    "supportingLine": ["AI-Powered Full Stack Developer learning AI Engineering through real products, a live client system, and hackathon builds."],
+    "primaryCta": ["View My Work"],
+    "secondaryCta": ["Let's Build Together"],
+    "availability": ["Open to startup collaborations and AI & web prototype opportunities."]
+  },
+  "recruiter": {
+    "headline": [
+      "Building Full-Stack Products With AI at the Core.",
+      "Learning AI Engineering by Building Real Systems.",
+      "Code, AI, and Products Built for Impact.",
+      "From Hackathon Ideas to Working Applications."
+    ],
+    "endCard": ["Learn Deeply. Build Practically."]
+  },
+  "teams": {
+    "headline": [
+      "Building Bold Ideas With Teams That Ship.",
+      "Collaborate. Experiment. Build.",
+      "Turning Teamwork Into Working Technology.",
+      "Learning Together, Building for Impact."
+    ],
+    "endCard": ["Collaborate. Experiment. Build."]
+  },
+  "clients": {
+    "headline": [
+      "AI-Powered Web Apps for Real Business Needs.",
+      "Your Business Problem, Built Into a Working Product.",
+      "From Business Idea to Functional Web Application.",
+      "Practical AI and Web Solutions, Built Around You.",
+      "AI & Web Prototypes That Move Ideas Forward."
+    ],
+    "endCard": ["Ideas In. Products Out."]
+  },
+  "shortLines": [
+    "Ideas In. Products Out.",
+    "Think It. Build It. Ship It.",
+    "Intelligence, Engineered Into Products.",
+    "Where AI Meets Product Engineering.",
+    "Real Problems. Intelligent Products.",
+    "Building What's Next.",
+    "Learn Deeply. Build Practically.",
+    "Engineering Ideas Into Reality."
+  ]
+}

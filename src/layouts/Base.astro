@@ -1,0 +1,98 @@
+---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/animations.css';
+import { site, identity } from '../lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  audience?: 'recruiter' | 'teams' | 'clients' | 'home';
+}
+
+const {
+  title,
+  description,
+  canonicalPath = '',
+  ogImage = '/assets/eklavya-photo.png',
+  audience = 'home',
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, site.siteUrl).href;
+const fullOgImageUrl = new URL(ogImage, site.siteUrl).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": identity.name,
+  "jobTitle": identity.roleLine,
+  "description": `${identity.roleLine}, ${identity.supportingLine}.`,
+  "url": site.siteUrl,
+  "image": new URL(identity.photo.src, site.siteUrl).href,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": identity.location.city,
+    "addressRegion": identity.location.region,
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/eklavya-jha-23a54b377",
+    "https://github.com/EklavyajhaAI07",
+    "https://x.com/EklavyajhaAI07"
+  ],
+  "knowsAbout": [
+    "Full stack web development",
+    "AI-powered applications",
+    "FastAPI",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "Multi-agent systems"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:site_name" content={identity.name} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class={`audience-${audience}`}>
+    <slot />
+  </body>
+</html>

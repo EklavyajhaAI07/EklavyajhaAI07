@@ -1,0 +1,17 @@
+{
+  "page": "teams",
+  "slug": "teams-communities",
+  "sections": ["proofStrip", "projects", "hackathons", "community", "offer", "connect"],
+  "projects": ["dealflow360", "viral-content-ai", "courtflow-ai", "citemind", "aegis"],
+  "animation": {
+    "projects": ["dealflow360", "viral-content-ai"],
+    "stats": ["finalist-5x", "odoo-field", "cognivia-rank"]
+  },
+  "offer": [
+    "I execute ideas quickly under pressure, proven by reaching 5 hackathon finals in 2026.",
+    "I integrate complex APIs, like multi-agent systems and LLMs, into working products.",
+    "I am active in the community, as a Campus Ambassador and SIH Coordinator."
+  ],
+  "primaryCta": { "type": "connect", "channels": ["linkedin", "discord"] },
+  "secondaryCta": { "type": "connect" }
+}

@@ -1,0 +1,166 @@
+---
+// AnimationControls.astro
+---
+
+<div class="anim-controls-bar" id="anim-controls-bar" role="toolbar" aria-label="Intro Animation Controls">
+  <!-- Progress Bar -->
+  <div class="anim-progress-track" aria-hidden="true">
+    <div class="anim-progress-fill" id="anim-progress-fill"></div>
+  </div>
+
+  <div class="anim-controls-actions container">
+    <div class="controls-left">
+      <!-- Play/Pause Toggle -->
+      <button
+        type="button"
+        id="btn-anim-playpause"
+        class="ctrl-btn ctrl-playpause"
+        aria-label="Pause animation"
+        title="Pause (Space)"
+      >
+        <span class="ctrl-icon icon-pause" aria-hidden="true">⏸</span>
+        <span class="ctrl-icon icon-play" aria-hidden="true" style="display: none;">▶</span>
+        <span class="ctrl-text">Pause</span>
+      </button>
+
+      <!-- Replay Button (visible when completed) -->
+      <button
+        type="button"
+        id="btn-anim-replay"
+        class="ctrl-btn ctrl-replay"
+        aria-label="Replay animation"
+        title="Replay intro animation"
+        style="display: none;"
+      >
+        <span class="ctrl-icon" aria-hidden="true">↺</span>
+        <span class="ctrl-text">Replay</span>
+      </button>
+    </div>
+
+    <div class="controls-right">
+      <!-- Sound Toggle -->
+      <button
+        type="button"
+        id="btn-anim-sound"
+        class="ctrl-btn ctrl-sound"
+        aria-label="Enable sound"
+        aria-pressed="false"
+        title="Toggle procedural audio"
+      >
+        <span class="ctrl-icon icon-muted" aria-hidden="true">🔇</span>
+        <span class="ctrl-icon icon-unmuted" aria-hidden="true" style="display: none;">🔊</span>
+        <span class="ctrl-text">Sound</span>
+      </button>
+
+      <!-- Skip Button -->
+      <button
+        type="button"
+        id="btn-anim-skip"
+        class="ctrl-btn ctrl-skip"
+        aria-label="Skip animation and view full page"
+        title="Skip to content"
+      >
+        <span>Skip</span>
+        <span aria-hidden="true">⏭</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .anim-controls-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 40;
+    background: linear-gradient(180deg, rgba(11, 13, 18, 0.8) 0%, rgba(11, 13, 18, 0) 100%);
+    pointer-events: none;
+  }
+
+  .anim-progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .anim-progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+    transition: width 0.1s linear;
+  }
+
+  .anim-controls-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    pointer-events: auto;
+  }
+
+  .controls-left,
+  .controls-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .ctrl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--stage-muted);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .ctrl-btn:hover {
+    color: var(--stage-text);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .ctrl-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .ctrl-skip {
+    color: #fff;
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .ctrl-skip:hover {
+    background: rgba(59, 130, 246, 0.35);
+    border-color: var(--accent);
+  }
+
+  .ctrl-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 640px) {
+    .ctrl-text {
+      display: none;
+    }
+    .ctrl-btn {
+      padding: 6px 10px;
+    }
+  }
+</style>

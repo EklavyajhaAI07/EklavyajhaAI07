@@ -1,0 +1,24 @@
+{
+  "page": "home",
+  "slug": "",
+  "cards": [
+    {
+      "id": "recruiter-hr",
+      "title": "Recruiter or HR",
+      "description": "Skills, stack, and project builds.",
+      "url": "/recruiter-hr/"
+    },
+    {
+      "id": "teams-communities",
+      "title": "Teams & Communities",
+      "description": "Hackathon record and leadership roles.",
+      "url": "/teams-communities/"
+    },
+    {
+      "id": "clients",
+      "title": "Clients",
+      "description": "Web apps and business solutions.",
+      "url": "/clients/"
+    }
+  ]
+}

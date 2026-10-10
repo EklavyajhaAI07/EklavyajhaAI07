@@ -1,0 +1,21 @@
+{
+  "id": "viral-content-ai",
+  "title": "Viral AI",
+  "oneLine": "AI-powered content studio that scouts trends, designs strategy, generates content, and predicts virality.",
+  "status": "in-development",
+  "kind": "hackathon-build",
+  "description": "A multi-agent platform in development. Built for Craftathon 2k26 to automate trend scouting and content generation.",
+  "role": "Eklavya's project",
+  "tech": ["Multi-agent system", "CrewAI", "Browser Use", "FastAPI", "TypeScript", "Tailwind CSS"],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/EklavyajhaAI07/viral-content-ai", "type": "repo" }
+  ],
+  "screenshots": [
+    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/1.png", "alt": "Viral AI dashboard screenshot 1" },
+    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/2.png", "alt": "Viral AI dashboard screenshot 2" }
+  ],
+  "roadmap": [],
+  "featured": true,
+  "featuredOrder": 3,
+  "showOn": ["recruiter", "teams", "clients"]
+}

@@ -1,0 +1,12 @@
+{
+  "page": "recruiter",
+  "slug": "recruiter-hr",
+  "sections": ["proofStrip", "projects", "skills", "hackathons", "education", "journey", "connect"],
+  "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
+  "animation": {
+    "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
+    "stats": ["finalist-5x", "odoo-field"]
+  },
+  "primaryCta": { "type": "resume-download" },
+  "secondaryCta": { "type": "connect" }
+}

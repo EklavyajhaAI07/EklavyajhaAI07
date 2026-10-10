@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ecell-iitb-campus-ambassador",
+    "title": "Campus Ambassador, E-Cell IIT Bombay (remote)",
+    "type": "role",
+    "date": "2026-06",
+    "proof": { "url": "private-proofs/ecell-iitb-campus-ambassador-offer-letter.png", "publish": false }
+  },
+  {
+    "id": "sih-coordinator",
+    "title": "Organizer / Coordinator, SIH 2026 Internal Hackathon (Gandhinagar University)",
+    "type": "role",
+    "date": "2026-09",
+    "proof": { "url": "https://lnkd.in/p/dh3QfR6T", "publish": true }
+  },
+  {
+    "id": "google-student-ambassador-fresher",
+    "title": "Fresher's Party Night Edition (Google Student Ambassador)",
+    "type": "participation",
+    "result": "participant"
+  },
+  {
+    "id": "google-student-ambassador-cloud",
+    "title": "Cloud Computing (Google Student Ambassador)",
+    "type": "participation",
+    "result": "participant"
+  },
+  {
+    "id": "founders-crew-core",
+    "title": "Core Member, Founder's Crew (Startup Community)",
+    "type": "role"
+  }
+]
