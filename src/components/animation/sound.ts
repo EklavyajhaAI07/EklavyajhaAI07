@@ -1,5 +1,12 @@
-// Procedural Web Audio API sound generator for portfolio intro animation
-// Zero external audio files, 100% synthesized, muted by default
+// Audience-specific soundtrack plus lightweight Web Audio cues, muted by default.
+
+type AnimationAudience = 'recruiter' | 'teams' | 'clients';
+
+const SOUNDTRACK_BY_AUDIENCE: Record<AnimationAudience, string> = {
+  recruiter: '/audio/soundtrack1.mp3',
+  teams: '/audio/soundtrack2.mp3',
+  clients: '/audio/soundtrack3.mp3',
+};
 
 class AnimationSoundController {
   private ctx: AudioContext | null = null;
@@ -27,6 +34,29 @@ class AnimationSoundController {
     return this.ctx;
   }
 
+  private customAudio: HTMLAudioElement | null = null;
+  private currentAudience: AnimationAudience | null = null;
+
+  public setAudience(audience: AnimationAudience): void {
+    if (this.currentAudience === audience && this.customAudio) return;
+
+    const wasPlaying = Boolean(this.customAudio && !this.customAudio.paused);
+    this.pauseCustomAudio();
+    this.customAudio = null;
+    this.currentAudience = audience;
+
+    if (typeof window === 'undefined') return;
+
+    this.customAudio = new Audio(SOUNDTRACK_BY_AUDIENCE[audience]);
+    this.customAudio.loop = true;
+    this.customAudio.preload = 'metadata';
+    this.customAudio.volume = 0.35;
+
+    if (wasPlaying && !this.isMuted) {
+      this.playCustomAudio();
+    }
+  }
+
   public toggleMute(): boolean {
     this.isMuted = !this.isMuted;
     if (typeof window !== 'undefined') {
@@ -34,9 +64,26 @@ class AnimationSoundController {
     }
     if (!this.isMuted) {
       this.initContext();
+      this.playCustomAudio();
       this.playWhoosh(0.1); // Small feedback chirp
+    } else {
+      this.pauseCustomAudio();
     }
     return !this.isMuted;
+  }
+
+  public playCustomAudio(): void {
+    if (this.isMuted || typeof window === 'undefined') return;
+    if (!this.customAudio) return;
+    this.customAudio.play().catch(() => {
+      // Audio autoplay policy catch (user gesture unlocks it)
+    });
+  }
+
+  public pauseCustomAudio(): void {
+    if (this.customAudio) {
+      this.customAudio.pause();
+    }
   }
 
   public getMuted(): boolean {
@@ -47,6 +94,11 @@ class AnimationSoundController {
     this.isMuted = muted;
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('eklavya_anim_sound', (!muted).toString());
+    }
+    if (muted) {
+      this.pauseCustomAudio();
+    } else {
+      this.playCustomAudio();
     }
   }
 
@@ -142,6 +194,7 @@ class AnimationSoundController {
   }
 
   public fadeOut(): void {
+    this.pauseCustomAudio();
     if (this.ctx && this.ctx.state === 'running') {
       try {
         // Softly drop volume

@@ -7,7 +7,10 @@
 ---
 
 ## 1. Goal
-One 15-second video per audience page (Recruiter, Teams, Clients) for LinkedIn, DMs, email and resume links. It is made from the **same timeline and the same data files** as the page. No separate video editing.
+One 15-second video per audience page (Recruiter, Teams, Clients) for LinkedIn, DMs, email and resume links. It is made from the **same master timeline and data files** as the site's intro animation (`animation-spec.md`), inheriting all upgraded cinematic motion principles (cross-fade + scale + 3D parallax depth, blur-to-focus card reveals, camera-like drift, continuous background drift).
+- **Pure DOM/SVG + GSAP/Framer Motion:** 100% deterministic code-driven animation.
+- **Zero AI video generation tools, zero physical camera / walking shoot footage.**
+- Zero extra costs, zero SEO degradation.
 
 ## 2. Formats (DECIDED)
 
@@ -24,10 +27,12 @@ One 15-second video per audience page (Recruiter, Teams, Clients) for LinkedIn, 
 
 ## 3. Timing (PROPOSED; `animation-spec.md` says final timing is set when Phase 2 starts, so **ASK** then)
 
+> **Timeline & Motion Quality:** Timing windows remain exactly 15 seconds. The video automatically achieves a smooth, filmic flow because it inherits `animation-spec.md`'s camera glide easing (`cubic-bezier`), stage overlap transitions, blur-to-focus card sequence, and continuous camera drift.
+
 | Time | Stage | Content |
 |---|---|---|
 | 0.0 to 3.0 s | Identity | Mark, name, role line, one or two tags, photo in its light rounded frame |
-| 3.0 to 9.0 s | Proof | Up to 2 stats (count up), then up to 2 featured projects with real screenshots and status badges |
+| 3.0 to 9.0 s | Proof | Up to 2 stats (count up), then up to 2 featured projects with real screenshots, blur-to-focus rack effect & status badges |
 | 9.0 to 12.0 s | Tools and journey | Tool pills, then 2 or 3 milestones on a short timeline |
 | 12.0 to 15.0 s | Action | End-card line, primary CTA, **the page URL as text** |
 
@@ -75,7 +80,7 @@ ffmpeg -framerate 30 -i frames/%04d.png -c:v libx264 -pix_fmt yuv420p -crf 18 -m
 ```
 6. Deletes the temporary frames.
 
-Why this way: every frame is exact, so the result is perfectly smooth and can be recreated after any content change. It takes a few minutes per reel on a normal laptop.
+Why this way: every frame is exact, so the result is perfectly smooth and can be recreated after any content change. Because the underlying master timeline uses camera-glide easing, blur-to-focus depth, and continuous camera/background drift, the frame-by-frame export captures authentic, cinematic smoothness automatically with zero jitter. No AI video generation, no physical walking shoot needed — pure code-to-video export. It takes a few minutes per reel on a normal laptop.
 
 **Fallback:** record the screen with OBS while the page plays. Needs no setup, but it can drop frames and is hard to reproduce. Use it only if the script fails.
 

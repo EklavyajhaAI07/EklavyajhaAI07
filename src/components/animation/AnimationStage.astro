@@ -1,6 +1,6 @@
 ---
 import AnimationControls from './AnimationControls.astro';
-import { identity } from '../../lib/content';
+import { education, identity } from '../../lib/content';
 import type { ProjectData, StatData, JourneyItemData } from '../../lib/schema';
 
 interface Props {
@@ -44,13 +44,27 @@ const toolsList = [
   data-audience={audience}
   aria-label="Interactive Presentation of Eklavya Jha"
 >
-  <AnimationControls />
+  <aside class="screening-edge screening-edge-left" aria-hidden="true">
+    <span class="screening-edge-kicker">Cinematic portfolio</span>
+    <strong>{identity.name.toUpperCase()}</strong>
+    <span>Developer &amp; AI Builder</span>
+  </aside>
 
-  <!-- Stage Canvas Wrapper (DOM/SVG only, no <canvas> for SEO) -->
-  <div class="anim-viewport container">
+  <div class="anim-screening-frame">
+    <AnimationControls />
 
-    <!-- ================= STAGE 1: IDENTITY (0.0s - 5.0s) ================= -->
-    <div id="anim-stage-1" class="stage-layer stage-identity" aria-live="polite">
+    <!-- Ambient Continuous Background Drift (GPU-Friendly CSS/SVG) -->
+    <div class="anim-bg-drift" aria-hidden="true">
+      <div class="bg-mesh-gradient"></div>
+      <div class="bg-subtle-grid"></div>
+    </div>
+
+    <!-- Stage Canvas Wrapper (DOM/SVG only, no <canvas> for SEO) -->
+    <div class="anim-viewport container">
+      <div class="anim-camera-rig" id="anim-camera-rig">
+
+      <!-- ================= STAGE 1: IDENTITY (0.0s - 5.0s) ================= -->
+      <div id="anim-stage-1" class="stage-layer stage-identity" aria-live="polite">
       <div class="identity-top">
         <!-- SVG Monogram / Initials Mark -->
         <div class="anim-logo-mark" aria-hidden="true">
@@ -63,7 +77,7 @@ const toolsList = [
 
         <div class="identity-badge">
           <span class="badge-dot"></span>
-          <span>Ahmedabad, India</span>
+          <span>{identity.location.city}, {identity.location.country}</span>
         </div>
       </div>
 
@@ -71,10 +85,10 @@ const toolsList = [
         <div class="identity-text-col">
           <h1 class="anim-identity-name display-title">{identity.name}</h1>
           <p class="anim-identity-role role-title">
-            <span class="highlight">AI-Powered Full Stack Developer</span>
+            <span class="highlight">{identity.roleLine}</span>
           </p>
           <p class="anim-identity-supporting supporting-line">
-            Learning AI Engineering · Building real systems and multi-agent solutions.
+            {identity.supportingLine}
           </p>
 
           <div class="anim-identity-tags tags-cluster">
@@ -85,7 +99,7 @@ const toolsList = [
 
           <div class="anim-identity-edu edu-badge">
             <span class="edu-icon">🎓</span>
-            <span>{identity.college} · B.Tech CSE-AI (2025–2029)</span>
+            <span>{education.university} · {education.degree} ({education.startYear}–{education.graduationYear})</span>
           </div>
         </div>
 
@@ -127,19 +141,27 @@ const toolsList = [
       <!-- Featured Projects Carousel / Slider -->
       <div class="anim-projects-viewport">
         {featuredProjects.map((p) => (
-          <div class="anim-project-slide project-preview-card" data-project-id={p.id}>
-            <div class="preview-badge-row">
-              <span class={`status-badge badge-${p.status}`}>
-                {p.status === 'live' ? 'Live System' : p.status === 'in-development' ? 'In Development' : p.status}
-              </span>
-              <span class="role-badge">{p.role}</span>
-            </div>
-            <h3 class="preview-title">{p.title}</h3>
-            <p class="preview-outcome">{p.oneLine}</p>
-            <div class="preview-tech-list">
-              {p.tech.slice(0, 5).map((t) => (
-                <span class="tech-pill">{t}</span>
-              ))}
+          <div
+            class="anim-project-slide project-preview-card"
+            data-project-id={p.id}
+            tabindex="-1"
+            aria-hidden="true"
+            aria-label={`${p.title} featured project`}
+          >
+            <div class="project-card-tilt-surface">
+              <div class="preview-badge-row">
+                <span class={`status-badge badge-${p.status}`}>
+                  {p.status === 'live' ? 'Live System' : p.status === 'in-development' ? 'In Development' : p.status}
+                </span>
+                <span class="role-badge">{p.role}</span>
+              </div>
+              <h3 class="preview-title">{p.title}</h3>
+              <p class="preview-outcome">{p.oneLine}</p>
+              <div class="preview-tech-list">
+                {p.tech.slice(0, 5).map((t) => (
+                  <span class="tech-pill">{t}</span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
@@ -227,19 +249,24 @@ const toolsList = [
           <a
             href={primaryCta.href}
             class="anim-action-cta anim-cta-primary btn btn-action-primary"
+            data-magnetic
           >
-            <span>{primaryCta.label}</span>
-            <span class="btn-arrow" aria-hidden="true">↓</span>
+            <span class="magnetic-content">
+              <span>{primaryCta.label}</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </span>
           </a>
 
           <a
             href={secondaryCta.href}
             class="anim-action-cta anim-cta-secondary btn btn-action-secondary"
+            data-magnetic
           >
-            <span>{secondaryCta.label}</span>
+            <span class="magnetic-content"><span>{secondaryCta.label}</span></span>
           </a>
         </div>
       </div>
+    </div>
     </div>
 
     <!-- Scroll Down Indicator (visible when animation finishes) -->
@@ -248,9 +275,16 @@ const toolsList = [
       <span class="down-arrow">↓</span>
     </a>
   </div>
+  </div>
+
+  <aside class="screening-edge screening-edge-right" aria-hidden="true">
+    <span>25 second story</span>
+    <span>Play · Pause · Seek</span>
+  </aside>
 </section>
 
 <script>
+  import gsap from 'gsap';
   import { MasterTimelineController } from './timeline/master-timeline';
   import { soundController } from './sound';
 
@@ -268,6 +302,95 @@ const toolsList = [
     const soundBtn     = document.getElementById('btn-anim-sound');
     const iconMuted    = soundBtn?.querySelector('.icon-muted')   as HTMLElement | null;
     const iconUnmuted  = soundBtn?.querySelector('.icon-unmuted') as HTMLElement | null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const interactionAbort = new AbortController();
+    let shouldHandoffOnComplete = true;
+    let handoffTween: gsap.core.Tween | null = null;
+
+    soundController.setAudience(audience);
+
+    const glideToPageContent = (): void => {
+      const proofSection = document.getElementById('proof-strip-section');
+      if (!proofSection) return;
+
+      if (prefersReducedMotion) {
+        proofSection.scrollIntoView();
+        return;
+      }
+
+      const startY = window.scrollY;
+      const targetY = startY + proofSection.getBoundingClientRect().top;
+      const scrollPosition = { y: startY };
+
+      handoffTween?.kill();
+      stageContainer.classList.add('is-handing-off');
+      handoffTween = gsap.to(scrollPosition, {
+        y: targetY,
+        duration: 1.15,
+        ease: 'power3.inOut',
+        overwrite: true,
+        onUpdate: () => window.scrollTo(0, scrollPosition.y),
+        onComplete: () => stageContainer.classList.remove('is-handing-off'),
+      });
+    };
+
+    if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      stageContainer.querySelectorAll<HTMLElement>('.project-preview-card').forEach((card) => {
+        const surface = card.querySelector<HTMLElement>('.project-card-tilt-surface');
+        if (!surface) return;
+
+        let tiltFrame = 0;
+        const setTilt = (rotateX: number, rotateY: number, depth: number): void => {
+          cancelAnimationFrame(tiltFrame);
+          tiltFrame = requestAnimationFrame(() => {
+            surface.style.setProperty('--card-tilt-x', `${rotateX.toFixed(2)}deg`);
+            surface.style.setProperty('--card-tilt-y', `${rotateY.toFixed(2)}deg`);
+            surface.style.setProperty('--card-tilt-z', `${depth}px`);
+          });
+        };
+
+        card.addEventListener('pointermove', (event) => {
+          const bounds = card.getBoundingClientRect();
+          const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
+          const vertical = (event.clientY - bounds.top) / bounds.height - 0.5;
+          card.classList.add('is-tilting');
+          setTilt(vertical * -9, horizontal * 11, 18);
+        }, { signal: interactionAbort.signal });
+
+        card.addEventListener('pointerleave', () => {
+          card.classList.remove('is-tilting');
+          setTilt(0, 0, 0);
+        }, { signal: interactionAbort.signal });
+
+        card.addEventListener('focus', () => setTilt(-1.5, 2, 14), { signal: interactionAbort.signal });
+        card.addEventListener('blur', () => setTilt(0, 0, 0), { signal: interactionAbort.signal });
+      });
+
+      stageContainer.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((button) => {
+        const content = button.querySelector<HTMLElement>('.magnetic-content');
+        if (!content) return;
+
+        let magneticFrame = 0;
+        const setMagneticOffset = (x: number, y: number): void => {
+          cancelAnimationFrame(magneticFrame);
+          magneticFrame = requestAnimationFrame(() => {
+            content.style.setProperty('--magnetic-x', `${x.toFixed(2)}px`);
+            content.style.setProperty('--magnetic-y', `${y.toFixed(2)}px`);
+          });
+        };
+
+        button.addEventListener('pointermove', (event) => {
+          const bounds = button.getBoundingClientRect();
+          setMagneticOffset(
+            (event.clientX - bounds.left - bounds.width / 2) * 0.16,
+            (event.clientY - bounds.top - bounds.height / 2) * 0.2,
+          );
+        }, { signal: interactionAbort.signal });
+
+        button.addEventListener('pointerleave', () => setMagneticOffset(0, 0), { signal: interactionAbort.signal });
+        button.addEventListener('blur', () => setMagneticOffset(0, 0), { signal: interactionAbort.signal });
+      });
+    }
 
     // ── Sound preference UI sync ──────────────────────────────────────────
     const isMuted = soundController.getMuted();
@@ -287,6 +410,17 @@ const toolsList = [
           progressFill.style.width = `${Math.min(100, Math.round(progress * 100))}%`;
         }
       },
+      onStageChange: (stage) => {
+        // Sync active state on chapter pills
+        const chapterPills = stageContainer.querySelectorAll('.chapter-pill');
+        chapterPills.forEach((pill, idx) => {
+          if (idx + 1 === stage) {
+            pill.classList.add('is-active');
+          } else {
+            pill.classList.remove('is-active');
+          }
+        });
+      },
       onStateChange: (state) => {
         if (state === 'playing') {
           if (iconPause) iconPause.style.display = 'inline';
@@ -298,16 +432,33 @@ const toolsList = [
           if (replayBtn)    replayBtn.style.display    = 'inline-flex';
           if (skipBtn)      skipBtn.style.display      = 'none';
           if (playPauseBtn) playPauseBtn.style.display = 'none';
+          if (shouldHandoffOnComplete) {
+            requestAnimationFrame(glideToPageContent);
+          }
         }
       },
     });
 
+    // ── Chapter scrubber click handling ─────────────────────────────────
+    const chapterPills = stageContainer.querySelectorAll('.chapter-pill');
+    chapterPills.forEach((pill) => {
+      pill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const seekTime = parseFloat((pill as HTMLElement).dataset.seek || '0');
+        controller.seek(seekTime);
+        if (!controller.isPlaying()) {
+          controller.play();
+        }
+      });
+    });
+
     // ── Decide whether to animate or skip straight to end ────────────────
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const alreadySeen          = sessionStorage.getItem(`eklavya_anim_seen_${audience}`) === 'true';
 
     if (prefersReducedMotion || alreadySeen) {
+      shouldHandoffOnComplete = false;
       controller.skip();
+      shouldHandoffOnComplete = true;
     } else {
       // Defer play until the browser is idle / after first paint
       // so GSAP doesn't compete with font/image decoding on load.
@@ -336,6 +487,7 @@ const toolsList = [
 
     skipBtn?.addEventListener('click', (e) => {
       e.stopPropagation();
+      shouldHandoffOnComplete = true;
       controller.skip();
     });
 
@@ -355,7 +507,11 @@ const toolsList = [
     });
 
     // ── Cleanup on SPA page swap (Astro View Transitions) ────────────────
-    document.addEventListener('astro:before-swap', () => controller.destroy(), { once: true });
+    document.addEventListener('astro:before-swap', () => {
+      interactionAbort.abort();
+      handoffTween?.kill();
+      controller.destroy();
+    }, { once: true });
   }
 
   // Run after the page is fully interactive (fonts + images decoded).
@@ -370,14 +526,114 @@ const toolsList = [
 
 <style>
   .anim-stage {
-    min-height: 85vh;
-    background-color: var(--stage-bg);
+    min-height: 100svh;
+    background:
+      radial-gradient(ellipse at 50% 48%, rgba(21, 74, 96, 0.36) 0%, rgba(7, 21, 30, 0.72) 44%, #03070c 100%);
     color: var(--stage-text);
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    perspective: 1200px;
+    isolation: isolate;
+  }
+
+  .anim-stage::before {
+    content: '';
+    position: absolute;
+    inset: 7% 20%;
+    background:
+      radial-gradient(circle at 32% 28%, rgba(59, 130, 246, 0.24), transparent 42%),
+      radial-gradient(circle at 68% 72%, rgba(16, 185, 129, 0.16), transparent 46%);
+    filter: blur(70px);
+    transform: scale(1.2);
+    opacity: 0.72;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .anim-screening-frame {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--stage-bg);
+    border: 1px solid rgba(96, 165, 250, 0.12);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.52);
+    transform-style: preserve-3d;
+    transition:
+      transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
+  .anim-screening-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0.055;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  .anim-stage.is-handing-off .anim-screening-frame {
+    transform: translate3d(0, -2.5vh, 0) scale(0.985);
+    opacity: 0.86;
+  }
+
+  .screening-edge {
+    display: none;
+  }
+
+  /* Ambient Continuous Background Drift (GPU-friendly) */
+  .anim-bg-drift {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .bg-mesh-gradient {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 75% 65%, rgba(16, 185, 129, 0.09) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(99, 102, 241, 0.1) 0%, transparent 42%);
+    animation: ambientGradientDrift 28s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .bg-subtle-grid {
+    position: absolute;
+    inset: 0;
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    opacity: 0.55;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    animation: subtleGridDrift 35s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes ambientGradientDrift {
+    0% { transform: translate3d(-3%, -2%, 0) scale(1); }
+    50% { transform: translate3d(2%, 3%, 0) scale(1.05); }
+    100% { transform: translate3d(3%, -3%, 0) scale(1); }
+  }
+
+  @keyframes subtleGridDrift {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(20px, 20px, 0); }
   }
 
   .anim-viewport {
@@ -389,14 +645,32 @@ const toolsList = [
     justify-content: center;
     padding-top: var(--space-12);
     padding-bottom: var(--space-8);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    z-index: 1;
+  }
+
+  /* Camera-like Rig for global dolly drift */
+  .anim-camera-rig {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    will-change: transform;
   }
 
   .stage-layer {
+    position: absolute;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
 
   /* ================= STAGE 1 STYLES ================= */
@@ -583,23 +857,61 @@ const toolsList = [
 
   .anim-projects-viewport {
     width: 100%;
-    min-height: 160px;
+    min-height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    perspective: 900px;
+    transform-style: preserve-3d;
   }
 
   .project-preview-card {
-    background: rgba(22, 27, 38, 0.85);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    border-radius: var(--radius-card);
-    padding: var(--space-6);
     max-width: 600px;
     width: 100%;
-    display: none;
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    pointer-events: none;
+    outline: none;
+  }
+
+  .project-card-tilt-surface {
+    --card-tilt-x: 0deg;
+    --card-tilt-y: 0deg;
+    --card-tilt-z: 0px;
+    width: 100%;
+    display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    padding: var(--space-6);
+    background: rgba(22, 27, 38, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: var(--radius-card);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    transform:
+      rotateX(var(--card-tilt-x))
+      rotateY(var(--card-tilt-y))
+      translateZ(var(--card-tilt-z));
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition:
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+    will-change: transform;
+  }
+
+  .project-preview-card.is-tilting .project-card-tilt-surface {
+    border-color: rgba(96, 165, 250, 0.68);
+    box-shadow: 0 26px 58px rgba(0, 0, 0, 0.68), 0 0 28px rgba(59, 130, 246, 0.12);
+    transition-duration: 90ms, 220ms, 220ms;
+  }
+
+  .project-preview-card:focus-visible .project-card-tilt-surface {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-color: rgba(96, 165, 250, 0.72);
   }
 
   .preview-badge-row {
@@ -886,7 +1198,6 @@ const toolsList = [
 
   .btn-action-primary:hover {
     background-color: #2563EB;
-    transform: translateY(-2px);
   }
 
   .btn-action-secondary {
@@ -897,12 +1208,32 @@ const toolsList = [
     border-radius: var(--radius-button);
     font-weight: 600;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
     transition: all 0.2s ease;
   }
 
   .btn-action-secondary:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .magnetic-content {
+    --magnetic-x: 0px;
+    --magnetic-y: 0px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transform: translate3d(var(--magnetic-x), var(--magnetic-y), 0) scale(1);
+    transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .anim-action-cta:hover .magnetic-content,
+  .anim-action-cta:focus-visible .magnetic-content {
+    transform: translate3d(var(--magnetic-x), var(--magnetic-y), 0) scale(1.045);
+    transition-duration: 90ms;
   }
 
   /* Scroll Down Indicator */
@@ -934,6 +1265,179 @@ const toolsList = [
     0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
     40% { transform: translate(-50%, -6px); }
     60% { transform: translate(-50%, -3px); }
+  }
+
+  @media (min-width: 1100px) and (min-height: 760px) {
+    .anim-screening-frame {
+      width: clamp(390px, 46.18svh, 560px);
+      height: 100svh;
+      min-height: 0;
+      box-shadow:
+        0 0 0 1px rgba(96, 165, 250, 0.12),
+        0 0 100px rgba(0, 0, 0, 0.74),
+        0 0 72px rgba(37, 99, 235, 0.12);
+    }
+
+    .screening-edge {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 20vw;
+      transform: translateY(-50%);
+      color: rgba(148, 163, 184, 0.62);
+      font-size: 0.66rem;
+      line-height: 1.8;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .screening-edge-left {
+      left: 5vw;
+    }
+
+    .screening-edge-right {
+      right: 5vw;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .screening-edge strong {
+      max-width: 220px;
+      color: rgba(226, 232, 240, 0.92);
+      font-size: clamp(1.2rem, 2vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: 0.08em;
+    }
+
+    .screening-edge-kicker::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      margin-top: 18px;
+      background: rgba(96, 165, 250, 0.46);
+    }
+
+    .anim-viewport {
+      height: 100%;
+      min-height: 100%;
+      padding: 72px 22px 48px;
+    }
+
+    .anim-camera-rig {
+      min-height: calc(100svh - 120px);
+    }
+
+    .identity-main {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      text-align: center;
+    }
+
+    .identity-top,
+    .tags-cluster {
+      justify-content: center;
+    }
+
+    .identity-text-col {
+      align-items: center;
+    }
+
+    .identity-photo-col {
+      order: -1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      width: 112px;
+      height: 112px;
+    }
+
+    .display-title {
+      font-size: clamp(2rem, 4.8svh, 3rem);
+    }
+
+    .supporting-line {
+      font-size: 0.94rem;
+    }
+
+    .stage-proof {
+      gap: var(--space-4);
+    }
+
+    .stage-heading {
+      font-size: clamp(1.35rem, 3svh, 1.9rem);
+    }
+
+    .anim-stats-row {
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+
+    .stat-item {
+      min-width: 0;
+      flex: 1 1 0;
+      padding: 10px 8px;
+    }
+
+    .stat-number-wrap {
+      font-size: 1.65rem;
+    }
+
+    .stat-suffix,
+    .stat-prefix {
+      font-size: 0.95rem;
+    }
+
+    .anim-projects-viewport {
+      min-height: 210px;
+    }
+
+    .project-card-tilt-surface {
+      padding: 18px;
+    }
+
+    .anim-tools-strip {
+      align-items: flex-start;
+    }
+
+    .tools-label {
+      display: none;
+    }
+
+    .tools-pills-wrap {
+      justify-content: center;
+    }
+
+    .journey-nodes-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .journey-spine-svg {
+      display: none;
+    }
+
+    .journey-track-wrap {
+      padding: var(--space-3) 0;
+    }
+
+    .journey-node-card {
+      padding: 12px;
+    }
+
+    .arch-nodes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-card-content {
+      padding-inline: 10px;
+    }
   }
 
   @media (max-width: 768px) {

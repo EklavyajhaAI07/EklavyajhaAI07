@@ -48,10 +48,10 @@ The build fails if any of these are broken (`content-schema.md` section 5):
 - "AI Engineer" is used as his title (the phrase "Learning AI Engineering" is fine)
 - a demo template is described as client work
 
-The email address is never stored in content files. It is set as a secret in the host (`CONTACT_TO_EMAIL`).
+The email address is never stored in content files. Web3Forms associates the server-side `WEB3FORMS_ACCESS_KEY` with the verified recipient inbox.
 
 ## 5. Deploy
-Full steps in `docs/deployment.md`. In short: push to `main` of this private repo, Cloudflare builds and deploys, and every other branch gets a preview address. Secrets (names only here): `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, `CONTACT_TO_EMAIL`, the email provider key, `UMAMI_WEBSITE_ID`. Copy `.env.example` for local work; never commit real values.
+Full steps in `docs/deployment.md`. In short: push to `main` of this private repo, Cloudflare builds and deploys, and every other branch gets a preview address. Configuration names only: `PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, `WEB3FORMS_ACCESS_KEY`, `UMAMI_WEBSITE_ID`. Copy `.env.example` for local work; never commit real values.
 
 ## 6. Check quality
 Before every launch or big change, run through `docs/qa-checklist.md`. After every deploy, do the 3-minute live check in its section 11.

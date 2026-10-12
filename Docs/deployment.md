@@ -12,10 +12,10 @@
 |---|---|---|
 | Repository | The existing GitHub repo. The new portfolio replaces the old code. Built on a branch first. | LOCKED |
 | Repo visibility | Private, switched **after** the new host is live | DECIDED |
-| Host | Move off GitHub Pages to **Cloudflare** (Workers with static assets; Cloudflare Pages is the equal fallback) | PROPOSED |
+| Host | **Cloudflare Pages with Git integration**; the existing root `/functions` directory supplies the contact endpoint | DECIDED |
 | Domain | Keep `eklavya.dpdns.org` for now. No purchase. | LOCKED |
 | Old-site redirect | Not needed: same domain, same repo, old code is replaced | LOCKED |
-| Contact form | Cloudflare Worker plus Turnstile (`connect-and-forms.md`) | DECIDED |
+| Contact form | Cloudflare Pages Function plus Turnstile and Web3Forms (`connect-and-forms.md`) | DECIDED |
 | Analytics | Umami Cloud, free Hobby plan | DECIDED |
 | Cost | 0 | |
 
@@ -28,12 +28,12 @@
 
 | Option | Works for this site? | Trade-off |
 |---|---|---|
-| **A. Cloudflare Workers with static assets** (recommended) | Yes: static pages, form endpoint, Turnstile, custom domain | Cloudflare now recommends it for new projects. Slightly newer setup than Pages. |
-| B. Cloudflare Pages | Yes, same result for this site. Pages Functions can run the form. | Still supported, but new features go to Workers. |
+| **A. Cloudflare Pages** (selected) | Yes: Astro static pages plus the existing Pages Function, previews and custom domain | Use Git integration so the root `/functions` directory is deployed. |
+| B. Cloudflare Workers with static assets | Possible after migrating the Pages Function into the Worker entrypoint | Do not select this without making that code migration first. |
 | C. Stay on GitHub Pages | Static site only | Repo must stay public, form needs a third-party service, no own endpoint |
 | D. Netlify or Vercel | Possible | Free-plan terms for a portfolio that wins paid work were not checked. **ASK** before considering. |
 
-The choice between A and B is not visible to visitors. The agent uses A unless a framework adapter works better with B.
+The choice between A and B is not visible to visitors. This repository currently implements option A.
 
 ## 4. The domain: what to know
 - `eklavya.dpdns.org` is a free name from DigitalPlat FreeDomain. DigitalPlat does not host DNS, so you point the name to an outside DNS provider by setting nameservers in their dashboard. Cloudflare's free DNS is the standard choice.
@@ -48,9 +48,9 @@ The choice between A and B is not visible to visitors. The agent uses A unless a
 
 ## 6. Cutover steps (do in order)
 1. Create a free Cloudflare account.
-2. In Cloudflare, create a new project from the GitHub repo. Start with the `rebuild` branch so you get a preview. Build command and output folder depend on the framework (set in `tech-stack.md` once chosen).
+2. In Cloudflare: **Workers & Pages -> Create -> Pages -> Connect to Git**. Select this GitHub repository and start with the working branch for a preview. Use build command `npm run build`, build output directory `dist/client`, root directory `/`, and Node.js `22` or newer. Do not use Direct Upload because this site needs the root `/functions` directory.
 3. Add the secrets from section 7.
-4. Test the preview address (the free `workers.dev` or `pages.dev` address) with `qa-checklist.md`. **Nothing changes for visitors yet.**
+4. Test the generated `pages.dev` preview with `qa-checklist.md`, including a real contact-form submission. **Nothing changes for visitors yet.**
 5. **Cutover day.** In Cloudflare, add `eklavya.dpdns.org` as a site on the **Free** plan. Copy the two nameservers it gives you.
 6. In the DigitalPlat dashboard, replace the nameservers with Cloudflare's two. Wait until Cloudflare shows the site as **Active** (minutes to a few hours).
 7. In the Cloudflare project, add `eklavya.dpdns.org` (and `www`) as custom domains. Wait for the certificate to become active.
@@ -61,16 +61,15 @@ The choice between A and B is not visible to visitors. The agent uses A unless a
 12. Add the domain to Google Search Console with the DNS TXT method, and submit the sitemap (`seo.md` section 11).
 13. Add the new site to your LinkedIn Website field and GitHub profile.
 
-**If the nameserver change does not work** (dashboard issue or domain problem): the site still works on the free `workers.dev` / `pages.dev` address. Share that address until the domain is fixed, and keep GitHub Pages running for the old domain meanwhile.
+**If the nameserver change does not work** (dashboard issue or domain problem): the site still works on its free `pages.dev` address. Share that address until the domain is fixed, and keep GitHub Pages running for the old domain meanwhile.
 
 ## 7. Secrets and environment (names only, no values in the repo)
 
 | Name | Type | Purpose |
 |---|---|---|
-| `TURNSTILE_SITE_KEY` | public | Turnstile widget on the form |
+| `PUBLIC_TURNSTILE_SITE_KEY` | public | Turnstile widget on the form (Astro exposes only `PUBLIC_` variables to browser code) |
 | `TURNSTILE_SECRET` | secret | Server-side token check |
-| `CONTACT_TO_EMAIL` | secret | Where form messages go, and the click-to-mail value |
-| Email provider key | secret | Sending form mail (name depends on provider) |
+| `WEB3FORMS_ACCESS_KEY` | secret | Server-side delivery; Web3Forms links this key to the recipient inbox |
 | `UMAMI_WEBSITE_ID` | public | Analytics script |
 
 Secrets are set in the Cloudflare dashboard. Local copies live in git-ignored files. A `.env.example` with empty values is committed so you can see what is needed.

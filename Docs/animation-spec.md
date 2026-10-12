@@ -24,9 +24,16 @@ In about 25 seconds, each audience page answers three questions for its visitor:
 - Deterministic: the same `t` always produces the same frame. No unseeded randomness. (This makes the Phase 2 reels possible.)
 - Library: GSAP or Framer Motion (free). If neither fits, **ASK**.
 - Timeline is built from data. Durations adapt to the data (see section 7), but total length never exceeds 25 seconds.
-- Animate `transform` and `opacity` only. No layout-triggering properties (no animating `width`, `height`, `top`, `left`).
-- Use `will-change` sparingly and remove it after use.
+- Animate `transform` and `opacity` only (plus GPU-accelerated CSS `filter: blur()` for depth-of-field effects). No layout-triggering properties (no animating `width`, `height`, `top`, `left`).
+- Use `will-change: transform, opacity` sparingly on active layers and clean it up.
 - Target 60 fps on mid-range phones.
+
+### 3.1 Motion Quality & Cinematic Principles (UPGRADED)
+- **Cinematic Transitions (Cross-fade + Scale + Parallax Depth):** Replace simple slide/fade transitions with smooth cross-fade + scale transitions accompanied by subtle 3D parallax depth (`perspective: 1000px`, `translateZ`, `rotateX/Y` in subtle bounds). This creates a continuous, high-production video flow rather than abrupt slide-ins.
+- **Overlap Transitions (No Hard Cuts):** Stage-to-stage cuts are never hard. Consecutive stages overlap smoothly (e.g., as stage N begins its fade-out and gentle scale-out, stage N+1 starts fading in and scaling into focus concurrently).
+- **Consistent Camera Glide Easing:** Replace linear and generic ease-out with a unified custom cubic-bezier (smooth "camera glide" feel, e.g. `cubic-bezier(0.16, 1, 0.3, 1)` or `cubic-bezier(0.25, 1, 0.5, 1)`) consistently applied across all stage elements and camera shifts.
+- **Camera-like Movement (Global Drift):** The entire stage content container maintains a subtle, continuous `transform: scale/translate` drift (2-3% slow zoom / pan over time) across the animation timeline, mimicking a physical camera slowly gliding on a dolly.
+- **Continuous Background Motion:** Behind the dark stage, a persistent, GPU-friendly ambient background runs continuously throughout the entire 25 seconds (slow-moving gradient drift or subtle CSS/SVG particle/grid drift). This provides a constant sense of depth and evokes an active "video rendering through" feel without interfering with readability.
 
 ## 4. Controls and states
 | Element | Behaviour |
@@ -54,39 +61,41 @@ States to handle:
 | 3. Hard work | 15-21s | How he got here |
 | 4. Action | 21-25s | What to do next |
 
+> **Stage Overlap Rule:** Consecutive stages overlap by ~0.4–0.6s. As the outgoing stage gently recedes (`scale: 0.98`, `opacity: 0`), the incoming stage emerges (`scale: 1.02 -> 1.0`, `opacity: 1`, parallax `translateZ`), keeping the motion unbroken.
+
 ### Stage 1 · Identity (0-5s)
 | Time | Beat | Motion (PROPOSED) |
 |---|---|---|
-| 0.0-1.0 | Logo / initials mark | Draws in, then settles to the corner |
-| 1.0-2.5 | Name | Letter by letter or masked line reveal |
+| 0.0-1.0 | Logo / initials mark | Draws in with smooth 3D depth settle, anchors to the corner |
+| 1.0-2.5 | Name | Letter by letter / masked line reveal with smooth camera-glide easing |
 | 2.0-3.5 | Role line | Types in word by word, key words in `--accent` |
-| 3.0-4.5 | Profession tags | Pop in one by one, 0.15s stagger |
-| 3.5-5.0 | College name and details, professional photo | Photo slides in, details fade up |
+| 3.0-4.5 | Profession tags | Pop in with subtle scale (0.9 to 1.0) & stagger (0.15s) |
+| 3.5-5.0 | College name and details, professional photo | Photo cross-fades & scales smoothly into place in a light rounded frame; details fade up |
 
 Content sources: role line, tags, college and education from `content-brief.md` sections 1 and 2; hero lines and end-card lines from `copy-deck.md` (first option is the default). Photo: `assets/eklavya-photo.png`. It has a white background, so place it in a light rounded frame on the dark stage or remove the background.
 
 ### Stage 2 · Proof of work (5-15s)
 Beat order is the same, content differs per page (section 6).
-| Time | Beat | Motion (PROPOSED) |
+| Time | Beat | Motion (UPGRADED) |
 |---|---|---|
-| 5.0-8.0 | Stat cards (real numbers only) | Count up with ease-out |
-| 8.0-13.0 | Featured project cards (real screenshots) | Slide in one at a time with soft blur, hold about 1.2s each |
-| 13.0-15.0 | Tools / tech | Pills fly past, or icons assemble into a system |
+| 5.0-8.0 | Stat cards (real numbers only) | Count up with camera-glide cubic-bezier curve + subtle scale settle |
+| 8.0-13.0 | Featured project cards (real screenshots) | **Scale + blur-to-focus** (`scale: 0.9` & `filter: blur(8px)` -> `scale: 1.0` sharp, depth-of-field rack shot). **Overlapping sequence:** each next card begins its peek-in before the previous card fully settles, creating continuous flow instead of stepped slides. Hold ~1.2s each |
+| 13.0-15.0 | Tools / tech | Pills fly past with subtle depth parallax, or icons assemble into a cohesive system |
 
 Content sources (`content-brief.md`): stats from section 7, max 3 (5x Hackathon Finalist; Odoo Grand Finale selected from 20,000+ applicants; Cognivia 4th of 152 teams). Featured projects from section 5.1: Vasudha, Dealflow360, Viral AI (cap 4, three exist), each with its status badge (Live / In development). Dealflow360 shows no repo or GitHub button. Planned features (double-entry bookkeeping, owner assistant) never animate as live; show them only under "Coming soon" outside the animation. Demo templates never appear in the animation. Tools/tech only from the skills evidenced in section 4.
 
 ### Stage 3 · Hard work (15-21s)
 | Time | Beat | Motion (PROPOSED) |
 |---|---|---|
-| 15.0-21.0 | Learning and building journey (education, programs, milestones) | Timeline travels left to right, one node per milestone |
+| 15.0-21.0 | Learning and building journey (education, programs, milestones) | Timeline glides along a smooth camera track (left to right), nodes reveal with scale & subtle parallax |
 
 Content: the milestones in `content-brief.md` section 8. No invented hours, streaks or numbers.
 
 ### Stage 4 · Action (21-25s)
 | Time | Beat | Motion (PROPOSED) |
 |---|---|---|
-| 21.0-23.0 | End-card line | Fades up |
-| 22.0-25.0 | Primary CTA (+ secondary) | Gentle pulse, then a sticky CTA bar remains |
+| 21.0-23.0 | End-card line | Cross-fades up with gentle forward scale settle |
+| 22.0-25.0 | Primary CTA (+ secondary) | Subtle pulse and glow settle, then transitions smoothly into the sticky CTA bar |
 
 CTA labels and end-card lines come from `copy-deck.md`. Connect actions follow `content-brief.md` section 12: email only as a click-to-mail button (the address is never shown as text), LinkedIn, GitHub, X, Discord as a "Copy Discord username" button, Instagram on the Clients page only, and the contact form. No call booking.
 

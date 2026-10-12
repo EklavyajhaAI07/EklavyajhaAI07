@@ -115,7 +115,7 @@ eklavyajhaAI07/
 |   |   |   +-- viral-content-ai/
 |   |   +-- og/
 |   |   +-- brand/
-|   +-- Eklavya-Jha-Resume.pdf
+|   +-- eklavya-jha-resume.pdf
 |
 +-- private-proofs/          (NOT published; in .gitignore)
 |   +-- ecell-iitb-campus-ambassador-offer-letter.png

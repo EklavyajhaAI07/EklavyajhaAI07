@@ -1,7 +1,7 @@
 # tech-stack.md — Technology Decisions
 
 > Read together with `CLAUDE.md`. Global rules there apply here. Facts and decisions about Eklavya and the site content: `content-brief.md` (FINAL v5, it wins on any conflict).
-> **Nothing in section 3 is final.** Eklavya has not approved a stack yet. The agent must present the options and get his approval BEFORE installing or scaffolding anything.
+> Implementation status: Astro, TypeScript, plain CSS, GSAP, Cloudflare Pages, Web3Forms and Umami are now selected and present in the repository.
 > Tags: **LOCKED** = approved · **PROPOSED** = needs his approval · **ASK** = must ask, never assume.
 
 ---
@@ -23,7 +23,7 @@
 - Fewer dependencies, smaller bundles, no vendor lock-in for content.
 - Every external service must have a free tier that is enough for a portfolio. Verify current free-tier limits and terms before depending on them, especially whether a portfolio used to attract paid freelance work is allowed on the free plan.
 
-## 3. Proposed stack (PROPOSED, pending approval)
+## 3. Implemented stack
 
 ### 3.1 Framework
 | Option | Why | Trade-off |
@@ -31,7 +31,7 @@
 | **A. Next.js (React) with static generation** | React-based, static HTML for SEO, file-based routes for the three audience pages, large ecosystem | Heavier than needed for a mostly static site |
 | **B. Astro** | Ships very little JavaScript, excellent for content-heavy SEO sites, animation can be loaded as isolated islands | Different mental model if he wants to stay fully in React |
 
-**Suggested default:** Option A if Eklavya wants to stay in React, Option B if he prefers the lightest possible site. **Decision: ASK.**
+**Implemented:** Astro with static output and TypeScript.
 
 ### 3.2 Language and quality
 - TypeScript (**PROPOSED**), ESLint and Prettier.
@@ -43,8 +43,7 @@
 - Self-hosted or framework-optimized Inter font (no render-blocking font stylesheet).
 
 ### 3.4 Animation
-- GSAP or Framer Motion (both free). One master timeline per page, DOM and SVG only, as defined in `animation-spec.md`.
-- Final library choice: **ASK** or present a short comparison and let him choose.
+- GSAP drives one master timeline per audience page. Core animation uses DOM and SVG only, as defined in `animation-spec.md`.
 
 ### 3.5 Content
 - JSON or Markdown/MDX files, one set per audience page, plus shared files where content is genuinely shared (identity, links).
@@ -59,7 +58,7 @@
 - Form service: **ASK** (agent proposes free options).
 
 ### 3.7 Hosting, domain, deployment
-- Candidate hosts with free tiers: Vercel, Netlify, Cloudflare Pages. **Verify each plan's free-tier terms for this use case before choosing.** Final choice: **ASK**.
+- Cloudflare Pages with Git integration. Build command: `npm run build`; output directory: `dist/client`. The root `/functions` directory provides `/api/contact`.
 - Auto-deploy from a GitHub repository (main branch to production, pull requests to previews).
 - Custom domain: needed or not, name, and budget: **ASK**. Domain purchase is a paid item and requires his approval.
 - HTTPS enforced, `www` and non-`www` redirect rules defined.
@@ -102,16 +101,12 @@ Exact layout depends on the chosen framework.
 - Animation code loaded after the main content.
 - Lighthouse score of 90 or more on performance, accessibility, best practices and SEO for each page.
 
-## 7. Approval needed before any setup (ASK Eklavya)
-1. Framework: Next.js (React) or Astro?
-2. Comfort level: what is he comfortable maintaining? React, TypeScript, Tailwind, Markdown?
-3. Animation library: GSAP or Framer Motion?
-4. Hosting provider (after verifying free-tier terms)?
-5. Custom domain: yes or no, name, budget?
-6. Analytics tool?
-7. Form service? (call booking is out of scope)
-8. GitHub: new repository name and visibility?
+## 7. Decisions already implemented
+- Framework: Astro with TypeScript and static output.
+- Styling and animation: plain CSS plus GSAP; core visuals use DOM and SVG only.
+- Hosting: Cloudflare Pages with Git integration and Pages Functions.
+- Domain: keep the existing custom domain.
+- Analytics: Umami.
+- Contact delivery: Turnstile plus server-side Web3Forms forwarding; no call-booking tool.
 
-The agent must not scaffold the project until questions 1-4 are answered.
-
-**Update:** `deployment.md` now proposes answers for 4 (Cloudflare Workers with static assets), 5 (keep `eklavya.dpdns.org`), 6 (Umami Cloud Hobby) and 8 (a new private portfolio repo; the profile repo stays public). Questions 1, 2, 3 and 7 are still open (7 is the email-sending provider, see `connect-and-forms.md` section 6).
+Any future paid service or major stack migration still requires approval.

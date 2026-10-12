@@ -5,6 +5,9 @@ import { createJourneyStageTimeline } from './stage-journey';
 import { createActionStageTimeline }  from './stage-action';
 import { soundController }            from '../sound';
 
+// Shared cinematic easing for continuous camera glide feel
+export const CAMERA_GLIDE = 'cubic-bezier(0.16, 1, 0.3, 1)';
+
 export interface MasterTimelineOptions {
   container: HTMLElement;
   audience: 'recruiter' | 'teams' | 'clients';
@@ -46,17 +49,33 @@ export class MasterTimelineController {
   }
 
   private buildTimeline(): void {
-    // Each sub-timeline starts at a fixed absolute position.
-    // Stage 2 now starts at 4.95 (matches identity exit at ~4.75).
-    this.tl.add(createIdentityStageTimeline(this.container),  0);
-    this.tl.add(createProofStageTimeline(this.container),     4.95);
-    this.tl.add(createJourneyStageTimeline(this.container),   14.95);
-    this.tl.add(createActionStageTimeline(this.container, () => this.handleComplete()), 20.95);
+    // ── Global Camera-like Movement (continuous dolly zoom & micro pan) ───
+    const cameraRig = this.container.querySelector<HTMLElement>('#anim-camera-rig');
+    if (cameraRig) {
+      this.tl.fromTo(
+        cameraRig,
+        { scale: 1.0, x: 0, y: 0 },
+        { scale: 1.026, x: -8, y: -5, duration: 25.0, ease: 'sine.inOut' },
+        0
+      );
+    }
+
+    // ── Overlapping Stage Timelines (no hard cuts) ────────────────────────
+    // Stage 1: 0.0s – 4.95s (exit begins at 4.4s)
+    // Stage 2: 4.45s – 14.95s (enters while Stage 1 exits, exit begins at 14.4s)
+    // Stage 3: 14.45s – 20.95s (enters while Stage 2 exits, exit begins at 20.4s)
+    // Stage 4: 20.45s – 25.0s (enters while Stage 3 exits)
+    // Each child timeline is authored against the shared 0–25s clock, so they
+    // all mount at zero. Offsetting them here would apply each cue twice.
+    this.tl.add(createIdentityStageTimeline(this.container), 0);
+    this.tl.add(createProofStageTimeline(this.container), 0);
+    this.tl.add(createJourneyStageTimeline(this.container), 0);
+    this.tl.add(createActionStageTimeline(this.container, () => this.handleComplete()), 0);
 
     // Audio cue markers on stage transitions
-    this.tl.call(() => soundController.playWhoosh(0.12), undefined, 5.0);
-    this.tl.call(() => soundController.playWhoosh(0.12), undefined, 15.0);
-    this.tl.call(() => soundController.playChime(),      undefined, 21.2);
+    this.tl.call(() => soundController.playWhoosh(0.12), undefined, 4.8);
+    this.tl.call(() => soundController.playWhoosh(0.12), undefined, 14.8);
+    this.tl.call(() => soundController.playChime(),      undefined, 20.8);
   }
 
   private setupListeners(): void {
@@ -157,7 +176,9 @@ export class MasterTimelineController {
 
   public skip(): void {
     soundController.fadeOut();
-    this.tl.seek(25.0);
+    // Jump to the resolved end-state without firing nested callbacks first;
+    // handleComplete remains the single completion path for UI and hand-off.
+    this.tl.pause(25.0, true);
     this.handleComplete();
   }
 

@@ -22,7 +22,7 @@ public/
     projects/<project-id>/        screenshots, WebP
     og/                           home, recruiter, teams, clients  (1200x630)
     brand/                        mark.svg, favicons
-  Eklavya-Jha-Resume.pdf
+    eklavya-jha-resume.pdf
 private-proofs/                   NOT published, NOT in public/
   ecell-iitb-campus-ambassador-offer-letter.png
   bharatiya-antariksh-certificate.png
@@ -39,7 +39,7 @@ Path note: `content-brief.md` (sections 9, 16) and `content-schema.md` (sections
 | 2 | Offer letter (proof only) | YOU | Teams page (text only, image never shown without approval) | private | Received at `assets/proofs/ecell-iitb-campus-ambassador-offer-letter.png` (the path named in `content-brief.md`); move it into `private-proofs/` in the repo |
 | 3 | Bharatiya Antariksh certificate image | YOU | Teams, hackathon row | private | Promised, not shared. Until then the row shows "Participant" with no proof link. |
 | 4 | Screenshots of blocked proof links | YOU, only if asked | Hackathon and certificate rows | private, PNG or JPG | As needed |
-| 5 | Resume PDF | AGENT drafts, YOU review | Recruiter page | `Eklavya-Jha-Resume.pdf`, 1 to 2 pages, real selectable text, no phone number. **ASK:** does the resume show an email address, or only LinkedIn and GitHub? | Not started |
+| 5 | Resume PDF | YOU provide, AGENT integrates | Recruiter page | `public/assets/eklavya-jha-resume.pdf`, 1 to 2 pages, real selectable text, no phone number | Received and linked from the recruiter page |
 | 6 | Project screenshots | AGENT captures | project cards, animation | WebP, width 1600, 2 to 5 per project, under about 200 KB each, alt text. Projects: Vasudha, Dealflow360, Viral AI (its README already has two). | Not started |
 | 7 | Logo / initials mark | BOTH | intro, favicon | 2 options as SVG, you pick one | Not started |
 | 8 | Favicon and app icons | AGENT | all pages | from the chosen mark | After #7 |
@@ -48,7 +48,7 @@ Path note: `content-brief.md` (sections 9, 16) and `content-schema.md` (sections
 | 11 | Demo-template screenshots | AGENT | Clients page | WebP, captured from the two demo sites, optional | Not started |
 | 12 | Inter font files | AGENT | all pages | self-hosted, WOFF2, weights 400 to 700 | Not started |
 
-Decisions only you can make: pick the logo option (#7), approve what to blur or hide in Vasudha screenshots (#6, it is client data), approve the per-page stat selection, and answer the resume email question (#5).
+Decisions only you can make: pick the logo option (#7), approve what to blur or hide in Vasudha screenshots (#6, it is client data), and approve the per-page stat selection.
 
 ## 4. Simple steps for you (VS Code, Windows)
 1. **Rename `Public` to `public`.** If VS Code keeps the old capital letter, run in the terminal: `git mv Public tmp` then `git mv tmp public`. (If the folder is not tracked yet, just rename it twice.)

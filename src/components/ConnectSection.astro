@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { currentAudience = 'home' } = Astro.props;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 // Audience select prefill mapping
 const prefillMap: Record<string, string> = {
@@ -120,19 +121,23 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
       <div class="form-card card">
         <h3 class="form-title">Send a Message</h3>
         <form
-          action="https://api.web3forms.com/submit"
+          action="/api/contact"
           method="POST"
           id="contact-form"
           class="contact-form"
         >
-          <!-- Web3Forms public key placeholder -->
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value={`Portfolio inquiry from ${currentAudience} page`} />
-          <input type="hidden" name="source_page" value={currentAudience} />
-          <input type="hidden" name="render_time" id="form-render-time" value="" />
+          <input type="hidden" name="sourcePage" value={currentAudience} />
+          <input type="hidden" name="renderTime" id="form-render-time" value="" />
 
           <!-- Honeypot spam trap -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+          <input
+            type="text"
+            name="honeypot"
+            class="form-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
 
           <div class="form-group">
             <label for="form-name">Full Name <span class="req">*</span></label>
@@ -199,7 +204,17 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-submit" id="btn-submit-form">
+          <div
+            id="contact-turnstile"
+            class="contact-turnstile"
+            data-sitekey={turnstileSiteKey || ''}
+            aria-label="Spam protection"
+          ></div>
+          {!turnstileSiteKey && (
+            <p class="form-config-note">Contact form is temporarily unavailable.</p>
+          )}
+
+          <button type="submit" class="btn btn-submit" id="btn-submit-form" disabled={!turnstileSiteKey}>
             Send Message
           </button>
           <div id="form-result" class="form-feedback" aria-live="polite"></div>
@@ -240,12 +255,49 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   // Render timestamp for anti-spam detection
   const renderTimeInput = document.getElementById('form-render-time') as HTMLInputElement | null;
   if (renderTimeInput) {
-    renderTimeInput.value = new Date().toISOString();
+    renderTimeInput.value = Date.now().toString();
+  }
+
+  type TurnstileApi = {
+    render: (container: HTMLElement, options: Record<string, unknown>) => string;
+    reset: (widgetId: string) => void;
+  };
+  const browserWindow = window as typeof window & { turnstile?: TurnstileApi };
+  const turnstileContainer = document.getElementById('contact-turnstile');
+  let turnstileWidgetId: string | null = null;
+
+  const renderTurnstile = (): void => {
+    const sitekey = turnstileContainer?.dataset.sitekey;
+    if (!turnstileContainer || !sitekey || !browserWindow.turnstile || turnstileWidgetId) return;
+
+    turnstileWidgetId = browserWindow.turnstile.render(turnstileContainer, {
+      sitekey,
+      action: 'contact',
+      theme: 'auto',
+      size: 'flexible',
+    });
+  };
+
+  if (turnstileContainer?.dataset.sitekey) {
+    if (browserWindow.turnstile) {
+      renderTurnstile();
+    } else if (!document.querySelector('script[data-turnstile-script]')) {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.dataset.turnstileScript = 'true';
+      script.addEventListener('load', renderTurnstile, { once: true });
+      document.head.appendChild(script);
+    } else {
+      document.querySelector('script[data-turnstile-script]')?.addEventListener('load', renderTurnstile, { once: true });
+    }
   }
 
   // Form AJAX submission handling
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const result = document.getElementById('form-result');
+  const submitButton = document.getElementById('btn-submit-form') as HTMLButtonElement | null;
   if (form && result) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -253,32 +305,44 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
       result.className = 'form-feedback info';
 
       const formData = new FormData(form);
+      if (!formData.get('cf-turnstile-response')) {
+        result.textContent = 'Please complete the spam protection check.';
+        result.className = 'form-feedback error';
+        return;
+      }
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
       try {
-        // Try Cloudflare Pages Function endpoint first, fallback to Web3Forms
-        let res = await fetch('/api/contact', {
+        const res = await fetch('/api/contact', {
           method: 'POST',
           body: formData,
         });
 
-        if (res.status === 404) {
-          res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData,
-          });
-        }
-
         const data = await res.json();
-        if (data.ok || data.success) {
+        if (res.ok && data.ok) {
           result.textContent = 'Thank you! Your message has been sent successfully.';
           result.className = 'form-feedback success';
           form.reset();
+          if (renderTimeInput) renderTimeInput.value = Date.now().toString();
         } else {
-          result.textContent = data.error || data.message || 'Something went wrong. Please reach out via LinkedIn or email.';
+          result.textContent = data.error || 'Something went wrong. Please reach out via LinkedIn or email.';
           result.className = 'form-feedback error';
         }
       } catch (error) {
         result.textContent = 'Unable to send message right now. Please connect via LinkedIn or email.';
         result.className = 'form-feedback error';
+      } finally {
+        if (turnstileWidgetId && browserWindow.turnstile) {
+          browserWindow.turnstile.reset(turnstileWidgetId);
+        }
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        }
       }
     });
   }
@@ -394,6 +458,26 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
     gap: var(--space-4);
   }
 
+  .form-honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+  }
+
+  .contact-turnstile {
+    width: 100%;
+    min-height: 65px;
+  }
+
+  .form-config-note {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -449,6 +533,12 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   .btn-submit:hover {
     background-color: #173FB5;
     transform: translateY(-1px);
+  }
+
+  .btn-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
   }
 
   .form-feedback {

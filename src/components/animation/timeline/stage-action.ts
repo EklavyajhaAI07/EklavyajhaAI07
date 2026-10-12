@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { CAMERA_GLIDE } from './master-timeline';
 
 export function createActionStageTimeline(
   container: HTMLElement,
@@ -17,41 +18,42 @@ export function createActionStageTimeline(
   ctaButtons.forEach(btn => (btn.style.willChange = 'opacity, transform'));
   if (endCardLine) endCardLine.style.willChange = 'opacity, transform';
   if (actionGlow)  actionGlow.style.willChange  = 'opacity, transform';
+  stage4.style.willChange = 'opacity, transform';
 
-  // ── Initial states — visibility instead of display toggle ─────────────────
-  gsap.set(stage4, { opacity: 0, visibility: 'hidden', display: 'flex' });
-  if (endCardLine) gsap.set(endCardLine, { opacity: 0, y: 14, scale: 0.95 });
-  ctaButtons.forEach(btn => gsap.set(btn, { opacity: 0, y: 14, scale: 0.9 }));
-  if (actionGlow)  gsap.set(actionGlow,  { opacity: 0, scale: 0.7 });
+  // ── Initial states (3D depth ready) ───────────────────────────────────────
+  gsap.set(stage4, { opacity: 0, visibility: 'hidden', display: 'flex', z: 20 });
+  if (endCardLine) gsap.set(endCardLine, { opacity: 0, y: 16, scale: 0.94, z: 10 });
+  ctaButtons.forEach(btn => gsap.set(btn, { opacity: 0, y: 14, scale: 0.9, z: 5 }));
+  if (actionGlow)  gsap.set(actionGlow,  { opacity: 0, scale: 0.7, z: -10 });
 
-  // ── 21.0s: Stage 4 enters ─────────────────────────────────────────────────
-  tl.set(stage4, { visibility: 'visible' }, 20.95);
-  tl.to(stage4, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 20.95);
+  // ── 20.45s: Stage 4 enters (overlapping cross-fade with Stage 3 exit) ────
+  tl.set(stage4, { visibility: 'visible' }, 20.45);
+  tl.to(stage4, { opacity: 1, scale: 1, z: 0, duration: 0.6, ease: CAMERA_GLIDE }, 20.45);
 
-  // ── 21.2s: End-card headline fades up ─────────────────────────────────────
+  // ── 20.8s: End-card headline glides up with forward scale settle ─────────
   if (endCardLine) {
     tl.to(endCardLine, {
-      opacity: 1, y: 0, scale: 1,
-      duration: 0.75, ease: 'power2.out',
-    }, 21.2);
+      opacity: 1, y: 0, scale: 1, z: 0,
+      duration: 0.8, ease: CAMERA_GLIDE,
+    }, 20.8);
   }
 
-  // ── 22.0s: Glow background expands ───────────────────────────────────────
+  // ── 21.4s: Glow background expands ───────────────────────────────────────
   if (actionGlow) {
     tl.to(actionGlow, {
-      opacity: 0.45, scale: 1,
-      duration: 1.1, ease: 'power2.out',
-    }, 22.0);
+      opacity: 0.45, scale: 1, z: 0,
+      duration: 1.1, ease: CAMERA_GLIDE,
+    }, 21.4);
   }
 
-  // ── 22.3s: CTA buttons bounce in ─────────────────────────────────────────
+  // ── 21.8s: CTA buttons glide in ──────────────────────────────────────────
   if (ctaButtons.length) {
     tl.to(ctaButtons, {
-      opacity: 1, y: 0, scale: 1,
-      duration: 0.45,
+      opacity: 1, y: 0, scale: 1, z: 0,
+      duration: 0.5,
       stagger: { each: 0.14, ease: 'none' },
-      ease: 'back.out(1.5)',
-    }, 22.3);
+      ease: CAMERA_GLIDE,
+    }, 21.8);
 
     // Subtle breathing pulse on primary button
     const primaryBtn = stage4.querySelector<HTMLElement>('.anim-cta-primary');
@@ -62,7 +64,7 @@ export function createActionStageTimeline(
         repeat: 2,
         yoyo: true,
         ease: 'sine.inOut',
-      }, 23.2);
+      }, 22.8);
     }
   }
 
@@ -70,7 +72,7 @@ export function createActionStageTimeline(
   tl.call(() => {
     ctaButtons.forEach(btn => (btn.style.willChange = 'auto'));
     if (endCardLine) endCardLine.style.willChange = 'auto';
-    // Keep glow will-change active since it stays visible
+    stage4.style.willChange = 'auto';
   }, undefined, 23.0);
 
   // ── 25.0s: Completion ─────────────────────────────────────────────────────

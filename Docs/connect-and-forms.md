@@ -41,7 +41,7 @@ The order comes from `pages/<page>.json` and `connect.json`, not from code.
 | Channel | Behaviour |
 |---|---|
 | Links (LinkedIn, GitHub, X, Instagram) | New tab, `rel="noopener"`. Descriptive label, not just an icon. |
-| Click-to-mail | Address is assembled in the click handler from an encoded value. It never appears in HTML, JSON-LD, sitemap or visible text. **PROPOSED:** the value is injected at build time from a private environment value (`CONTACT_TO_EMAIL`), encoded. Test on Android Chrome and iPhone Safari that the mail app opens. |
+| Click-to-mail | Address is assembled in the click handler from encoded parts. It never appears in HTML, JSON-LD, sitemap or visible text. Test on Android Chrome and iPhone Safari that the mail app opens. |
 | Discord | Button copies the username from `connect.json`. Shows a small confirmation ("copied"). If the clipboard API fails, fall back to a read-only field the visitor can select. |
 | Resume | Stable URL, file name contains his name. Download is counted as an analytics event (see `deployment.md`). |
 
@@ -85,7 +85,7 @@ Browser -> POST /api/contact -> validate -> verify Turnstile -> send mail to Ekl
 - **No auto-reply** (DECIDED). The brief has no reply-time promise.
 - Nothing is stored after sending (DECIDED). If he later wants a record, **ASK** first.
 
-Secrets (names only, never values in the repo): `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, `CONTACT_TO_EMAIL`, and the email provider's key. Local copies live in git-ignored files.
+Configuration names only (never values in the repo): public `PUBLIC_TURNSTILE_SITE_KEY`; server secrets `TURNSTILE_SECRET` and `WEB3FORMS_ACCESS_KEY`. Web3Forms associates its access key with the verified recipient inbox. Local copies live in git-ignored files.
 
 ## 7. Form states
 

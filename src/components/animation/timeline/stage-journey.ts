@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { CAMERA_GLIDE } from './master-timeline';
 
 export function createJourneyStageTimeline(container: HTMLElement): gsap.core.Timeline {
   const tl = gsap.timeline();
@@ -17,41 +18,42 @@ export function createJourneyStageTimeline(container: HTMLElement): gsap.core.Ti
 
   // ── GPU hints ─────────────────────────────────────────────────────────────
   nodes.forEach(n => (n.style.willChange = 'opacity, transform'));
+  stage3.style.willChange = 'opacity, transform';
 
-  // ── Initial state — use visibility to avoid layout thrash ─────────────────
-  gsap.set(stage3, { opacity: 0, visibility: 'hidden', display: 'flex' });
-  nodes.forEach(n => gsap.set(n, { opacity: 0, scale: 0.85, y: 14 }));
+  // ── Initial state (3D depth ready) ────────────────────────────────────────
+  gsap.set(stage3, { opacity: 0, visibility: 'hidden', display: 'flex', z: 20 });
+  nodes.forEach(n => gsap.set(n, { opacity: 0, scale: 0.88, y: 14, z: -15 }));
 
-  // ── 15.0s: Stage 3 activates ──────────────────────────────────────────────
-  tl.set(stage3, { visibility: 'visible' }, 14.95);
-  tl.to(stage3, { opacity: 1, duration: 0.35, ease: 'power2.out' }, 14.95);
+  // ── 14.45s: Stage 3 enters (overlapping cross-fade with Stage 2 exit) ────
+  tl.set(stage3, { visibility: 'visible' }, 14.45);
+  tl.to(stage3, { opacity: 1, scale: 1, z: 0, duration: 0.6, ease: CAMERA_GLIDE }, 14.45);
 
-  // ── 15.3 – 18.8s: Spine draws across at constant speed ───────────────────
+  // ── 15.0 – 18.5s: Spine draws across smoothly ────────────────────────────
   if (spine) {
-    tl.to(spine, { strokeDashoffset: 0, duration: 3.2, ease: 'none' }, 15.3);
+    tl.to(spine, { strokeDashoffset: 0, duration: 3.2, ease: 'power1.inOut' }, 15.0);
   }
 
   // ── Nodes reveal along the spine ──────────────────────────────────────────
   const nodeCount = nodes.length;
   if (nodeCount > 0) {
-    const interval = 3.5 / Math.max(nodeCount, 1);
-    // One stagger tween instead of N individual tweens
+    const interval = 3.2 / Math.max(nodeCount, 1);
     tl.to(nodes, {
-      opacity: 1, scale: 1, y: 0,
-      duration: 0.45,
+      opacity: 1, scale: 1, y: 0, z: 0,
+      duration: 0.5,
       stagger: { each: interval, ease: 'none', from: 'start' },
-      ease: 'back.out(1.4)',
-    }, 15.4);
+      ease: CAMERA_GLIDE,
+    }, 15.2);
   }
 
-  // ── 20.3 – 21.0s: Fade out Stage 3 ──────────────────────────────────────
-  tl.to(stage3, { opacity: 0, y: -14, duration: 0.45, ease: 'power2.in' }, 20.3);
-  tl.set(stage3, { visibility: 'hidden' }, 20.75);
+  // ── 20.4s: Overlap transition: Stage 3 recedes and cross-fades out ───────
+  tl.to(stage3, { opacity: 0, scale: 0.96, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 20.4);
+  tl.set(stage3, { visibility: 'hidden' }, 20.95);
 
   // Release GPU hints
   tl.call(() => {
     nodes.forEach(n => (n.style.willChange = 'auto'));
-  }, undefined, 20.8);
+    stage3.style.willChange = 'auto';
+  }, undefined, 20.95);
 
   return tl;
 }
