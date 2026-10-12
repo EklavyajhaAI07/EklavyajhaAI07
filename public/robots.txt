@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eklavya.dpdns.org/sitemap-index.xml
+Sitemap: https://eklavya-jha-portfolio.eklavya.dpdns.org/sitemap-index.xml

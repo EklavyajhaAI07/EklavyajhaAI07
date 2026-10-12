@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://eklavya.dpdns.org',
+  site: 'https://eklavya-jha-portfolio.eklavya.dpdns.org',
   trailingSlash: 'always',
   output: 'static',
   adapter: cloudflare(),
