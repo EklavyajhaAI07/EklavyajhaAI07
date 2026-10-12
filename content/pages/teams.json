@@ -2,10 +2,10 @@
   "page": "teams",
   "slug": "teams-communities",
   "sections": ["proofStrip", "projects", "hackathons", "community", "offer", "connect"],
-  "projects": ["dealflow360", "viral-content-ai", "courtflow-ai", "citemind", "aegis"],
+  "projects": ["dealflow360", "viral-content-ai", "safepath-ai", "courtflow-ai", "citemind", "aegis"],
   "animation": {
     "projects": ["dealflow360", "viral-content-ai"],
-    "stats": ["finalist-5x", "odoo-field", "cognivia-rank"]
+    "stats": ["finalist-4x", "odoo-field"]
   },
   "offer": [
     "I execute ideas quickly under pressure, proven by reaching 5 hackathon finals in 2026.",

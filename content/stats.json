@@ -1,8 +1,8 @@
 [
   { 
-    "id": "finalist-5x", 
+    "id": "finalist-4x",
     "label": "Hackathon Finalist", 
-    "value": 5, 
+    "value": 4,
     "suffix": "x", 
     "proof": "hackathons", 
     "showOn": ["recruiter", "teams", "clients"] 
@@ -14,12 +14,5 @@
     "prefix": "", 
     "suffix": "+ applicants", 
     "showOn": ["recruiter", "teams"] 
-  },
-  { 
-    "id": "cognivia-rank", 
-    "label": "Cognivia: 4th of", 
-    "value": 152, 
-    "suffix": " teams", 
-    "showOn": ["teams"] 
   }
 ]

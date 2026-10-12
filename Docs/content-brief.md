@@ -43,8 +43,8 @@ His chat answers, his photo, the E-Cell IIT Bombay offer letter image (read by t
 | Site language | English |
 
 ### Bio and tags
-- Draft bio (agent may refine, then he approves in chat): "AI-powered full stack developer, learning AI engineering. B.Tech CSE-AI student at Gandhinagar University. Finalist in five hackathons, including the Odoo Hackathon 2026 Grand Finale."
-- Base tags: AI-Powered Full Stack Developer · Learning AI Engineering · B.Tech CSE-AI · 5x Hackathon Finalist
+- Draft bio (agent may refine, then he approves in chat): "AI-powered full stack developer, learning AI engineering. B.Tech CSE-AI student at Gandhinagar University. Finalist in four hackathons, including the Odoo Hackathon 2026 Grand Finale."
+- Base tags: AI-Powered Full Stack Developer · Learning AI Engineering · B.Tech CSE-AI · 4x Hackathon Finalist
 - Per-page extra tags: `AGENT-DRAFTS`
 
 ---
@@ -92,11 +92,11 @@ Levels: `AGENT-DRAFTS`. The agent proposes Learning / Working / Strong with a pr
 
 | Id | Project | Final description | Links | Status and role |
 |---|---|---|---|---|
-| `vasudha-manager` | **Vasudha: The Manager** | Web app for firms' accounting and management. Manages invoices, bills, payments, financial reports, team access and backups `[CONFIRMED]`. Client work, shown anonymously as "a packaging trading business". | Live: https://vasudha-the-manager.vercel.app/ | **Live** `[CONFIRMED]`. **His role: full-stack development, plus debugging and security checks** `[CONFIRMED]`. **Coming soon (planned, NOT live): double-entry bookkeeping and an owner assistant.** Show them only under a "Coming soon" label. Stack: show only "MongoDB" and "full-stack"; omit other stack details (sources disagree). |
+| `vasudha-manager` | **Vasudha: The Manager** | Web app for firms' accounting and management. Manages invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant `[CONFIRMED]`. Client work, shown anonymously as "a packaging trading business". | Live: https://vasudha-the-manager.vercel.app/ | **Live** `[CONFIRMED]`, including double-entry bookkeeping and the owner assistant. **His role: full-stack development, plus debugging and security checks** `[CONFIRMED]`. Stack: show only "MongoDB" and "full-stack"; omit other stack details (sources disagree). |
 | `dealflow360` | **Dealflow360** (Team StackForge) | Internal workspace plus customer portal for quotes, approvals, inventory and billing. The project from the Odoo Hackathon 2026 **offline final (Grand Finale)** `[CONFIRMED]`. | Demo: https://dealflow360-iota.vercel.app/ `[CONFIRMED]` · No public repo (private): **never link a repo or show a GitHub button on this card** · Presentation video (`data.md`): https://youtu.be/ylkIJPtoX-8 | Role: "Team StackForge hackathon build". Do not claim "team lead" or specific modules. |
 | `viral-content-ai` | **Viral AI** | "AI-powered content studio that scouts trends, designs strategy, generates content, and predicts virality" (repo README). Built for Craftathon 2k26. | https://github.com/EklavyajhaAI07/viral-content-ai (public, 2 screenshots in the README) | **In development** `[CONFIRMED]`. Approved wording: "multi-agent platform, in development". Do not use "7-agent" or "MongoDB". Do not claim solo or team: say "Eklavya's project". |
 
-Hackathon-linked builds shown only inside the hackathon rows (section 6): **CourtFlow AI** (PU CODE Hackathon 3.0; repo https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0), **CiteMind** (HackBaroda 2026; demo https://cite-mind-six.vercel.app/), **AEGIS** (Bharatiya Antariksh Hackathon 2026).
+Hackathon-linked builds shown only inside the hackathon rows (section 6): **SafePath AI** (Cognivia Hackathon; proactive AI-powered women's safety system; repo https://github.com/Digvijay05/AIWomenSafetyBackend), **CourtFlow AI** (PU CODE 2.0 participant; repo https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0), **CiteMind** (HackBaroda 2026; demo https://cite-mind-six.vercel.app/), **AEGIS** (Bharatiya Antariksh Hackathon 2026).
 
 ### 5.2 Demo website templates (Clients page, clearly labelled)
 Eklavya confirmed these are **demo pamphlet/theme websites, not real client projects**. Label them "Demo website templates". Never call them client work, never name clients.
@@ -116,17 +116,18 @@ The agent drafts every card (title, one-line outcome, problem, solution, tech, r
 
 ## 6. Hackathons (PAGE: R, T; selectively C)
 
-**Eklavya is a finalist in five hackathons: Cognivia, PU CODE 3.0, Odoo Hackathon 2026, HackBaroda 2026 and FlowZint AI** `[CONFIRMED]` `[PROOF-PROVIDED]`. Use "5x Hackathon Finalist". His GitHub README still says "3x"; recommend updating it. Use only the wording printed on each certificate or post.
+**Eklavya is a finalist in four hackathons: Cognivia, Odoo Hackathon 2026, HackBaroda 2026 and FlowZint AI** `[CONFIRMED]` `[PROOF-PROVIDED]`. Use "4x Hackathon Finalist". PU CODE 2.0 is participation, not a finalist result. Use only the wording printed on each certificate or post.
 
 | Event | What to show | Proof |
 |---|---|---|
 | **Odoo Hackathon 2026** (also called Odoo HQ Hackathon 2026), offline final | **Grand Finale Finalist** with Dealflow360 (Team StackForge), selected from 20,000+ applicants. The 47 in earlier notes is a team number, **never a rank**, never shown. Public Odoo pages describe a 24-hour final at Odoo India, Gandhinagar, with a certificate for grand finalists, so do not imply a podium. | https://lnkd.in/p/dmg9SvCY |
 | Odoo Hackathon 2026, virtual round | Project: TransitOps. No result claim. | `[CONFIRMED]` |
-| **PU CODE Hackathon 3.0** | Finalist, CourtFlow AI | https://lnkd.in/p/d5D8pskZ |
-| **Cognivia** (IEEE WIE × PDPU) | Finalist, **4th of 152 teams** (proactive AI safety system for women) | https://lnkd.in/p/dp2KxQHM |
+| **PU CODE 2.0** (Parul University) | Participant, CourtFlow AI. Repo: https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0 | https://lnkd.in/p/d5D8pskZ |
+| **Cognivia Hackathon** (PDPU) | Finalist, SafePath AI — Proactive AI-Powered Women's Safety System. Repo: https://github.com/Digvijay05/AIWomenSafetyBackend | https://lnkd.in/p/dp2KxQHM |
 | **HackBaroda 2026** | Finalist, CiteMind (AI citation-memory platform). Demo: https://cite-mind-six.vercel.app/ | Certificate https://lnkd.in/p/dN8ekj3T · post https://lnkd.in/p/db_rpbvE |
 | **FlowZint AI Hackathon 2026** | Finalist, support chatbot track. His README adds "Top 100 / Silver Tier": use that wording only if the certificate says it. | https://lnkd.in/p/d3qAGijh |
 | Bharatiya Antariksh Hackathon 2026 (ISRO) | Participant, AEGIS (air-gapped predictive AI copilot). No ISRO affiliation claim. | https://lnkd.in/p/d5bMbe2e (certificate image promised, not yet shared) |
+| **Ideathon** (Careerprep AI) | Participant | https://lnkd.in/p/d2ph7eKe |
 | SEMICON India 2026, Hacker House Goa 2026, Craftathon 2k26, India AI Impact Buildathon | Participant only, from his README `[PUBLIC]`. India AI Impact Buildathon: "among 40,000+ participants" is the field size, not a result. | No certificate links supplied; keep as plain participation or omit |
 
 GitHub achievement badges **Pull Shark** and **Pair Extraordinaire** `[PUBLIC]` are verifiable on his profile.
@@ -136,9 +137,8 @@ A count of events attended ("13+") is `EXCLUDED`.
 
 ## 7. Stats (max 3 per page in the animation, all real)
 
-1. **5x Hackathon Finalist** `[PROOF-PROVIDED]`
+1. **4x Hackathon Finalist** `[PROOF-PROVIDED]`
 2. **Odoo Hackathon 2026 Grand Finale, selected from 20,000+ applicants** (word it as the field size)
-3. **Cognivia: 4th of 152 teams** `[CONFIRMED]`
 
 Which stats appear on which page: `AGENT-DRAFTS`. No other stats. No hours, streaks or user counts.
 
@@ -157,11 +157,11 @@ Real milestones (the agent takes exact dates from the certificates and posts):
 
 ## 9. Teams & Communities proof (PAGE: T)
 
-- **Campus Ambassador, E-Cell IIT Bombay** `[PROOF-PROVIDED]`. Offer letter dated 29 June 2026, signed by two Overall Coordinators; a remote (work-from-home) position. Image: `assets/proofs/ecell-iitb-campus-ambassador-offer-letter.png`. Wording: "Campus Ambassador, E-Cell IIT Bombay (remote)". Never imply IIT Bombay enrolment. Do not publish the letter image without his approval.
+- **Campus Ambassador, E-Cell IIT Bombay** `[PROOF-PROVIDED]`. Offer letter dated 29 June 2026 and signed by two Overall Coordinators. Image: `assets/proofs/ecell-iitb-campus-ambassador-offer-letter.png`. Use exactly "Campus Ambassador, E-Cell IIT Bombay". Never imply IIT Bombay enrolment. Do not publish the letter image without his approval.
 - **SIH Student Coordinator 2026** `[PROOF-PROVIDED]` https://lnkd.in/p/dkZpTypz. Use exactly that phrase. No event-level numbers.
 - **Google Student Ambassador: "Top Prompt Creator" award** `[PROOF-PROVIDED]` https://lnkd.in/p/da2ZM8tA
 - **Google Student Ambassador "Fresher's Party Night Edition":** **Participant** `[CONFIRMED]`. A promotional event where he completed Gemini-based tasks and received a participation certificate (https://lnkd.in/p/dCu_MypE). Wording: "Participant". Never "Champion".
-- **Founder's Crew, E-Cell Gandhinagar University:** content writer and Instagram manager `[PUBLIC]`.
+- **Core Member, Founder's Crew (E-CELL Community)** `[CONFIRMED]`.
 - Team-lead roles and event-level figures from `data.md`: `EXCLUDED`.
 
 "What I offer a team" (3 bullets): `AGENT-DRAFTS` from the facts above.
@@ -246,18 +246,19 @@ All headlines, hero copy, CTAs, availability line and end-card lines are in **`c
 ## 17. Decisions log (all resolved)
 - Role line: AI-Powered Full Stack Developer, learning AI Engineering (not "AI Engineer").
 - Odoo: Grand Finale (offline final) = Dealflow360; virtual round = TransitOps. "47" is a team number, not a rank.
-- Cognivia: 4th of 152 teams (not 153).
-- Finalist count: five events (section 6), so "5x", replacing the old "3x".
+- Cognivia: finalist with SafePath AI at PDPU; do not publish the previous rank claim.
+- PU CODE 2.0: participant with CourtFlow AI, not a finalist result.
+- Finalist count: four events (section 6), so "4x".
 - HackBaroda and FlowZint: finalist.
 - Fresher's Party Night Edition: participant only.
 - Websites: demo templates, not clients.
-- Vasudha: live features as listed; double-entry bookkeeping and owner assistant are planned (coming soon).
+- Vasudha: all listed features are live, including double-entry bookkeeping and the owner assistant.
 - Removed from all documents at his request: two projects that are no longer part of the portfolio.
 - Viral AI: "multi-agent platform, in development".
 - Email: click-to-mail button only. Connect set: LinkedIn, GitHub, X, Instagram (Clients only), Discord, contact form.
 
 ## 18. Recommended fixes on his public profiles (his call, optional)
-So recruiters see one consistent story: GitHub README says "AI Engineer" (should match the lead role line), lists TransitOps for the Odoo Grand Finale (should be Dealflow360), says Cognivia 153 (should be 152), says "3x finalist" (now 5), describes Viral AI as "7-agent" with MongoDB (should match the repo), shows the email in plain text, and still lists the two removed projects.
+Keep public profiles aligned with the lead role line, Dealflow360 for the Odoo Grand Finale, SafePath AI for Cognivia, CourtFlow AI as PU CODE 2.0 participation, and the verified 4x finalist count. Viral AI should match its repository, and the email must not appear as plain text.
 
 ## 19. Proof register (supplied by Eklavya)
 
@@ -269,11 +270,12 @@ The assistant read only the offer-letter image. All `lnkd.in` links are **unveri
 | Bharatiya Antariksh Hackathon 2026 (ISRO) | https://lnkd.in/p/d5bMbe2e (certificate image promised, not yet shared) |
 | HackBaroda 2026 finalist | Certificate https://lnkd.in/p/dN8ekj3T · CiteMind demo https://cite-mind-six.vercel.app/ · post https://lnkd.in/p/db_rpbvE |
 | FlowZint AI finalist | https://lnkd.in/p/d3qAGijh |
-| Cognivia finalist | https://lnkd.in/p/dp2KxQHM |
-| PU CODE 3.0 finalist | https://lnkd.in/p/d5D8pskZ |
+| Cognivia finalist with SafePath AI | https://lnkd.in/p/dp2KxQHM · Repo https://github.com/Digvijay05/AIWomenSafetyBackend |
+| PU CODE 2.0 participant | https://lnkd.in/p/d5D8pskZ |
+| Careerprep AI Ideathon | https://lnkd.in/p/d2ph7eKe |
 | Odoo Hackathon 2026 Grand Finale | https://lnkd.in/p/dmg9SvCY |
 | SIH Student Coordinator 2026 | https://lnkd.in/p/dkZpTypz |
-| Campus Ambassador, E-Cell IIT Bombay | Offer letter image dated 29 June 2026 (`assets/proofs/...`): position "Campus Ambassador", work-from-home, signed by two Overall Coordinators |
+| Campus Ambassador, E-Cell IIT Bombay | Offer letter image dated 29 June 2026 (`assets/proofs/...`), signed by two Overall Coordinators |
 | Top Prompt Creator (Google Student Ambassador) | https://lnkd.in/p/da2ZM8tA |
 | Fresher's Party Night Edition (participant) | https://lnkd.in/p/dCu_MypE |
 | Vasudha live | https://vasudha-the-manager.vercel.app/ (not opened by the assistant) |

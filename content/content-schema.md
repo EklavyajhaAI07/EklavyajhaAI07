@@ -66,7 +66,7 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
   "supportingLine": "Learning AI Engineering",
   "location": { "city": "Ahmedabad", "region": "Gujarat", "country": "India" },
   "college": "Gandhinagar University",
-  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "5x Hackathon Finalist"],
+  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "4x Hackathon Finalist"],
   "photo": { "src": "/assets/eklavya-photo.png", "alt": "Portrait of Eklavya Jha in a black blazer and white shirt" },
   "audienceTags": { "recruiter": [], "teams": [], "clients": [] }
 }
@@ -108,8 +108,7 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
   "links": [{ "label": "Live", "url": "https://vasudha-the-manager.vercel.app/", "type": "live" }],
   "screenshots": [],
   "roadmap": [
-    { "label": "Double-entry bookkeeping", "status": "coming-soon" },
-    { "label": "Owner assistant", "status": "coming-soon" }
+    { "label": "Example planned enhancement", "status": "coming-soon" }
   ],
   "featured": true,
   "featuredOrder": 1,
@@ -139,9 +138,9 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
 ### 4.6 `community.json`
 ```json
 [
-  { "id": "ecell-iitb-campus-ambassador", "title": "Campus Ambassador, E-Cell IIT Bombay (remote)", "type": "role", "date": "2026-06",
+  { "id": "ecell-iitb-campus-ambassador", "title": "Campus Ambassador, E-Cell IIT Bombay", "type": "role", "date": "2026-06",
     "proof": { "url": "private-proofs/ecell-iitb-campus-ambassador-offer-letter.png", "publish": false } },
-  { "id": "fresher-party-night", "title": "Fresher's Party Night Edition (Google Student Ambassador)", "type": "participation", "result": "participant" }
+  { "id": "fresher-party-night", "title": "Fresher's Party Night Edition (Google Student Ambassador)", "type": "participation" }
 ]
 ```
 - `type` enum: `role`, `award`, `participation`.
@@ -149,9 +148,8 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
 ### 4.7 `stats.json`
 ```json
 [
-  { "id": "finalist-5x", "label": "Hackathon Finalist", "value": 5, "suffix": "x", "proof": "hackathons", "showOn": ["recruiter", "teams", "clients"] },
-  { "id": "odoo-field", "label": "Odoo Grand Finale, selected from", "value": 20000, "prefix": "", "suffix": "+ applicants", "showOn": ["recruiter", "teams"] },
-  { "id": "cognivia-rank", "label": "Cognivia: 4th of", "value": 152, "suffix": " teams", "showOn": ["teams"] }
+  { "id": "finalist-4x", "label": "Hackathon Finalist", "value": 4, "suffix": "x", "proof": "hackathons", "showOn": ["recruiter", "teams", "clients"] },
+  { "id": "odoo-field", "label": "Odoo Grand Finale, selected from", "value": 20000, "prefix": "", "suffix": "+ applicants", "showOn": ["recruiter", "teams"] }
 ]
 ```
 - Every stat needs a basis in the brief. A hard cap of 3 stats per page is enforced.
@@ -186,7 +184,7 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
   "slug": "recruiter-hr",
   "sections": ["proofStrip", "projects", "skills", "hackathons", "education", "journey", "connect"],
   "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
-  "animation": { "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"], "stats": ["finalist-5x", "odoo-field"] },
+  "animation": { "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"], "stats": ["finalist-4x", "odoo-field"] },
   "primaryCta": { "type": "resume-download" },
   "secondaryCta": { "type": "connect" }
 }
@@ -214,7 +212,7 @@ Mirrors `copy-deck.md`: slots with an ordered `options` array; the first option 
 - **New project:** copy a file in `/projects`, fill every required field, set `showOn` and optionally `featured`, add screenshots, push.
 - **New skill:** add an entry in `skills.json` with a real `proofProject`.
 - **New certificate or hackathon:** add an entry with its proof link and `publish` flag.
-- **Feature finished** (for example Vasudha's double-entry bookkeeping goes live): change that `roadmap` item to a live feature and update the project description. Only Eklavya confirms this.
+- **Feature finished:** remove that item from `roadmap` and add it to the live project description. Only Eklavya confirms this.
 - **Keep the animation short:** only items flagged `featured` appear in it, within the caps above.
 
 ## 7. Privacy

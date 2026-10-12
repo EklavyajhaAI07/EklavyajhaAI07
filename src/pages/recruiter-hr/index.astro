@@ -60,10 +60,10 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
     <section id="proof-strip-section" class="proof-strip">
       <div class="container">
         <ul class="proof-list">
-          <li>5x Hackathon Finalist</li>
+          <li>4x Hackathon Finalist</li>
           <li>{education.degree}, {education.university} ({education.startYear} to {education.graduationYear})</li>
           <li>IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress)</li>
-          <li>Campus Ambassador, E-Cell IIT Bombay (remote)</li>
+          <li>Campus Ambassador, E-Cell IIT Bombay</li>
         </ul>
       </div>
     </section>
@@ -120,7 +120,8 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
                   {h.result}
                 </span>
               </div>
-              {h.project && <div class="hack-project">Project: {h.project}</div>}
+              {h.project && <div class="hack-project">Project: {getProjectById(h.project)?.title || h.project}</div>}
+              {h.note && <div class="hack-note">{h.note}</div>}
               {h.proof && h.proof.publish && <a href={h.proof.url} target="_blank" rel="noopener" class="proof-link">View Certificate ↗</a>}
             </div>
           ))}
@@ -437,6 +438,12 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
     font-size: 0.9rem;
     color: var(--ink);
     margin-bottom: 6px;
+  }
+
+  .hack-note {
+    margin-top: 4px;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
   }
 
   .proof-link {

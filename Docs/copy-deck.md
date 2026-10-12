@@ -97,7 +97,7 @@ For animation beats, end cards, section dividers and social bios.
 ## 7. Guardrails
 
 - Never use "AI Engineer" as his title. He is an AI-Powered Full Stack Developer learning AI Engineering.
-- Copy must not promise more than the brief supports: Vasudha is live, Viral AI is in development, double-entry bookkeeping and the owner assistant are coming soon, and the two demo websites are demo templates.
+- Copy must not promise more than the brief supports: Vasudha, including double-entry bookkeeping and the owner assistant, is live; Viral AI is in development; and the two demo websites are demo templates.
 - "Teams that ship" and "hackathon builds" refer to his real hackathon team builds (see `content-brief.md` section 6). Do not stretch them into claims about company teams or paid products.
 - Keep lines in English, unchanged in spelling and punctuation.
 - No phone number, WhatsApp or Telegram anywhere (see `CLAUDE.md`).

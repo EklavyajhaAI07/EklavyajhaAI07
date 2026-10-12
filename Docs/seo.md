@@ -28,8 +28,8 @@ Starter drafts (the agent may refine, Eklavya picks in chat):
 | Page | Title (chars) | Description (chars) |
 |---|---|---|
 | Home | Eklavya Jha \| AI-Powered Full Stack Developer (45) | Eklavya Jha is an AI-powered full stack developer in Ahmedabad, learning AI engineering. Choose your path: recruiters, teams or clients. (136) |
-| Recruiter / HR | Eklavya Jha \| AI-Powered Full Stack Developer Resume (52) | AI-powered full stack developer and 5x hackathon finalist. See Eklavya Jha's projects, skills and certificates, and download his resume. (136) |
-| Teams & Communities | Eklavya Jha \| 5x Hackathon Finalist, Campus Ambassador (54) | 5x hackathon finalist and E-Cell IIT Bombay Campus Ambassador. See Eklavya Jha's team builds, hackathon record and community work. (130) |
+| Recruiter / HR | Eklavya Jha \| AI-Powered Full Stack Developer Resume | AI-powered full stack developer and 4x hackathon finalist. See Eklavya Jha's projects, skills and certificates, and download his resume. |
+| Teams & Communities | Eklavya Jha \| 4x Hackathon Finalist, Campus Ambassador | 4x hackathon finalist and E-Cell IIT Bombay Campus Ambassador. See Eklavya Jha's team builds, hackathon record and community work. |
 | Clients | Eklavya Jha \| AI-Powered Web Apps for Real Business Needs (57) | AI-powered web apps and prototypes. See a live client system, demo templates and how to start a project with Eklavya Jha. (121) |
 
 `<h1>` per page: the page headline from `page-specs.md` (Home: "Eklavya Jha, AI-Powered Full Stack Developer").
@@ -88,7 +88,7 @@ Allowed: only facts that appear on the visible page and in the brief.
 - Do not stuff keywords. Natural phrases from the brief only: "AI-powered full stack developer", "Ahmedabad", "hackathon finalist", project names.
 
 ## 9. Make the whole web footprint match (his call, optional but valuable)
-Search engines and recruiters compare profiles. The fixes listed in `content-brief.md` section 18 (GitHub README and LinkedIn: role line, 5x finalist, Odoo project, Cognivia 152, email shown as text) make every profile say the same thing as the site. Link the new site from LinkedIn (Website field and summary) and from the GitHub profile as soon as it is live.
+Search engines and recruiters compare profiles. Keep the GitHub README and LinkedIn aligned with the verified role line, 4x finalist count, corrected hackathon records and Odoo project. Link the new site from LinkedIn (Website field and summary) and from the GitHub profile as soon as it is live.
 
 ## 10. Performance and search (Core Web Vitals)
 - Targets: LCP under 2.5s, CLS near 0, INP under 200ms on a mid-range phone.

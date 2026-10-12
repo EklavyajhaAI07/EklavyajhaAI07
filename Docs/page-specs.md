@@ -78,8 +78,8 @@ Reader question: can he do the job, and is he growing fast? Optimise for scannin
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Recruiter headline |
-| B | Proof strip | 5x Hackathon Finalist · B.Tech CSE-AI, Gandhinagar University (2025 to 2029) · IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress) · Campus Ambassador, E-Cell IIT Bombay (remote) |
-| C1 | **Projects** | Vasudha (Live), Dealflow360 (Odoo Grand Finale project), Viral AI (In development). Card: name, one-line outcome, tech, role, status badge, links, screenshots. Vasudha's "Coming soon" items sit inside its card under a Coming soon badge. |
+| B | Proof strip | 4x Hackathon Finalist · B.Tech CSE-AI, Gandhinagar University (2025 to 2029) · IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress) · Campus Ambassador, E-Cell IIT Bombay |
+| C1 | **Projects** | Vasudha (Live), Dealflow360 (Odoo Grand Finale project), Viral AI (In development). Card: name, one-line outcome, tech, role, status badge, links, screenshots. Vasudha's double-entry bookkeeping and owner assistant are included as live features. |
 | C2 | **Skills** | Grouped cards (Languages, AI/ML, Web/backend/data, Cloud/deploy) with Learning / Working / Strong levels and a proof project (agent drafts, he approves once). Never percentages. |
 | C3 | **Hackathons and certificates** | Finalist events first, participation after, each with its proof link if he allowed it. Use the exact wording on each certificate. |
 | C4 | **Education and program** | Degree, semester, expected graduation; the Elite AI & DS program line (never implying an IIT degree). |
@@ -97,10 +97,10 @@ Reader question: can he build, collaborate and add energy to a team?
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Teams headline |
-| B | Proof strip | 5x Hackathon Finalist · Campus Ambassador, E-Cell IIT Bombay · SIH Student Coordinator 2026 · "Top Prompt Creator" (Google Student Ambassador) |
-| C1 | **Team builds** | Dealflow360 (Team StackForge, Odoo Grand Finale), Viral AI. Hackathon-linked builds: CourtFlow AI, CiteMind, AEGIS. State the role honestly (hackathon team build; no "team lead" claim). |
+| B | Proof strip | 4x Hackathon Finalist · Campus Ambassador, E-Cell IIT Bombay · SIH Student Coordinator 2026 · "Top Prompt Creator" (Google Student Ambassador) |
+| C1 | **Team builds** | Dealflow360 (Team StackForge, Odoo Grand Finale), Viral AI. Hackathon-linked builds: SafePath AI, CourtFlow AI, CiteMind, AEGIS. State the role honestly (hackathon team build; no "team lead" claim). |
 | C2 | **Hackathon record** | Table: event, project, result as printed on the certificate (Finalist or Participant) |
-| C3 | **Community and leadership** | Campus Ambassador (E-Cell IIT Bombay, remote); SIH Student Coordinator 2026; Founder's Crew content writer and Instagram manager; Google Student Ambassador "Top Prompt Creator"; "Fresher's Party Night Edition" as **Participant** |
+| C3 | **Community and leadership** | Campus Ambassador, E-Cell IIT Bombay; Coordinator, SIH 2026 Internal Hackathon (Gandhinagar University); Core Member, Founder's Crew (E-CELL Community); Google Student Ambassador "Top Prompt Creator"; "Fresher's Party Night Edition" as participation |
 | C4 | **What I offer a team** | 3 bullets, agent drafts from confirmed facts only |
 | D | Connect | Primary: connect to collaborate. LinkedIn, Discord copy-username, click-to-mail, X, GitHub, contact form (dropdown = Teams). |
 
@@ -115,9 +115,9 @@ Reader question: will he solve my problem and deliver something that works? Plai
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Clients headline |
-| B | Proof strip | A live client system (Vasudha) · 5x Hackathon Finalist · AI-powered full stack builds |
+| B | Proof strip | A live client system (Vasudha) · 4x Hackathon Finalist · AI-powered full stack builds |
 | C1 | **What I build** | AI-powered full stack web apps and prototypes (brief section 10). Short, outcome-first. |
-| C2 | **Case study: Vasudha** | A web app for firms' accounting and management: invoices, bills, payments, financial reports, team access, backups. Client shown as "a packaging trading business". His role: full-stack development, debugging and security checks. Blocks: *The need* (agent drafts one neutral line from the description, no invented pain points) · *What I built* · *What's live now* · *Coming soon* (double-entry bookkeeping, owner assistant, with a Coming soon badge). **No result numbers and no client name.** |
+| C2 | **Case study: Vasudha** | A live web app for firms' accounting and management: invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant. Client shown as "a packaging trading business". His role: full-stack development, debugging and security checks. Blocks: *The need* (agent drafts one neutral line from the description, no invented pain points) · *What I built* · *What's live now*. **No result numbers and no client name.** |
 | C3 | **AI example** | Viral AI, "multi-agent platform, in development" |
 | C4 | **Demo templates** | Sahi Gulab Jamun advertisement site and Eklavya Group Tuition institute site, under the heading "Demo website templates" with a Demo template badge. Never call them client work. |
 | C5 | **How I work** | 4 to 5 step process, agent drafts (discover, plan, build, deliver) |
@@ -165,7 +165,7 @@ Not on this page: resume download as the main action, hackathon table, certifica
 - [ ] Only that page's projects and details appear on it
 - [ ] Other-page links appear only after the animation ends or is skipped
 - [ ] Recruiter: resume download is primary. Clients: contact form is primary. Instagram appears on Clients only
-- [ ] Vasudha's planned features carry "Coming soon"; the demo websites carry "Demo template"; Viral AI carries "In development"
+- [ ] Vasudha's double-entry bookkeeping and owner assistant appear as live; the demo websites carry "Demo template"; Viral AI carries "In development"
 - [ ] No repo link or GitHub button on Dealflow360
 - [ ] No email as text, no phone number, no "AI Engineer", no 47 as a rank
 - [ ] Every page passes the checks in `animation-spec.md` section 12

@@ -35,7 +35,7 @@ All steps: edit or add a file in `content/`, run the content check, commit, push
 
 **New milestone:** add a line to `content/journey.json`.
 
-**A planned feature goes live** (for example Vasudha's double-entry bookkeeping): move that item out of the project's `roadmap` into its live description. Only change this when it is really live.
+**A planned feature goes live:** move that item out of the project's `roadmap` into its live description. Only change this when it is really live.
 
 **Edit copy:** `content/copy/copy-deck.json` (mirrors `docs/copy-deck.md`).
 

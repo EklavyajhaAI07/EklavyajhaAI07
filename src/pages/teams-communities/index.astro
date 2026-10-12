@@ -55,7 +55,7 @@ const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
     <section id="proof-strip-section" class="proof-strip">
       <div class="container">
         <ul class="proof-list">
-          <li>5x Hackathon Finalist</li>
+          <li>4x Hackathon Finalist</li>
           <li>Campus Ambassador, E-Cell IIT Bombay</li>
           <li>SIH Student Coordinator 2026</li>
           <li>"Top Prompt Creator" (Google Student Ambassador)</li>
@@ -90,11 +90,17 @@ const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
               {hackathons.map(h => (
                 <tr>
                   <td>{h.event} {h.round ? `(${h.round})` : ''}</td>
-                  <td>{h.project || '-'}</td>
+                  <td>
+                    {h.project ? getProjectById(h.project)?.title || h.project : '-'}
+                    {h.note && <div class="hack-note">{h.note}</div>}
+                  </td>
                   <td>
                     <span class={`badge ${h.result === 'finalist' ? 'badge-finalist' : 'badge-participant'}`}>
                       {h.result}
                     </span>
+                    {h.proof && h.proof.publish && (
+                      <a href={h.proof.url} target="_blank" rel="noopener" class="proof-link">View Certificate ↗</a>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -117,7 +123,6 @@ const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
                 {c.type === 'participation' && <span class="badge badge-participation">Participation</span>}
                 {c.date && <span class="date">{c.date}</span>}
               </div>
-              {c.result && <p class="result">{c.result}</p>}
             </div>
           ))}
         </div>
@@ -316,6 +321,23 @@ const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
   .badge-finalist { background: #FDF4FF; color: #C026D3; border: 1px solid #F5D0FE; }
   .badge-participant { background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; }
 
+  .hack-note {
+    margin-top: 4px;
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+  }
+
+  .proof-link {
+    display: block;
+    margin-top: 6px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .proof-link:hover { text-decoration: underline; }
+
   .community-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -342,8 +364,6 @@ const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
   .badge-participation { background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; }
 
   .date { font-size: 0.85rem; color: var(--ink-muted); }
-  .result { font-size: 0.9rem; color: var(--ink); margin-top: 8px; }
-
   .offer-list {
     display: flex;
     flex-direction: column;

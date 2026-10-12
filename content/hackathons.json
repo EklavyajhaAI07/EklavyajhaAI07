@@ -17,21 +17,24 @@
   },
   { 
     "id": "cognivia-2026", 
-    "event": "Cognivia (Navrachana University)", 
-    "project": "citemind",
+    "event": "Cognivia Hackathon (PDPU)",
+    "project": "safepath-ai",
     "result": "finalist", 
-    "proof": { "url": "https://lnkd.in/p/df3K2Uf6", "publish": true } 
+    "note": "Proactive AI-Powered Women's Safety System.",
+    "proof": { "url": "https://lnkd.in/p/dp2KxQHM", "publish": true }
   },
   { 
-    "id": "hackthisfall-2026", 
-    "event": "HackThisFall", 
+    "id": "pu-code-2",
+    "event": "PU CODE 2.0 (Parul University)",
     "project": "courtflow-ai",
     "result": "participant", 
-    "proof": { "url": "https://lnkd.in/p/dpA9fT2r", "publish": true } 
+    "proof": { "url": "https://lnkd.in/p/d5D8pskZ", "publish": true }
   },
   { 
-    "id": "ideathon-nirma", 
-    "event": "Ideathon (Nirma University)", 
-    "result": "participant" 
+    "id": "ideathon-careerprep-ai",
+    "event": "Ideathon",
+    "result": "participant",
+    "note": "Organized by Careerprep AI.",
+    "proof": { "url": "https://lnkd.in/p/d2ph7eKe", "publish": true }
   }
 ]

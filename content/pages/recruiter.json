@@ -5,7 +5,7 @@
   "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
   "animation": {
     "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
-    "stats": ["finalist-5x", "odoo-field"]
+    "stats": ["finalist-4x", "odoo-field"]
   },
   "primaryCta": { "type": "resume-download" },
   "secondaryCta": { "type": "connect" }
