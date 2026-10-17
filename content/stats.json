@@ -1,8 +1,8 @@
 [
   { 
-    "id": "finalist-4x",
+    "id": "finalist-5x",
     "label": "Hackathon Finalist", 
-    "value": 4,
+    "value": 5,
     "suffix": "x", 
     "proof": "hackathons", 
     "showOn": ["recruiter", "teams", "clients"] 

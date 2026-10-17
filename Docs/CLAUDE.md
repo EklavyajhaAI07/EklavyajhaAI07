@@ -1,7 +1,7 @@
 # CLAUDE.md — Eklavya Jha · Personal Portfolio
 
 > Rules and structure for the coding agent. Read fully before starting any task.
-> **`content-brief.md` (FINAL v5) is the centre of this project.** It is the single source of truth for every fact, decision and proof. If any file disagrees with it, the brief wins.
+> **`content-brief.md` (FINAL v6) is the centre of this project.** It is the single source of truth for every fact, decision and proof. If any file disagrees with it, the brief wins.
 
 ### File index and precedence
 | Priority | File | Owns |

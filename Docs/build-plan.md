@@ -1,7 +1,7 @@
 # Eklavya Jha Portfolio — Phase 1 Build Plan
 
 > Built from all 14 Docs files. Every decision here traces back to them.
-> Rules in force: `CLAUDE.md §1`. Source of truth: `content-brief.md FINAL v5`.
+> Rules in force: `CLAUDE.md §1`. Source of truth: `content-brief.md FINAL v6`.
 
 ---
 
@@ -17,7 +17,7 @@
 | Contact form | **Web3Forms** (free, 250/month) | Zero-code HTML form; no server function needed for delivery |
 | Spam protection | Honeypot + time-trap + Cloudflare Turnstile | `connect-and-forms.md §5` |
 | Hosting | **Cloudflare Workers** (free) | Static assets + Worker contact endpoint; auto-deploy from GitHub |
-| Domain | `eklavya.dpdns.org` (keep existing) | `deployment.md §1` |
+| Domain | `eklavya-jha-portfolio.eklavya.dpdns.org` (current canonical) | `deployment.md §1` |
 | Analytics | **Umami Cloud, Hobby** (free) | `deployment.md §10`; no cookies; 100k events/month |
 | Repo | Existing GitHub repo, `rebuild` branch | `deployment.md §5`; `main` stays live until cutover |
 

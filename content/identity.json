@@ -1,9 +1,10 @@
 {
   "name": "Eklavya Jha",
   "roleLine": "AI-Powered Full Stack Developer",
+  "screeningLabel": "Developer & AI Builder",
   "supportingLine": "Learning AI Engineering",
   "location": { "city": "Ahmedabad", "region": "Gujarat", "country": "India" },
   "college": "Gandhinagar University",
-  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "4x Hackathon Finalist"],
+  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "5x Hackathon Finalist"],
   "photo": { "src": "/assets/eklavya-photo.png", "alt": "Portrait of Eklavya Jha in a black blazer and white shirt" }
 }

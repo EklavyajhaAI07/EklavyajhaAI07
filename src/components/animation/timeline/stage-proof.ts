@@ -29,7 +29,7 @@ export function createProofStageTimeline(container: HTMLElement): gsap.core.Time
   });
 
   // ── Initial states (3D depth + blur-to-focus ready) ─────────────────────
-  gsap.set(stage2, { opacity: 0, visibility: 'hidden', display: 'flex', z: 20 });
+  gsap.set(stage2, { opacity: 0, visibility: 'hidden', display: 'flex', scale: 1.02, z: 20 });
   statCards.forEach(c => gsap.set(c, { opacity: 0, y: 16, scale: 0.92, z: -15 }));
   projectCards.forEach(c => gsap.set(c, {
     opacity: 0,
@@ -163,7 +163,7 @@ export function createProofStageTimeline(container: HTMLElement): gsap.core.Time
   }
 
   // ── 14.4s: Overlap transition: Stage 2 recedes and cross-fades out ───────
-  tl.to(stage2, { opacity: 0, scale: 0.96, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 14.4);
+  tl.to(stage2, { opacity: 0, scale: 0.98, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 14.4);
   tl.set(stage2, { visibility: 'hidden' }, 14.95);
 
   // Release GPU hints

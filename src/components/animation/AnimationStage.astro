@@ -8,6 +8,7 @@ interface Props {
   featuredProjects: ProjectData[];
   stats: StatData[];
   journey: JourneyItemData[];
+  heroTitle: string;
   headline: string;
   endCard: string;
   primaryCta: { label: string; href: string };
@@ -19,6 +20,7 @@ const {
   featuredProjects,
   stats,
   journey,
+  heroTitle,
   headline,
   endCard,
   primaryCta,
@@ -37,7 +39,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   <aside class="screening-edge screening-edge-left" aria-hidden="true">
     <span class="screening-edge-kicker">Cinematic portfolio</span>
     <strong>{identity.name.toUpperCase()}</strong>
-    <span>Developer &amp; AI Builder</span>
+    <span>{identity.screeningLabel}</span>
   </aside>
 
   <div class="anim-screening-frame">
@@ -73,10 +75,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
 
       <div class="identity-main">
         <div class="identity-text-col">
-          <h1 class="anim-identity-name display-title">{identity.name}</h1>
-          <p class="anim-identity-role role-title">
-            <span class="highlight">{identity.roleLine}</span>
-          </p>
+          <h1 class="anim-identity-name display-title">{heroTitle}</h1>
           <p class="anim-identity-supporting supporting-line">
             {identity.supportingLine}
           </p>
@@ -102,8 +101,8 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
                 src={identity.photo.src}
                 alt={identity.photo.alt}
                 class="photo-img"
-                width="150"
-                height="150"
+                width="320"
+                height="320"
                 decoding="async"
                 fetchpriority="high"
               />
@@ -146,26 +145,30 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
           >
             <div class="project-card-tilt-surface">
               <div class="preview-badge-row">
-                <span class={`status-badge badge-${p.status}`}>
-                  {p.status === 'live' ? 'Live System' : p.status === 'in-development' ? 'In Development' : p.status}
+              <span class={`status-badge ${p.status === 'live' && (p.kind !== 'hackathon-build' || p.links.some((link) => link.type === 'demo')) ? 'badge-live' : 'badge-neutral'}`}>
+                  {p.kind === 'hackathon-build' && p.status === 'live'
+                    ? p.links.some((link) => link.type === 'demo') ? 'Live Demo' : 'Hackathon Build'
+                    : p.status === 'live' ? 'Live System' : p.status === 'in-development' ? 'In Development' : p.status}
                 </span>
                 <span class="role-badge">{p.role}</span>
               </div>
               <h3 class="preview-title">{p.title}</h3>
               <p class="preview-outcome">{p.oneLine}</p>
-              <div class="preview-tech-list">
-                {p.tech.slice(0, 5).map((t) => (
-                  <span class="tech-pill">{t}</span>
-                ))}
-              </div>
+              {p.tech.length > 0 && (
+                <div class="preview-tech-list">
+                  {p.tech.slice(0, 5).map((t) => (
+                    <span class="tech-pill">{t}</span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}
 
-        <!-- Architecture Diagram for Teams Audience -->
+        <!-- Confirmed Dealflow360 product areas for Teams Audience -->
         {audience === 'teams' && (
           <div class="anim-arch-diagram arch-container" aria-hidden="true">
-            <div class="arch-title">Multi-Agent System & Real-Time Pipeline</div>
+            <div class="arch-title">Dealflow360 Product Areas</div>
             <svg class="arch-svg" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="arch-path" d="M120 80 H220" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4" />
               <path class="arch-path" d="M320 80 H420" stroke="var(--accent)" stroke-width="2" />
@@ -174,20 +177,20 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
             </svg>
             <div class="arch-nodes-grid">
               <div class="arch-node node-client">
-                <span class="node-tag">UI Client</span>
-                <span class="node-name">Next.js / Astro</span>
+                <span class="node-tag">Workspace</span>
+                <span class="node-name">Internal workspace</span>
               </div>
               <div class="arch-node node-gateway">
-                <span class="node-tag">API Gateway</span>
-                <span class="node-name">FastAPI Async</span>
+                <span class="node-tag">Portal</span>
+                <span class="node-name">Customer portal</span>
               </div>
               <div class="arch-node node-agents">
-                <span class="node-tag">Agent Swarm</span>
-                <span class="node-name">Claude & OpenAI</span>
+                <span class="node-tag">Workflow</span>
+                <span class="node-name">Quotes & approvals</span>
               </div>
               <div class="arch-node node-db">
-                <span class="node-tag">Storage</span>
-                <span class="node-name">PostgreSQL / KV</span>
+                <span class="node-tag">Operations</span>
+                <span class="node-name">Inventory & billing</span>
               </div>
             </div>
           </div>
@@ -662,7 +665,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   .anim-viewport {
     position: relative;
     width: 100%;
-    min-height: 520px;
+    min-height: max(620px, 100svh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -677,7 +680,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   .anim-camera-rig {
     position: relative;
     width: 100%;
-    min-height: 520px;
+    min-height: max(620px, calc(100svh - 120px));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -694,6 +697,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     justify-content: center;
     transform-style: preserve-3d;
     backface-visibility: hidden;
+    padding-inline: clamp(12px, 2vw, 28px);
   }
 
   /* ================= STAGE 1 STYLES ================= */
@@ -798,8 +802,8 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   }
 
   .photo-frame {
-    width: 140px;
-    height: 140px;
+    width: clamp(160px, 32vw, 220px);
+    height: clamp(160px, 32vw, 220px);
     border-radius: var(--radius-card);
     background: #ffffff;
     padding: 4px;
@@ -880,9 +884,8 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
 
   .anim-projects-viewport {
     width: 100%;
-    min-height: 180px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
     position: relative;
     perspective: 900px;
@@ -892,11 +895,27 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   .project-preview-card {
     max-width: 600px;
     width: 100%;
-    position: absolute;
+    position: relative;
+    grid-area: 1 / 1;
+    justify-self: center;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     pointer-events: none;
     outline: none;
+  }
+
+  .audience-teams .anim-projects-viewport {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 40px);
+  }
+
+  .audience-teams .project-preview-card {
+    width: 100%;
+  }
+
+  .audience-teams .arch-container {
+    grid-area: 1 / 2;
+    width: 100%;
   }
 
   .project-card-tilt-surface {
@@ -941,6 +960,8 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .status-badge {
@@ -952,15 +973,15 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   }
 
   .badge-live {
-    background: rgba(16, 185, 129, 0.2);
-    color: #10B981;
-    border: 1px solid rgba(16, 185, 129, 0.4);
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(59, 130, 246, 0.3);
   }
 
-  .badge-in-development {
-    background: rgba(245, 158, 11, 0.2);
-    color: #F59E0B;
-    border: 1px solid rgba(245, 158, 11, 0.4);
+  .badge-neutral {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--stage-muted);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .role-badge {
@@ -972,6 +993,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
+    overflow-wrap: anywhere;
   }
 
   .preview-outcome {
@@ -984,6 +1006,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    min-width: 0;
   }
 
   .tech-pill {
@@ -1030,6 +1053,8 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     border-radius: 8px;
     padding: 8px;
     text-align: center;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .node-tag {
@@ -1292,9 +1317,9 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
 
   @media (min-width: 1100px) and (min-height: 760px) {
     .anim-screening-frame {
-      width: clamp(390px, 46.18svh, 560px);
-      height: 100svh;
-      min-height: 0;
+      width: min(calc(100% - 6vw), 1440px);
+      min-height: 100svh;
+      height: auto;
       box-shadow:
         0 0 0 1px rgba(96, 165, 250, 0.12),
         0 0 100px rgba(0, 0, 0, 0.74),
@@ -1308,7 +1333,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-width: 20vw;
+      max-width: 3vw;
       transform: translateY(-50%);
       color: rgba(148, 163, 184, 0.62);
       font-size: 0.66rem;
@@ -1319,19 +1344,20 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     }
 
     .screening-edge-left {
-      left: 5vw;
+      left: 0.5vw;
     }
 
     .screening-edge-right {
-      right: 5vw;
+      right: 0.5vw;
       align-items: flex-end;
       text-align: right;
     }
 
     .screening-edge strong {
-      max-width: 220px;
+      max-width: 3vw;
+      writing-mode: vertical-rl;
       color: rgba(226, 232, 240, 0.92);
-      font-size: clamp(1.2rem, 2vw, 2.2rem);
+      font-size: 0.85rem;
       line-height: 1.08;
       letter-spacing: 0.08em;
     }
@@ -1346,43 +1372,33 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     }
 
     .anim-viewport {
-      height: 100%;
-      min-height: 100%;
-      padding: 72px 22px 48px;
+      min-height: 100svh;
+      padding: 84px clamp(24px, 4vw, 72px) 64px;
     }
 
     .anim-camera-rig {
-      min-height: calc(100svh - 120px);
+      min-height: max(620px, calc(100svh - 148px));
     }
 
     .identity-main {
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
-      text-align: center;
-    }
-
-    .identity-top,
-    .tags-cluster {
-      justify-content: center;
-    }
-
-    .identity-text-col {
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(32px, 5vw, 88px);
+      text-align: left;
+      max-width: 1100px;
     }
 
     .identity-photo-col {
-      order: -1;
       display: flex;
       justify-content: center;
     }
 
     .photo-frame {
-      width: 112px;
-      height: 112px;
+      width: clamp(180px, 19vw, 280px);
+      height: clamp(180px, 19vw, 280px);
     }
 
     .display-title {
-      font-size: clamp(2rem, 4.8svh, 3rem);
+      font-size: clamp(2.6rem, 5vw, 5rem);
     }
 
     .supporting-line {
@@ -1418,7 +1434,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     }
 
     .anim-projects-viewport {
-      min-height: 210px;
+      min-height: 250px;
     }
 
     .project-card-tilt-surface {
@@ -1455,7 +1471,7 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
     }
 
     .arch-nodes-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .action-card-content {
@@ -1464,6 +1480,28 @@ const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => proje
   }
 
   @media (max-width: 768px) {
+    .anim-viewport {
+      padding-inline: 12px;
+    }
+
+    .anim-camera-rig {
+      min-height: max(850px, calc(100svh - 96px));
+    }
+
+    .audience-teams .anim-camera-rig {
+      min-height: max(1200px, calc(100svh - 96px));
+    }
+
+    .audience-teams .anim-projects-viewport {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .audience-teams .arch-container {
+      grid-area: 2 / 1;
+      width: 100%;
+      margin: 0;
+    }
+
     .identity-main {
       grid-template-columns: 1fr;
       text-align: center;

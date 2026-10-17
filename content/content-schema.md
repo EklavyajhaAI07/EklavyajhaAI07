@@ -1,6 +1,6 @@
 # content-schema.md — Content Data Structure
 
-> Facts and decisions: `content-brief.md` (FINAL v5, it wins on any conflict). Rules: `CLAUDE.md` section 8 (content is never hardcoded). Pages that consume this data: `page-specs.md`, `animation-spec.md`.
+> Facts and decisions: `content-brief.md` (FINAL v6, it wins on any conflict). Rules: `CLAUDE.md` section 8 (content is never hardcoded). Pages that consume this data: `page-specs.md`, `animation-spec.md`.
 > The examples below use facts from the brief only. If an example ever disagrees with the brief, the brief decides.
 > Format is framework-neutral: JSON shown here; Markdown with front matter or YAML is acceptable if `tech-stack.md` settles on it. The field names and rules stay the same.
 
@@ -63,10 +63,11 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
 {
   "name": "Eklavya Jha",
   "roleLine": "AI-Powered Full Stack Developer",
+  "screeningLabel": "Developer & AI Builder",
   "supportingLine": "Learning AI Engineering",
   "location": { "city": "Ahmedabad", "region": "Gujarat", "country": "India" },
   "college": "Gandhinagar University",
-  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "4x Hackathon Finalist"],
+  "tags": ["AI-Powered Full Stack Developer", "Learning AI Engineering", "B.Tech CSE-AI", "5x Hackathon Finalist"],
   "photo": { "src": "/assets/eklavya-photo.png", "alt": "Portrait of Eklavya Jha in a black blazer and white shirt" },
   "audienceTags": { "recruiter": [], "teams": [], "clients": [] }
 }
@@ -148,7 +149,7 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
 ### 4.7 `stats.json`
 ```json
 [
-  { "id": "finalist-4x", "label": "Hackathon Finalist", "value": 4, "suffix": "x", "proof": "hackathons", "showOn": ["recruiter", "teams", "clients"] },
+  { "id": "finalist-5x", "label": "Hackathon Finalist", "value": 5, "suffix": "x", "proof": "hackathons", "showOn": ["recruiter", "teams", "clients"] },
   { "id": "odoo-field", "label": "Odoo Grand Finale, selected from", "value": 20000, "prefix": "", "suffix": "+ applicants", "showOn": ["recruiter", "teams"] }
 ]
 ```
@@ -184,7 +185,7 @@ Adding a project, skill, certificate, hackathon or milestone in 2027-28 means **
   "slug": "recruiter-hr",
   "sections": ["proofStrip", "projects", "skills", "hackathons", "education", "journey", "connect"],
   "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"],
-  "animation": { "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"], "stats": ["finalist-4x", "odoo-field"] },
+  "animation": { "projects": ["vasudha-manager", "dealflow360", "viral-content-ai"], "stats": ["finalist-5x", "odoo-field"] },
   "primaryCta": { "type": "resume-download" },
   "secondaryCta": { "type": "connect" }
 }

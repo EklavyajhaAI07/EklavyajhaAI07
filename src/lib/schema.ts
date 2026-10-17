@@ -25,6 +25,7 @@ export type SiteData = z.infer<typeof SiteSchema>;
 export const IdentitySchema = z.object({
   name: z.string().min(1),
   roleLine: z.string().min(1),
+  screeningLabel: z.string().min(1),
   supportingLine: z.string().min(1),
   location: z.object({
     city: z.string(),

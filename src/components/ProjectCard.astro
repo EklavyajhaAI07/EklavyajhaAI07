@@ -15,10 +15,25 @@ const statusLabels: Record<string, string> = {
   'demo-template': 'Demo Template',
 };
 
-const isLive = project.status === 'live';
+const hasPublicDemo = project.links.some((link) => link.type === 'demo');
+const isHackathonBuild = project.kind === 'hackathon-build';
+const statusLabel = isHackathonBuild && project.status === 'live'
+  ? hasPublicDemo ? 'Live Demo' : 'Hackathon Build'
+  : statusLabels[project.status] || project.status;
+const isLive = project.status === 'live' && (!isHackathonBuild || hasPublicDemo);
 ---
 
 <article class="project-card card" id={`project-${project.id}`} data-project-id={project.id}>
+  {project.screenshots[0] && (
+    <div class="project-media">
+      <img
+        src={project.screenshots[0].src}
+        alt={project.screenshots[0].alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  )}
   <div class="card-header">
     <div class="header-left">
       <h3 class="project-title">{project.title}</h3>
@@ -27,7 +42,7 @@ const isLive = project.status === 'live';
       )}
     </div>
     <span class={`status-badge ${isLive ? 'badge-live' : 'badge-neutral'}`}>
-      {statusLabels[project.status] || project.status}
+      {statusLabel}
     </span>
   </div>
 
@@ -40,11 +55,13 @@ const isLive = project.status === 'live';
       <span class="meta-value">{project.role}</span>
     </div>
 
-    <div class="tech-stack">
-      {project.tech.map((t) => (
-        <span class="tech-pill">{t}</span>
-      ))}
-    </div>
+    {project.tech.length > 0 && (
+      <div class="tech-stack">
+        {project.tech.map((t) => (
+          <span class="tech-pill">{t}</span>
+        ))}
+      </div>
+    )}
   </div>
 
   {project.roadmap && project.roadmap.length > 0 && (
@@ -87,14 +104,29 @@ const isLive = project.status === 'live';
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 1px 3px rgba(14, 17, 22, 0.04);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
   .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    border-color: #D1D5DB;
+    box-shadow: 0 4px 12px rgba(14, 17, 22, 0.07);
+    border-color: var(--accent-strong);
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    background: var(--surface-bg);
+  }
+
+  .project-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .card-header {
@@ -135,15 +167,15 @@ const isLive = project.status === 'live';
   }
 
   .badge-live {
-    background-color: #ECFDF5;
-    color: #047857;
-    border: 1px solid #A7F3D0;
+    background-color: color-mix(in srgb, var(--accent-strong) 8%, var(--surface-card));
+    color: var(--accent-strong);
+    border: 1px solid color-mix(in srgb, var(--accent-strong) 24%, var(--surface-card));
   }
 
   .badge-neutral {
-    background-color: #F3F4F6;
-    color: #4B5563;
-    border: 1px solid #E5E7EB;
+    background-color: var(--surface-bg);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
   }
 
   .badge-sm {
@@ -159,7 +191,7 @@ const isLive = project.status === 'live';
   }
 
   .description {
-    font-size: 0.88rem;
+    font-size: 1rem;
     color: var(--ink-muted);
     line-height: 1.55;
   }
@@ -194,7 +226,7 @@ const isLive = project.status === 'live';
   }
 
   .tech-pill {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     padding: 3px 9px;
     background-color: var(--surface-bg);
@@ -204,7 +236,7 @@ const isLive = project.status === 'live';
   }
 
   .roadmap-block {
-    background-color: #F9FAFB;
+    background-color: var(--surface-bg);
     border: 1px dashed var(--border);
     border-radius: var(--radius-button);
     padding: var(--space-3);

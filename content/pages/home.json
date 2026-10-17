@@ -5,19 +5,19 @@
     {
       "id": "recruiter-hr",
       "title": "Recruiter or HR",
-      "description": "Skills, stack, and project builds.",
+      "description": "Full-stack projects, technical skills, education, and resume.",
       "url": "/recruiter-hr/"
     },
     {
       "id": "teams-communities",
       "title": "Teams & Communities",
-      "description": "Hackathon record and leadership roles.",
+      "description": "Five finalist events, team builds, and community roles.",
       "url": "/teams-communities/"
     },
     {
       "id": "clients",
       "title": "Clients",
-      "description": "Web apps and business solutions.",
+      "description": "Vasudha, an accounting web app for a packaging trading business, plus demo templates.",
       "url": "/clients/"
     }
   ]

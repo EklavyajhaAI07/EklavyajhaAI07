@@ -1,4 +1,4 @@
-# content-brief.md — Eklavya Jha · Content Brief (FINAL v5)
+# content-brief.md — Eklavya Jha · Content Brief (FINAL v6)
 
 > **STATUS: FINAL.** Eklavya will not edit this file again. Every decision he owed has been made or defaulted below.
 > **For the coding agent:** build only from this file. Do not ask Eklavya to fill anything in. Ask in chat only if (a) a fact you need is genuinely absent from this file, (b) a proof link in section 19 cannot be opened (then ask for a screenshot), or (c) something you find contradicts this file.
@@ -43,8 +43,8 @@ His chat answers, his photo, the E-Cell IIT Bombay offer letter image (read by t
 | Site language | English |
 
 ### Bio and tags
-- Draft bio (agent may refine, then he approves in chat): "AI-powered full stack developer, learning AI engineering. B.Tech CSE-AI student at Gandhinagar University. Finalist in four hackathons, including the Odoo Hackathon 2026 Grand Finale."
-- Base tags: AI-Powered Full Stack Developer · Learning AI Engineering · B.Tech CSE-AI · 4x Hackathon Finalist
+- Draft bio (agent may refine, then he approves in chat): "AI-powered full stack developer, learning AI engineering. B.Tech CSE-AI student at Gandhinagar University. Finalist in five hackathons, including the Odoo Hackathon 2026 Grand Finale."
+- Base tags: AI-Powered Full Stack Developer · Learning AI Engineering · B.Tech CSE-AI · 5x Hackathon Finalist
 - Per-page extra tags: `AGENT-DRAFTS`
 
 ---
@@ -116,11 +116,12 @@ The agent drafts every card (title, one-line outcome, problem, solution, tech, r
 
 ## 6. Hackathons (PAGE: R, T; selectively C)
 
-**Eklavya is a finalist in four hackathons: Cognivia, Odoo Hackathon 2026, HackBaroda 2026 and FlowZint AI** `[CONFIRMED]` `[PROOF-PROVIDED]`. Use "4x Hackathon Finalist". PU CODE 2.0 is participation, not a finalist result. Use only the wording printed on each certificate or post.
+**Eklavya is a finalist in five distinct hackathons: Cognivia, Odoo Hackathon 2026, Odoo x LDCE Ahmedabad Hackathon 2026, HackBaroda 2026 and FlowZint AI** `[CONFIRMED]`. Use "5x Hackathon Finalist". Odoo x LDCE finals were confirmed by Eklavya in chat and corroborated by a public teammate post naming him; his own certificate is not published here. PU CODE 2.0 is participation, not a finalist result. Use only the wording printed on each certificate or post; do not claim a rank or applicant count for Odoo x LDCE without that proof.
 
 | Event | What to show | Proof |
 |---|---|---|
 | **Odoo Hackathon 2026** (also called Odoo HQ Hackathon 2026), offline final | **Grand Finale Finalist** with Dealflow360 (Team StackForge), selected from 20,000+ applicants. The 47 in earlier notes is a team number, **never a rank**, never shown. Public Odoo pages describe a 24-hour final at Odoo India, Gandhinagar, with a certificate for grand finalists, so do not imply a podium. | https://lnkd.in/p/dmg9SvCY |
+| **Odoo x LDCE Ahmedabad Hackathon 2026**, separate event | **Finalist**, offline final `[CONFIRMED]`. Project repository linked in the GitHub README; do not add it as a featured project. No rank or applicant-count claim. | Public teammate post names Eklavya among the finalists; Eklavya holds the certificate privately. Supporting project repo: https://github.com/Het161/ChampoinsClub (not a certificate link). |
 | Odoo Hackathon 2026, virtual round | Project: TransitOps. No result claim. | `[CONFIRMED]` |
 | **PU CODE 2.0** (Parul University) | Participant, CourtFlow AI. Repo: https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0 | https://lnkd.in/p/d5D8pskZ |
 | **Cognivia Hackathon** (PDPU) | Finalist, SafePath AI — Proactive AI-Powered Women's Safety System. Repo: https://github.com/Digvijay05/AIWomenSafetyBackend | https://lnkd.in/p/dp2KxQHM |
@@ -137,7 +138,7 @@ A count of events attended ("13+") is `EXCLUDED`.
 
 ## 7. Stats (max 3 per page in the animation, all real)
 
-1. **4x Hackathon Finalist** `[PROOF-PROVIDED]`
+1. **5x Hackathon Finalist** `[CONFIRMED]` (fifth event: Odoo x LDCE offline final)
 2. **Odoo Hackathon 2026 Grand Finale, selected from 20,000+ applicants** (word it as the field size)
 
 Which stats appear on which page: `AGENT-DRAFTS`. No other stats. No hours, streaks or user counts.
@@ -216,7 +217,7 @@ All headlines, hero copy, CTAs, availability line and end-card lines are in **`c
 |---|---|
 | Site / brand name | "Eklavya Jha" |
 | Title pattern | "Eklavya Jha | AI-Powered Full Stack Developer" (agent adapts per page) |
-| Domain | Decided in `tech-stack.md` (current: eklavya.dpdns.org, a free subdomain) |
+| Domain | Current canonical: `eklavya-jha-portfolio.eklavya.dpdns.org` (production Cloudflare Worker custom domain; confirmed by Eklavya). `eklavya.dpdns.org` still points to GitHub Pages and currently returns 404. |
 | Keywords and meta descriptions (home + 3 pages) | `AGENT-DRAFTS` from confirmed facts. Do not use "AI Engineer". |
 
 ---
@@ -248,7 +249,7 @@ All headlines, hero copy, CTAs, availability line and end-card lines are in **`c
 - Odoo: Grand Finale (offline final) = Dealflow360; virtual round = TransitOps. "47" is a team number, not a rank.
 - Cognivia: finalist with SafePath AI at PDPU; do not publish the previous rank claim.
 - PU CODE 2.0: participant with CourtFlow AI, not a finalist result.
-- Finalist count: four events (section 6), so "4x".
+- Finalist count: five distinct events (section 6), including Odoo x LDCE, so "5x". PU CODE remains participation.
 - HackBaroda and FlowZint: finalist.
 - Fresher's Party Night Edition: participant only.
 - Websites: demo templates, not clients.
@@ -258,7 +259,7 @@ All headlines, hero copy, CTAs, availability line and end-card lines are in **`c
 - Email: click-to-mail button only. Connect set: LinkedIn, GitHub, X, Instagram (Clients only), Discord, contact form.
 
 ## 18. Recommended fixes on his public profiles (his call, optional)
-Keep public profiles aligned with the lead role line, Dealflow360 for the Odoo Grand Finale, SafePath AI for Cognivia, CourtFlow AI as PU CODE 2.0 participation, and the verified 4x finalist count. Viral AI should match its repository, and the email must not appear as plain text.
+Keep public profiles aligned with the lead role line, Dealflow360 for the Odoo Grand Finale, SafePath AI for Cognivia, CourtFlow AI as PU CODE 2.0 participation, and the confirmed 5x finalist count including the separate Odoo x LDCE final. Viral AI should match its repository, and the email must not appear as plain text.
 
 ## 19. Proof register (supplied by Eklavya)
 
@@ -274,6 +275,7 @@ The assistant read only the offer-letter image. All `lnkd.in` links are **unveri
 | PU CODE 2.0 participant | https://lnkd.in/p/d5D8pskZ |
 | Careerprep AI Ideathon | https://lnkd.in/p/d2ph7eKe |
 | Odoo Hackathon 2026 Grand Finale | https://lnkd.in/p/dmg9SvCY |
+| Odoo x LDCE Ahmedabad Hackathon 2026 finalist | Confirmed by Eklavya and corroborated by a public teammate post naming him; certificate held privately, not linked on the site. Supporting build: https://github.com/Het161/ChampoinsClub |
 | SIH Student Coordinator 2026 | https://lnkd.in/p/dkZpTypz |
 | Campus Ambassador, E-Cell IIT Bombay | Offer letter image dated 29 June 2026 (`assets/proofs/...`), signed by two Overall Coordinators |
 | Top Prompt Creator (Google Student Ambassador) | https://lnkd.in/p/da2ZM8tA |

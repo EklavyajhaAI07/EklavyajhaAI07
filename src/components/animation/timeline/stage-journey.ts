@@ -21,7 +21,7 @@ export function createJourneyStageTimeline(container: HTMLElement): gsap.core.Ti
   stage3.style.willChange = 'opacity, transform';
 
   // ── Initial state (3D depth ready) ────────────────────────────────────────
-  gsap.set(stage3, { opacity: 0, visibility: 'hidden', display: 'flex', z: 20 });
+  gsap.set(stage3, { opacity: 0, visibility: 'hidden', display: 'flex', scale: 1.02, z: 20 });
   nodes.forEach(n => gsap.set(n, { opacity: 0, scale: 0.88, y: 14, z: -15 }));
 
   // ── 14.45s: Stage 3 enters (overlapping cross-fade with Stage 2 exit) ────
@@ -46,7 +46,7 @@ export function createJourneyStageTimeline(container: HTMLElement): gsap.core.Ti
   }
 
   // ── 20.4s: Overlap transition: Stage 3 recedes and cross-fades out ───────
-  tl.to(stage3, { opacity: 0, scale: 0.96, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 20.4);
+  tl.to(stage3, { opacity: 0, scale: 0.98, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 20.4);
   tl.set(stage3, { visibility: 'hidden' }, 20.95);
 
   // Release GPU hints

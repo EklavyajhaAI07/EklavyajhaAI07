@@ -220,17 +220,14 @@ for (const b of exp1Bullets) {
 }
 y -= 3;
 
-// Job 2
-doc.addText('National & International Hackathons', margin, y, 9.5, 'F2', 0.08, 0.12, 0.20);
-doc.addTextRightAligned('Dec 2025 - Present', rightEdge, y, 8.5, 'F2', 0.12, 0.14, 0.18);
-y -= 10;
-doc.addText('Team Leader & Core Builder', margin, y, 8.5, 'F3', 0.20, 0.25, 0.32);
-doc.addTextRightAligned('Remote / On-site', rightEdge, y, 8.5, 'F3', 0.35, 0.40, 0.48);
+// Selected hackathon results (use only approved, confirmed wording)
+doc.addText('5x Hackathon Finalist', margin, y, 9.5, 'F2', 0.08, 0.12, 0.20);
+doc.addTextRightAligned('2026', rightEdge, y, 8.5, 'F2', 0.12, 0.14, 0.18);
 y -= 10;
 
 const exp2Bullets = [
-  'Led technical architecture, cross-functional task delegation, and rapid prototyping across 13+ national-level hackathons, directing end-to-end design and feature engineering.',
-  'Structured technical onboarding for team members covering version control and cloud deployment pipelines to ensure immediate production readiness under pressure.',
+  'Finalist at Cognivia, Odoo Hackathon 2026, Odoo x LDCE Ahmedabad, HackBaroda, and FlowZint AI.',
+  'Associated builds include Dealflow360 (Team StackForge), SafePath AI, CiteMind, and the FlowZint support-chatbot track.',
 ];
 
 for (const b of exp2Bullets) {

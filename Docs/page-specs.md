@@ -1,6 +1,6 @@
 # page-specs.md — Page-by-Page Specification
 
-> Facts, projects, proofs and exclusions: `content-brief.md` (FINAL v5, it wins on any conflict). Rules and structure: `CLAUDE.md`. Copy: `copy-deck.md`. Look: `brand.md`. Motion: `animation-spec.md`. Data shape: `content-schema.md` (to be read with this file).
+> Facts, projects, proofs and exclusions: `content-brief.md` (FINAL v6, it wins on any conflict). Rules and structure: `CLAUDE.md`. Copy: `copy-deck.md`. Look: `brand.md`. Motion: `animation-spec.md`. Data shape: `content-schema.md` (to be read with this file).
 > Tags: **LOCKED** = approved by Eklavya · **AGENT-DRAFTS** = the agent proposes 2 options, he picks in chat · **DECIDED** = chosen by Claude on his delegation.
 
 ---
@@ -78,7 +78,7 @@ Reader question: can he do the job, and is he growing fast? Optimise for scannin
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Recruiter headline |
-| B | Proof strip | 4x Hackathon Finalist · B.Tech CSE-AI, Gandhinagar University (2025 to 2029) · IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress) · Campus Ambassador, E-Cell IIT Bombay |
+| B | Proof strip | 5x Hackathon Finalist · B.Tech CSE-AI, Gandhinagar University (2025 to 2029) · IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress) · Campus Ambassador, E-Cell IIT Bombay |
 | C1 | **Projects** | Vasudha (Live), Dealflow360 (Odoo Grand Finale project), Viral AI (In development). Card: name, one-line outcome, tech, role, status badge, links, screenshots. Vasudha's double-entry bookkeeping and owner assistant are included as live features. |
 | C2 | **Skills** | Grouped cards (Languages, AI/ML, Web/backend/data, Cloud/deploy) with Learning / Working / Strong levels and a proof project (agent drafts, he approves once). Never percentages. |
 | C3 | **Hackathons and certificates** | Finalist events first, participation after, each with its proof link if he allowed it. Use the exact wording on each certificate. |
@@ -97,7 +97,7 @@ Reader question: can he build, collaborate and add energy to a team?
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Teams headline |
-| B | Proof strip | 4x Hackathon Finalist · Campus Ambassador, E-Cell IIT Bombay · SIH Student Coordinator 2026 · "Top Prompt Creator" (Google Student Ambassador) |
+| B | Proof strip | 5x Hackathon Finalist · Campus Ambassador, E-Cell IIT Bombay · SIH Student Coordinator 2026 · "Top Prompt Creator" (Google Student Ambassador) |
 | C1 | **Team builds** | Dealflow360 (Team StackForge, Odoo Grand Finale), Viral AI. Hackathon-linked builds: SafePath AI, CourtFlow AI, CiteMind, AEGIS. State the role honestly (hackathon team build; no "team lead" claim). |
 | C2 | **Hackathon record** | Table: event, project, result as printed on the certificate (Finalist or Participant) |
 | C3 | **Community and leadership** | Campus Ambassador, E-Cell IIT Bombay; Coordinator, SIH 2026 Internal Hackathon (Gandhinagar University); Core Member, Founder's Crew (E-CELL Community); Google Student Ambassador "Top Prompt Creator"; "Fresher's Party Night Edition" as participation |
@@ -115,7 +115,7 @@ Reader question: will he solve my problem and deliver something that works? Plai
 | Order | Section | Content and source |
 |---|---|---|
 | A | Hero | As above, Clients headline |
-| B | Proof strip | A live client system (Vasudha) · 4x Hackathon Finalist · AI-powered full stack builds |
+| B | Proof strip | A live client system (Vasudha) · 5x Hackathon Finalist · AI-powered full stack builds |
 | C1 | **What I build** | AI-powered full stack web apps and prototypes (brief section 10). Short, outcome-first. |
 | C2 | **Case study: Vasudha** | A live web app for firms' accounting and management: invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant. Client shown as "a packaging trading business". His role: full-stack development, debugging and security checks. Blocks: *The need* (agent drafts one neutral line from the description, no invented pain points) · *What I built* · *What's live now*. **No result numbers and no client name.** |
 | C3 | **AI example** | Viral AI, "multi-agent platform, in development" |

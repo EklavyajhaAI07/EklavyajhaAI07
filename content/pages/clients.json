@@ -5,13 +5,13 @@
   "projects": ["vasudha-manager", "viral-content-ai", "demo-sahi-gulab-jamun", "demo-eklavya-tuition"],
   "animation": {
     "projects": ["vasudha-manager", "viral-content-ai"],
-    "stats": ["finalist-4x"]
+    "stats": ["finalist-5x"]
   },
   "howIWork": [
-    { "title": "Discover", "description": "We define the exact business problem you need solved." },
-    { "title": "Plan", "description": "I map out the features, technology stack, and timeline." },
-    { "title": "Build", "description": "I build the solution as a full-stack web application." },
-    { "title": "Deliver", "description": "You get a working, deployed product ready for your users." }
+    { "title": "Scope", "description": "Define the business problem and the workflows the app needs to support." },
+    { "title": "Plan", "description": "Agree on the required features and a suitable full-stack approach." },
+    { "title": "Build", "description": "Develop the web application around the agreed workflows." },
+    { "title": "Review", "description": "Check the working build against the agreed scope before delivery." }
   ],
   "primaryCta": { "type": "connect", "channels": ["form"] },
   "secondaryCta": { "type": "connect", "channels": ["instagram"] }

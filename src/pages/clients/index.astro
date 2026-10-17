@@ -6,6 +6,7 @@ import ConnectSection from '../../components/ConnectSection.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import AnimationStage from '../../components/animation/AnimationStage.astro';
 import StickyCtaBar from '../../components/StickyCtaBar.astro';
+import QuickFacts from '../../components/QuickFacts.astro';
 import {
   identity,
   copyDeck, 
@@ -16,19 +17,19 @@ import {
 } from '../../lib/content';
 import type { ProjectData } from '../../lib/schema';
 
-const title = `${identity.name} | AI-Powered Web Apps for Businesses`;
-const description = `Explore practical AI-powered web applications, client work, prototypes, and collaboration options from ${identity.name}.`;
+const title = `${identity.name} | AI-Powered Web Apps for Real Business Needs`;
+const description = `AI-powered web apps and prototypes. See a live client system, demo templates and how to start a project with ${identity.name}.`;
 
 // Specific projects for clients page
 const vasudha = getProjectById('vasudha-manager');
 const viralAi = getProjectById('viral-content-ai');
 const demoSahi = getProjectById('demo-sahi-gulab-jamun');
 const demoTuition = getProjectById('demo-eklavya-tuition');
-const finalistStat = stats.find((stat) => stat.id === 'finalist-4x');
+const finalistStat = stats.find((stat) => stat.id === 'finalist-5x');
 const clientProofs = [
   vasudha && `Live client system: ${vasudha.title}`,
   finalistStat && `${finalistStat.value}${finalistStat.suffix ?? ''} ${finalistStat.label}`,
-  `${identity.roleLine} builds`,
+  'AI-powered full stack web apps and prototypes',
 ].filter(Boolean) as string[];
 
 // Data bindings for Animation Stage
@@ -55,6 +56,7 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
       featuredProjects={featuredProjects}
       stats={animStats}
       journey={journey}
+      heroTitle={`${identity.roleLine} for Business Web Apps — ${identity.name}`}
       headline={copyDeck.clients.headline[0]}
       endCard={copyDeck.clients.endCard[0]}
       primaryCta={{ label: "Discuss Your Project", href: "#connect" }}
@@ -69,9 +71,15 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
       </div>
     </section>
 
+    <QuickFacts facts={[
+      `${identity.name} is an ${identity.roleLine.toLowerCase()} based in ${identity.location.city}, ${identity.location.region}, ${identity.location.country}.`,
+      'He built Vasudha, a live accounting and management web app for a packaging trading business.',
+      'Vasudha manages invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant.',
+    ]} />
+
     <section id="what-i-build" class="page-section">
       <div class="container text-center">
-        <h2 class="section-title">What I Build</h2>
+        <h2 class="section-title">AI-Powered Full-Stack Apps & Prototypes</h2>
         <p class="large-text">AI-powered full stack web apps and prototypes.</p>
       </div>
     </section>
@@ -87,7 +95,7 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
             <div class="cs-blocks">
               <div class="cs-block">
                 <h4>The Need</h4>
-                <p>A web app for firm accounting and management.</p>
+                <p>Accounting and business management for a packaging trading business, delivered as a live web app.</p>
               </div>
               <div class="cs-block">
                 <h4>What I Built</h4>
@@ -96,7 +104,8 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
               </div>
               <div class="cs-block">
                 <h4>What's Live Now</h4>
-                <p>Invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups, and an owner assistant.</p>
+                <p>Live features include invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant.</p>
+                <a href={vasudha?.links.find((link) => link.type === 'live')?.url} target="_blank" rel="noopener" class="proof-link">Open the live Vasudha app ↗</a>
               </div>
             </div>
           </div>
@@ -106,7 +115,7 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
 
     <section id="ai-example" class="page-section">
       <div class="container">
-        <h2 class="section-title">AI Example</h2>
+        <h2 class="section-title">AI Content Platform: Viral AI</h2>
         <div class="projects-grid">
           {viralAi && <ProjectCard project={viralAi} />}
         </div>
@@ -176,8 +185,8 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
   .proof-list li::before { content: "✓"; color: var(--accent); margin-right: 8px; font-weight: 700; }
   
   .page-section { padding: var(--space-16) 0; }
-  .bg-light { background-color: #F9FAFB; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .section-title { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: var(--space-8); }
+  .bg-light { background-color: var(--surface-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-title { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: var(--ink); margin-bottom: var(--space-8); line-height: 1.2; }
   .text-center { text-align: center; }
   .large-text { font-size: 1.3rem; color: var(--ink); font-weight: 500; }
   

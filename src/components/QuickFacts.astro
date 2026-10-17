@@ -1,0 +1,63 @@
+---
+interface Props {
+  facts: string[];
+}
+
+const { facts } = Astro.props;
+---
+
+<section class="quick-facts" aria-labelledby="quick-facts-title">
+  <div class="container quick-facts-inner">
+    <h2 id="quick-facts-title">Quick facts</h2>
+    <ul>
+      {facts.map((fact) => <li>{fact}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .quick-facts {
+    padding-block: var(--space-8);
+    background: var(--surface-bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .quick-facts-inner {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-6);
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: var(--space-3) var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--accent-strong);
+    color: var(--ink-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .quick-facts-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
+</style>

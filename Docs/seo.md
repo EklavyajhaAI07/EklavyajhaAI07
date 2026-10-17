@@ -1,6 +1,6 @@
 # seo.md — Search, Sharing and Structured Data
 
-> Facts and wording limits: `content-brief.md` (FINAL v5, it wins on any conflict). Structure: `CLAUDE.md` section 10 and `page-specs.md`. Data: `content-schema.md`.
+> Facts and wording limits: `content-brief.md` (FINAL v6, it wins on any conflict). Structure: `CLAUDE.md` section 10 and `page-specs.md`. Data: `content-schema.md`.
 > Tags: **LOCKED** = approved by Eklavya · **AGENT-DRAFTS** = the agent proposes final copy, he picks in chat · **DECIDED** = chosen by Claude on his delegation.
 
 ---
@@ -28,8 +28,8 @@ Starter drafts (the agent may refine, Eklavya picks in chat):
 | Page | Title (chars) | Description (chars) |
 |---|---|---|
 | Home | Eklavya Jha \| AI-Powered Full Stack Developer (45) | Eklavya Jha is an AI-powered full stack developer in Ahmedabad, learning AI engineering. Choose your path: recruiters, teams or clients. (136) |
-| Recruiter / HR | Eklavya Jha \| AI-Powered Full Stack Developer Resume | AI-powered full stack developer and 4x hackathon finalist. See Eklavya Jha's projects, skills and certificates, and download his resume. |
-| Teams & Communities | Eklavya Jha \| 4x Hackathon Finalist, Campus Ambassador | 4x hackathon finalist and E-Cell IIT Bombay Campus Ambassador. See Eklavya Jha's team builds, hackathon record and community work. |
+| Recruiter / HR | Eklavya Jha \| AI-Powered Full Stack Developer Resume | AI-powered full stack developer and 5x hackathon finalist. See Eklavya Jha's projects, skills and certificates, and download his resume. |
+| Teams & Communities | Eklavya Jha \| 5x Hackathon Finalist, Campus Ambassador | 5x hackathon finalist and E-Cell IIT Bombay Campus Ambassador. See Eklavya Jha's team builds, hackathon record and community work. |
 | Clients | Eklavya Jha \| AI-Powered Web Apps for Real Business Needs (57) | AI-powered web apps and prototypes. See a live client system, demo templates and how to start a project with Eklavya Jha. (121) |
 
 `<h1>` per page: the page headline from `page-specs.md` (Home: "Eklavya Jha, AI-Powered Full Stack Developer").
@@ -38,7 +38,7 @@ Headings use a logical order (one `h1`, then `h2` per section). Section names ar
 ## 4. URLs
 - The agent chooses clean, lowercase, descriptive slugs and keeps them stable (`CLAUDE.md` section 3). Use a trailing-slash convention consistently.
 - Redirects: `www` and non-`www` resolve to one host; HTTP redirects to HTTPS.
-- **Open technical item:** his old site `eklavya.dpdns.org` is public and may be indexed. When the new site goes live, decide in `deployment.md` whether to 301-redirect it to the new domain. This is not decided in the brief, and the agent proposes the option; it never silently deletes it.
+- **Current canonical:** `eklavya-jha-portfolio.eklavya.dpdns.org` on Cloudflare Workers. The old `eklavya.dpdns.org` hostname currently returns a GitHub Pages 404; a future redirect is a separate decision.
 
 ## 5. Open Graph and social previews (DECIDED)
 - Per page: `og:title`, `og:description`, `og:type` (`website`; `profile` for Home is optional), `og:url`, `og:image`, `og:locale` = `en_IN`, `og:site_name` = "Eklavya Jha".
@@ -58,8 +58,8 @@ Allowed: only facts that appear on the visible page and in the brief.
   "name": "Eklavya Jha",
   "jobTitle": "AI-Powered Full Stack Developer",
   "description": "AI-powered full stack developer, learning AI engineering.",
-  "url": "https://<final-domain>/",
-  "image": "https://<final-domain>/assets/eklavya-photo.png",
+  "url": "https://eklavya-jha-portfolio.eklavya.dpdns.org/",
+  "image": "https://eklavya-jha-portfolio.eklavya.dpdns.org/assets/eklavya-photo.png",
   "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" },
   "sameAs": [
     "https://www.linkedin.com/in/eklavya-jha-23a54b377",
@@ -76,7 +76,7 @@ Allowed: only facts that appear on the visible page and in the brief.
 - Validate with Google's Rich Results Test and the Schema Markup Validator before launch.
 
 ## 7. Sitemap and robots
-- `sitemap.xml` with the four indexable URLs, each with `lastmod` updated on content change. Exclude 404 and reel-mode URLs.
+- Astro generates `sitemap-index.xml` and `sitemap-0.xml` with the four indexable URLs. Exclude 404 and reel-mode URLs.
 - `robots.txt`: allow all, `Sitemap:` line pointing to the sitemap. Do not block CSS or JS.
 - Favicon and app icons from the initials mark.
 
@@ -88,7 +88,7 @@ Allowed: only facts that appear on the visible page and in the brief.
 - Do not stuff keywords. Natural phrases from the brief only: "AI-powered full stack developer", "Ahmedabad", "hackathon finalist", project names.
 
 ## 9. Make the whole web footprint match (his call, optional but valuable)
-Search engines and recruiters compare profiles. Keep the GitHub README and LinkedIn aligned with the verified role line, 4x finalist count, corrected hackathon records and Odoo project. Link the new site from LinkedIn (Website field and summary) and from the GitHub profile as soon as it is live.
+Search engines and recruiters compare profiles. Keep the GitHub README and LinkedIn aligned with the verified role line, 5x finalist count, corrected hackathon records and Odoo project. Link the live portfolio domain from LinkedIn (Website field and summary) and from the GitHub profile.
 
 ## 10. Performance and search (Core Web Vitals)
 - Targets: LCP under 2.5s, CLS near 0, INP under 200ms on a mid-range phone.
@@ -104,7 +104,7 @@ Search engines and recruiters compare profiles. Keep the GitHub README and Linke
 5. Re-scrape link previews after any title or image change.
 
 ## 12. Privacy checks
-- No email address or phone number in meta tags, Open Graph tags, structured data, `sitemap.xml` or any visible text.
+- No email address or phone number in meta tags, Open Graph tags, structured data, sitemap XML or any visible text.
 - No proof documents (offer letter) in the sitemap or any public path.
 
 ## 13. Acceptance checklist
@@ -113,7 +113,7 @@ Search engines and recruiters compare profiles. Keep the GitHub README and Linke
 - [ ] No "AI Engineer" title anywhere (the phrase "Learning AI Engineering" is fine)
 - [ ] OG image and Twitter card render correctly for every page
 - [ ] `Person` JSON-LD validates and contains no email, phone or unprovable claims
-- [ ] `sitemap.xml` and `robots.txt` work; 404 is noindex
+- [ ] `sitemap-index.xml` and `robots.txt` work; 404 is noindex
 - [ ] Content is real HTML at load time, identical to what visitors see
 - [ ] Lighthouse SEO and Accessibility 90 or more on every page
 - [ ] Search Console verified and sitemap submitted after launch

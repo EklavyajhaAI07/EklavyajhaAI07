@@ -28,9 +28,23 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
 <section id="connect" class="section connect-section">
   <div class="container">
     <div class="section-header text-center">
-      <h2 class="section-title">Connect & Collaborate</h2>
+      <h2 class="section-title">
+        {currentAudience === 'recruiter'
+          ? 'Discuss a Role'
+          : currentAudience === 'teams'
+            ? 'Build with a Team'
+            : currentAudience === 'clients'
+              ? 'Discuss a Business App'
+              : 'Contact Eklavya'}
+      </h2>
       <p class="section-subtitle">
-        Whether you have an engineering role, a hackathon team, or a product in need of full-stack AI development, let's talk.
+        {currentAudience === 'recruiter'
+          ? 'Review the project work, technical skills, education, and resume—or get in touch about a role.'
+          : currentAudience === 'teams'
+            ? 'Discuss a hackathon build, team collaboration, or community project.'
+            : currentAudience === 'clients'
+              ? 'Discuss an AI-powered web app or prototype for your business.'
+              : 'Choose a path to review Eklavya’s project work, hackathon record, or client work.'}
       </p>
     </div>
 
@@ -504,7 +518,7 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
   }
 
   .channel-btn .icon {
-    font-size: 1.15rem;
+    display: none;
   }
 
   .btn-primary {

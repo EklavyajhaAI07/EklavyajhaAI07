@@ -1,17 +1,19 @@
 # 🚀 Setup — Eklavya's animated GitHub profile
 
+> Historical GitHub Pages setup guide. The current Astro portfolio runs on Cloudflare Workers at `https://eklavya-jha-portfolio.eklavya.dpdns.org/`; see `Docs/deployment.md`. The instructions below do not describe the current deployment.
+
 Everything is already baked with the real username (`EklavyajhaAI07`) and real links — **no placeholders to replace**. Total time: ~4 minutes.
 
 ## ⚠️ Read this first
 
-The repo `EklavyajhaAI07/EklavyajhaAI07` is **also the live portfolio site** (GitHub Pages → eklavya.dpdns.org).
-This kit only **adds** files and **replaces README.md**. Do **NOT** delete or modify:
+When this GitHub Pages profile kit was written, the repository was associated with a site at `eklavya.dpdns.org`. That is a historical setup note, not the current deployment; the Astro portfolio now runs on the Cloudflare Worker listed above.
+This kit was intended to **add** profile files and **replace README.md**. Do **NOT** treat these legacy instructions as a deployment guide for the current portfolio:
 
-- `index.html` · `style.css` · `script.js` — the live site
-- `CNAME` — the custom domain mapping
+- `index.html` · `style.css` · `script.js` — legacy GitHub Pages site files
+- `CNAME` — legacy GitHub Pages domain mapping
 - `.gitignore` · `package-lock.json`
 
-The new `assets/` folder will also be publicly served at `eklavya.dpdns.org/assets/…` — harmless (they're just SVGs), and the site is untouched.
+The historical guide's `eklavya.dpdns.org/assets/…` references do not describe the current Cloudflare-hosted Astro site.
 
 ## 1. Add the new files
 
@@ -55,4 +57,4 @@ GitHub READMEs strip all JS — everything here is **hand-coded animated SVG** (
 | `assets/divider.svg` | Indigo + cyan comets racing along a synapse line with a pulsing hexagon node |
 | `assets/footer.svg` | `deploy --next-idea` → drifting indigo/cyan waves |
 
-All colors come straight from the portfolio site's own palette (`--accent: #6366f1`, `--secondary: #06b6d4`) so the README and eklavya.dpdns.org feel like one brand. Want to tweak text or colors? They're plain SVG files — open in any editor.
+These SVG colors match the palette documented when this GitHub profile kit was written (`--accent: #6366f1`, `--secondary: #06b6d4`). They are README assets and do not control the current Astro site's styling. Want to tweak text or colors? They're plain SVG files — open in any editor.

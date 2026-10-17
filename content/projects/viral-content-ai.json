@@ -1,18 +1,18 @@
 {
   "id": "viral-content-ai",
   "title": "Viral AI",
-  "oneLine": "AI-powered content studio that scouts trends, designs strategy, generates content, and predicts virality.",
+  "oneLine": "In-development multi-agent content platform for trend scouting, strategy, content generation and virality prediction.",
   "status": "in-development",
   "kind": "hackathon-build",
-  "description": "A multi-agent platform in development. Built for Craftathon 2k26 to automate trend scouting and content generation.",
+  "description": "Built for Craftathon 2k26, this in-development multi-agent platform automates trend scouting and content generation using CrewAI, Browser Use, FastAPI, TypeScript and Tailwind CSS.",
   "role": "Eklavya's project",
   "tech": ["Multi-agent system", "CrewAI", "Browser Use", "FastAPI", "TypeScript", "Tailwind CSS"],
   "links": [
     { "label": "GitHub", "url": "https://github.com/EklavyajhaAI07/viral-content-ai", "type": "repo" }
   ],
   "screenshots": [
-    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/1.png", "alt": "Viral AI dashboard screenshot 1" },
-    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/2.png", "alt": "Viral AI dashboard screenshot 2" }
+    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/1.png", "alt": "Viral AI interface for the in-development multi-agent content studio" },
+    { "src": "https://raw.githubusercontent.com/EklavyajhaAI07/viral-content-ai/main/screenshots/2.png", "alt": "Second Viral AI project screenshot from the in-development content studio" }
   ],
   "roadmap": [],
   "featured": true,

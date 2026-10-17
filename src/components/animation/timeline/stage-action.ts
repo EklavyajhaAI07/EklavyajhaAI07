@@ -21,7 +21,7 @@ export function createActionStageTimeline(
   stage4.style.willChange = 'opacity, transform';
 
   // ── Initial states (3D depth ready) ───────────────────────────────────────
-  gsap.set(stage4, { opacity: 0, visibility: 'hidden', display: 'flex', z: 20 });
+  gsap.set(stage4, { opacity: 0, visibility: 'hidden', display: 'flex', scale: 1.02, z: 20 });
   if (endCardLine) gsap.set(endCardLine, { opacity: 0, y: 16, scale: 0.94, z: 10 });
   ctaButtons.forEach(btn => gsap.set(btn, { opacity: 0, y: 14, scale: 0.9, z: 5 }));
   if (actionGlow)  gsap.set(actionGlow,  { opacity: 0, scale: 0.7, z: -10 });

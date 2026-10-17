@@ -8,6 +8,13 @@
     "note": "Selected from 20,000+ applicants.",
     "proof": { "url": "https://lnkd.in/p/dmg9SvCY", "publish": true } 
   },
+  {
+    "id": "odoo-ldce-2026-final",
+    "event": "Odoo x LDCE Ahmedabad Hackathon 2026",
+    "round": "Offline Final",
+    "result": "finalist",
+    "proof": { "url": "https://github.com/Het161/ChampoinsClub", "publish": false }
+  },
   { 
     "id": "bharatiya-antariksh-2026", 
     "event": "Bharatiya Antariksh Hackathon 2026 (ISRO)", 
@@ -22,6 +29,20 @@
     "result": "finalist", 
     "note": "Proactive AI-Powered Women's Safety System.",
     "proof": { "url": "https://lnkd.in/p/dp2KxQHM", "publish": true }
+  },
+  {
+    "id": "hackbaroda-2026",
+    "event": "HackBaroda 2026",
+    "project": "citemind",
+    "result": "finalist",
+    "proof": { "url": "https://lnkd.in/p/dN8ekj3T", "publish": true }
+  },
+  {
+    "id": "flowzint-ai-2026",
+    "event": "FlowZint AI Hackathon 2026",
+    "result": "finalist",
+    "note": "Support chatbot track.",
+    "proof": { "url": "https://lnkd.in/p/d3qAGijh", "publish": true }
   },
   { 
     "id": "pu-code-2",

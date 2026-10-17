@@ -62,9 +62,9 @@ export function createIdentityStageTimeline(container: HTMLElement): gsap.core.T
     }, 2.4);
   }
 
-  // 3.1s – Photo cross-fade and scale settle
+  // Keep the portrait visible through most of the identity chapter.
   if (photo) {
-    tl.to(photo, { opacity: 1, scale: 1, x: 0, z: 0, duration: 0.65, ease: CAMERA_GLIDE }, 3.1);
+    tl.to(photo, { opacity: 1, scale: 1, x: 0, z: 0, duration: 0.85, ease: CAMERA_GLIDE }, 0.65);
   }
 
   // 3.3s – Education badge
@@ -73,7 +73,7 @@ export function createIdentityStageTimeline(container: HTMLElement): gsap.core.T
   }
 
   // 4.4s – Overlap transition: Stage 1 smoothly recedes and cross-fades out
-  tl.to(stage1, { opacity: 0, scale: 0.96, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 4.4);
+  tl.to(stage1, { opacity: 0, scale: 0.98, z: -35, duration: 0.55, ease: CAMERA_GLIDE }, 4.4);
 
   // ── Release will-change after stage finishes (4.95s) ────────────────────
   tl.call(() => {

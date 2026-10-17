@@ -13,8 +13,8 @@
 | Repository | The existing GitHub repo. The new portfolio replaces the old code. Built on a branch first. | LOCKED |
 | Repo visibility | Private, switched **after** the new host is live | DECIDED |
 | Host | **Cloudflare Workers with static assets**; `src/worker.ts` supplies the contact endpoint and serves the Astro build | DECIDED |
-| Domain | Keep `eklavya.dpdns.org` for now. No purchase. | LOCKED |
-| Old-site redirect | Not needed: same domain, same repo, old code is replaced | LOCKED |
+| Domain | Keep `eklavya-jha-portfolio.eklavya.dpdns.org` as the canonical Worker domain. No purchase. | LOCKED |
+| Old-site redirect | `eklavya.dpdns.org` still resolves to GitHub Pages and returned 404 on 2026-10-17. No redirect is configured; any future redirect is a separate change. | CURRENT |
 | Contact form | Cloudflare Worker plus Turnstile and Web3Forms (`connect-and-forms.md`) | DECIDED |
 | Analytics | Umami Cloud, free Hobby plan | DECIDED |
 | Cost | 0 | |
@@ -46,22 +46,13 @@ The choice between A and B is not visible to visitors. This repository currently
 - [ ] Open the DigitalPlat dashboard and note where DNS is hosted now. **Screenshot all current DNS records** (this is the rollback).
 - [ ] Add to `.gitignore`: `private-proofs/`, `data.md`, `.env`, `.env.local`, `.dev.vars`, `reels-out/`.
 
-## 6. Cutover steps (do in order)
-1. Create a free Cloudflare account.
-2. In Cloudflare: **Workers & Pages -> Create -> Import a repository**. Select this GitHub repository. Use root directory `/`, build command `npm run build`, deploy command `npx wrangler deploy`, and Node.js `22` or newer. `wrangler.jsonc` serves `dist/client` and routes `/api/*` through the Worker.
-3. Add the secrets from section 7.
-4. Test the generated `pages.dev` preview with `qa-checklist.md`, including a real contact-form submission. **Nothing changes for visitors yet.**
-5. **Cutover day.** In Cloudflare, add `eklavya.dpdns.org` as a site on the **Free** plan. Copy the two nameservers it gives you.
-6. In the DigitalPlat dashboard, replace the nameservers with Cloudflare's two. Wait until Cloudflare shows the site as **Active** (minutes to a few hours).
-7. In the Cloudflare project, add `eklavya.dpdns.org` (and `www`) as custom domains. Wait for the certificate to become active.
-8. Open the live address on your phone using mobile data. Run the quick checks in `qa-checklist.md` section 11.
-9. Only now merge `rebuild` into `main`. Old code leaves `main`.
-10. In GitHub: Settings, Pages, unpublish. Remove the custom domain there and delete any old `CNAME` file.
-11. In GitHub: Settings, change visibility to **Private**. (Doing this before step 10 would take the old site down early.)
-12. Add the domain to Google Search Console with the DNS TXT method, and submit the sitemap (`seo.md` section 11).
-13. Add the new site to your LinkedIn Website field and GitHub profile.
+## 6. Current production routing
 
-**If the nameserver change does not work** (dashboard issue or domain problem): the site still works on its free `pages.dev` address. Share that address until the domain is fixed, and keep GitHub Pages running for the old domain meanwhile.
+- The authenticated Cloudflare account maps the custom domain `eklavya-jha-portfolio.eklavya.dpdns.org` to Worker `eklavya-jha-portfolio`, environment `production`. The HTTPS home page returned 200 on 2026-10-17.
+- Public DNS for that host resolved to Cloudflare proxy addresses. `eklavya.dpdns.org` resolved to GitHub Pages addresses and returned 404. The zone nameservers are `fred.ns.cloudflare.com` and `magali.ns.cloudflare.com`.
+- The authenticated API could read the Worker custom-domain mapping but lacked permission to list zone DNS records. Exact dashboard record type and proxy setting were therefore not independently inspected.
+- `main` deploys the Astro build via `npm run build` and `npx wrangler deploy`; `wrangler.jsonc` serves `dist/client` and routes `/api/*` through the Worker.
+- The confirmed canonical domain is the working Worker host. Moving the shorter domain or adding a 301 redirect requires a separate DNS/routing decision. Submit `https://eklavya-jha-portfolio.eklavya.dpdns.org/sitemap-index.xml` in Search Console.
 
 ## 7. Secrets and environment (names only, no values in the repo)
 
@@ -89,7 +80,7 @@ Production verification on 2026-10-17: the Worker originally had only the `ASSET
 
 ## 9. Redirects, HTTPS, headers
 - HTTP redirects to HTTPS (Cloudflare "Always Use HTTPS").
-- **Canonical host: `eklavya.dpdns.org` without `www`.** `www` redirects (301) to it.
+- **Canonical host: `eklavya-jha-portfolio.eklavya.dpdns.org`.** No `www` redirect has been verified.
 - Trailing-slash style is consistent across all pages (`seo.md` section 4).
 - **Old URLs:** the old site's paths will return 404 on the new site. The custom 404 page (noindex) links to Home. After launch, check Search Console for old URLs still indexed and add 301s to the nearest new page. **ASK** at that point.
 - **Security headers (PROPOSED):** HSTS, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, a minimal `Permissions-Policy`, and a Content-Security-Policy that allows only the site, Turnstile and Umami scripts. The agent checks how the chosen host sets headers (a `_headers` file or Worker code).
@@ -112,7 +103,7 @@ Production verification on 2026-10-17: the Worker originally had only the `ASSET
 ## 11. Later: moving to your own domain
 1. Buy the domain (needs Eklavya's approval, **ASK**).
 2. Add it as a custom domain on the same project.
-3. Add a Cloudflare redirect rule: old `eklavya.dpdns.org` to the new domain (301).
+3. If moving away from the current Worker host, decide separately whether `eklavya.dpdns.org` and the Worker host should redirect (301) to the new domain.
 4. Change `siteUrl` in `site.json`. Canonical tags, sitemap, Open Graph and JSON-LD all read from it, so this is one edit.
 5. Update LinkedIn, GitHub, the resume PDF and the reel end cards. Re-scrape link previews. Re-submit the sitemap in Search Console.
 
@@ -130,8 +121,8 @@ Production verification on 2026-10-17: the Worker originally had only the `ASSET
 - `CLAUDE.md` file index: add `assets-checklist.md` and mark the six new files as written.
 
 ## 15. Acceptance checklist
-- [ ] Live site opens on `https://eklavya.dpdns.org/` for all four pages
-- [ ] `http://` and `www` both redirect to the canonical address
+- [x] Live Worker site opens on `https://eklavya-jha-portfolio.eklavya.dpdns.org/` (checked 2026-10-17)
+- [ ] Confirm HTTP-to-HTTPS redirect and any `www` behavior separately
 - [ ] 404 page works and is noindex
 - [ ] Contact form works on the live site (all states)
 - [ ] Repo is private, GitHub Pages is unpublished

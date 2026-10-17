@@ -5,12 +5,12 @@
   "projects": ["dealflow360", "viral-content-ai", "safepath-ai", "courtflow-ai", "citemind", "aegis"],
   "animation": {
     "projects": ["dealflow360", "viral-content-ai"],
-    "stats": ["finalist-4x", "odoo-field"]
+    "stats": ["finalist-5x", "odoo-field"]
   },
   "offer": [
-    "I execute ideas quickly under pressure, proven through multiple hackathon finalist projects.",
-    "I integrate complex APIs, like multi-agent systems and LLMs, into working products.",
-    "I am active in the community, as a Campus Ambassador and SIH Coordinator."
+    "Hackathon record: finalist in five events, including the Odoo Hackathon 2026 Grand Finale and Odoo x LDCE Ahmedabad Hackathon 2026.",
+    "Team StackForge’s Dealflow360 build covers an internal workspace, customer portal, quotes, approvals, inventory, and billing.",
+    "Community roles: Campus Ambassador, E-Cell IIT Bombay; SIH Student Coordinator 2026; Core Member, Founder's Crew (E-CELL Community)."
   ],
   "primaryCta": { "type": "connect", "channels": ["linkedin", "discord"] },
   "secondaryCta": { "type": "connect" }

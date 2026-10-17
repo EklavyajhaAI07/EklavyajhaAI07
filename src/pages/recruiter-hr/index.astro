@@ -6,6 +6,7 @@ import ConnectSection from '../../components/ConnectSection.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import AnimationStage from '../../components/animation/AnimationStage.astro';
 import StickyCtaBar from '../../components/StickyCtaBar.astro';
+import QuickFacts from '../../components/QuickFacts.astro';
 import {
   identity,
   copyDeck, 
@@ -22,8 +23,8 @@ import {
 } from '../../lib/content';
 import type { ProjectData } from '../../lib/schema';
 
-const title = `${identity.name} | Developer Portfolio for Recruiters`;
-const description = `Review ${identity.name}'s AI-powered full-stack projects, technical skills, verified hackathon results, education, and downloadable resume.`;
+const title = `${identity.name} | AI-Powered Full Stack Developer Resume`;
+const description = `AI-powered full stack developer and 5x hackathon finalist. See ${identity.name}'s projects, skills and certificates, and download his resume.`;
 const projects = getProjectsForAudience('recruiter');
 const skills = getSkillsForAudience('recruiter');
 
@@ -35,7 +36,7 @@ const featuredProjects = recruiterPage.animation.projects
   .filter(Boolean) as ProjectData[];
 
 const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id));
-const finalistStat = stats.find((stat) => stat.id === 'finalist-4x');
+const finalistStat = stats.find((stat) => stat.id === 'finalist-5x');
 const eliteProgram = programs.find((program) => program.id === 'iitr-microsoft-elite-ai-ds');
 const campusRole = community.find((item) => item.id === 'ecell-iitb-campus-ambassador');
 const recruiterProofs = [
@@ -62,6 +63,7 @@ const recruiterProofs = [
       featuredProjects={featuredProjects}
       stats={animStats}
       journey={journey}
+      heroTitle={`${identity.name} — ${identity.roleLine}`}
       headline={copyDeck.recruiter.headline[0]}
       endCard={copyDeck.recruiter.endCard[0]}
       primaryCta={{ label: "Download Resume (PDF)", href: "/assets/eklavya-jha-resume.pdf" }}
@@ -75,6 +77,12 @@ const recruiterProofs = [
         </ul>
       </div>
     </section>
+
+    <QuickFacts facts={[
+      `${identity.name} is an ${identity.roleLine.toLowerCase()} in ${identity.location.city}, ${identity.location.region}, ${identity.location.country}; he is ${identity.supportingLine.toLowerCase()}.`,
+      `He is a ${education.degree} student at ${education.university} (${education.startYear}–${education.graduationYear}).`,
+      'He built Vasudha, a live accounting and management web app for a packaging trading business, and is a 5x Hackathon Finalist.',
+    ]} />
 
     <section id="projects" class="page-section">
       <div class="container">
@@ -315,16 +323,17 @@ const recruiterProofs = [
   }
 
   .bg-light {
-    background-color: #F9FAFB;
+    background-color: var(--surface-bg);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
     color: var(--ink);
     margin-bottom: var(--space-8);
+    line-height: 1.2;
   }
 
   .projects-grid {

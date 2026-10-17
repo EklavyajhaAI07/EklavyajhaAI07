@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://github.com/EklavyajhaAI07"><img src="https://img.shields.io/github/followers/EklavyajhaAI07?style=for-the-badge&logo=github&color=6366f1&labelColor=070a14" alt="followers" /></a>
-  <a href="https://eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-eklavya.dpdns.org-22d3ee?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=070a14" alt="Portfolio" /></a>
+  <a href="https://eklavya-jha-portfolio.eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-Live_Site-22d3ee?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=070a14" alt="Portfolio" /></a>
   <img src="https://komarev.com/ghpvc/?username=EklavyajhaAI07&style=for-the-badge&color=a78bfa&label=PROFILE+VIEWS" alt="profile views" />
 </p>
 
@@ -58,7 +58,7 @@ Philosophy: "Learning as engineering — understand deeply, optimize later."
   <a href="https://vasudha-the-manager.vercel.app/"><img src="https://img.shields.io/badge/LIVE-0b1020?style=for-the-badge&logo=vercel" alt="Live" /></a>
 </p>
 
-A web app for firms' accounting and management: invoices, bills, payments, financial reports, team access and backups. Client work. My role: full-stack development, plus debugging and security checks. Double-entry bookkeeping and an owner assistant are coming soon.
+A web app for firms' accounting and management: invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant. Client work. My role: full-stack development, plus debugging and security checks.
 
 </td>
 <td width="50%" valign="top">
@@ -91,7 +91,7 @@ An AI-powered content studio that scouts trends, designs strategy, generates con
   <a href="https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0"><img src="https://img.shields.io/badge/CODE-0b1020?style=for-the-badge&logo=github" alt="Code" /></a>
 </p>
 
-AI-powered court scheduling that predicts hearing durations from historical case data and auto-allocates judges, courtrooms and slots, replacing manual cause lists. Next.js + TypeScript front, Python ML inference APIs behind. Built at PU CODE Hackathon 3.0 (finalist).
+AI-powered court scheduling that predicts hearing durations from historical case data and auto-allocates judges, courtrooms and slots, replacing manual cause lists. Next.js + TypeScript front, Python ML inference APIs behind. Built at PU CODE 2.0 (participant).
 
 </td>
 </tr>
@@ -103,12 +103,12 @@ AI-powered court scheduling that predicts hearing durations from historical case
 
 | Event | Result |
 |---|---|
-| 🟣 **Odoo x LDCE Hackathon 2026**: offline finals, ChampoinsClub | **Grand Finale Finalist** · selected from 2000+ applicants · with [Repo](https://github.com/Het161/ChampoinsClub) |
+| 🟣 **Odoo x LDCE Hackathon 2026**: offline final, ChampoinsClub | **Finalist** · with [Repo](https://github.com/Het161/ChampoinsClub) |
 | 🟣 **Odoo x LDCE Hackathon 2026**: virtual round, Globetrotter | Virtual-round project · with [Repo](https://github.com/Het161/globetrotter) , [Live](https://globetrotter-wine-ten.vercel.app) |
 | 🟣 **Odoo Hackathon 2026**: offline final, Dealflow360, Team StackForge | **Grand Finale Finalist** · selected from 20,000+ applicants · with [Repo](https://github.com/EklavyajhaAI07/Team-StackForge-Odoo-HQ-Hack) , [Live](https://dealflow360-iota.vercel.app/) |
 | 🟣 **Odoo Hackathon 2026**: virtual round, TransitOps | Virtual-round project · with [Repo](https://github.com/Het161/transitops-fleet-management) , [Live]() |
-| ⚖️ **PU CODE Hackathon 3.0**: CourtFlow AI | **Finalist** [Repo](https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0) |
-| 🚺 **Cognivia (IEEE WIE × PDPU)** | **Finalist** · **4th of 152 teams** · proactive AI safety system for women |
+| ⚖️ **PU CODE 2.0**: CourtFlow AI | **Participant** · [Repo](https://github.com/EklavyajhaAI07/CourtFlow-x-PUCODE3.0) |
+| 🚺 **Cognivia (IEEE WIE × PDPU)** | **Finalist** · proactive AI safety system for women |
 | 🔬 **HackBaroda 2026**: CiteMind, Team Society | **Finalist** · AI citation-memory platform with [Repo](https://github.com/Het161/CiteMind) , [Live](https://cite-mind-six.vercel.app) |
 | 🤖 **FlowZint AI Hackathon 2026** | **Top 100 Finalist, Silver Tier** · support chatbot track |
 | 🛰️ **ISRO Bharatiya Antariksh Hackathon**: AEGIS | Participant · air-gapped predictive AI copilot (LightGBM · SHAP · Ollama · RAG) · with [Repo](https://github.com/Het161/AEGIS) , [Live](https://aegis-vert-chi.vercel.app) |
@@ -199,7 +199,7 @@ Production-grade **AI Product Engineer** → scalable **AI startups** → open-s
 ## 🌐 Connect
 
 <p align="center">
-  <a href="https://eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-6366f1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://eklavya-jha-portfolio.eklavya.dpdns.org/"><img src="https://img.shields.io/badge/Portfolio-6366f1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
   <a href="https://www.linkedin.com/in/eklavya-jha-23a54b377"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://x.com/EklavyajhaAI07"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
 </p>

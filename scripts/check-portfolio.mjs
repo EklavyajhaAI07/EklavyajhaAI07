@@ -21,6 +21,25 @@ const [base, controls, stage, connect, workerConfig, headers] = await Promise.al
   text('public/_headers'),
 ]);
 
+const [hackathons, stats, identity, dealflow360, skills] = await Promise.all([
+  text('content/hackathons.json').then(JSON.parse),
+  text('content/stats.json').then(JSON.parse),
+  text('content/identity.json').then(JSON.parse),
+  text('content/projects/dealflow360.json').then(JSON.parse),
+  text('content/skills.json').then(JSON.parse),
+]);
+const finalistCount = hackathons.filter((entry) => entry.result === 'finalist').length;
+const finalistStat = stats.find((entry) => entry.id === `finalist-${finalistCount}x`);
+if (!finalistStat || finalistStat.value !== finalistCount) {
+  failures.push('Hackathon finalist stat does not match the finalist records.');
+}
+if (!identity.tags.includes(`${finalistCount}x Hackathon Finalist`)) {
+  failures.push('Identity finalist tag does not match the finalist records.');
+}
+if (dealflow360.tech.length > 0 || skills.some((skill) => skill.proofProject === 'dealflow360')) {
+  failures.push('Dealflow360 must not be used as evidence for unconfirmed technology claims.');
+}
+
 requirePattern(base, /google-site-verification/, 'Google verification tag is missing.');
 requirePattern(base, /og:image:width/, 'Open Graph image dimensions are missing.');
 requirePattern(controls, /aria-pressed/, 'Chapter controls do not expose their active state.');

@@ -82,7 +82,7 @@ Beat order is the same, content differs per page (section 6).
 | 8.0-13.0 | Featured project cards (real screenshots) | **Scale + blur-to-focus** (`scale: 0.9` & `filter: blur(8px)` -> `scale: 1.0` sharp, depth-of-field rack shot). **Overlapping sequence:** each next card begins its peek-in before the previous card fully settles, creating continuous flow instead of stepped slides. Hold ~1.2s each |
 | 13.0-15.0 | Tools / tech | Pills fly past with subtle depth parallax, or icons assemble into a cohesive system |
 
-Content sources (`content-brief.md`): stats from section 7, max 3 (4x Hackathon Finalist; Odoo Grand Finale selected from 20,000+ applicants). Featured projects from section 5.1: Vasudha, Dealflow360, Viral AI (cap 4, three exist), each with its status badge (Live / In development). Dealflow360 shows no repo or GitHub button. Vasudha's double-entry bookkeeping and owner assistant are live features and may appear with its Live status. Demo templates never appear in the animation. Tools/tech only from the skills evidenced in section 4.
+Content sources (`content-brief.md`): stats from section 7, max 3 (5x Hackathon Finalist; Odoo Grand Finale selected from 20,000+ applicants). Featured projects from section 5.1: Vasudha, Dealflow360, Viral AI (cap 4, three exist), each with its status badge (Live / In development). Dealflow360 shows no repo or GitHub button. Vasudha's double-entry bookkeeping and owner assistant are live features and may appear with its Live status. Demo templates never appear in the animation. Tools/tech only from the skills evidenced in section 4.
 
 ### Stage 3 · Hard work (15-21s)
 | Time | Beat | Motion (PROPOSED) |

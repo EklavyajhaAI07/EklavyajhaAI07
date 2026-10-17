@@ -6,6 +6,7 @@ import ConnectSection from '../../components/ConnectSection.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import AnimationStage from '../../components/animation/AnimationStage.astro';
 import StickyCtaBar from '../../components/StickyCtaBar.astro';
+import QuickFacts from '../../components/QuickFacts.astro';
 import {
   identity,
   copyDeck, 
@@ -19,8 +20,8 @@ import {
 } from '../../lib/content';
 import type { ProjectData } from '../../lib/schema';
 
-const title = `${identity.name} | Hackathons, Teams & Communities`;
-const description = `Explore ${identity.name}'s hackathon projects, verified results, community roles, and collaboration experience.`;
+const title = `${identity.name} | 5x Hackathon Finalist, Campus Ambassador`;
+const description = `5x hackathon finalist and E-Cell IIT Bombay Campus Ambassador. See ${identity.name}'s team builds, hackathon record and community work.`;
 const projects = getProjectsForAudience('teams');
 
 // Data bindings for Animation Stage
@@ -29,7 +30,7 @@ const featuredProjects = teamsPage.animation.projects
   .filter(Boolean) as ProjectData[];
 
 const animStats = stats.filter(s => teamsPage.animation.stats.includes(s.id));
-const finalistStat = stats.find((stat) => stat.id === 'finalist-4x');
+const finalistStat = stats.find((stat) => stat.id === 'finalist-5x');
 const highlightedCommunityIds = new Set([
   'ecell-iitb-campus-ambassador',
   'sih-coordinator',
@@ -57,6 +58,7 @@ const teamProofs = [
       featuredProjects={featuredProjects}
       stats={animStats}
       journey={journey}
+      heroTitle={`${identity.roleLine} & 5x Hackathon Finalist — ${identity.name}`}
       headline={copyDeck.teams.headline[0]}
       endCard={copyDeck.teams.endCard[0]}
       primaryCta={{ label: "Connect to Collaborate", href: "#connect" }}
@@ -70,6 +72,12 @@ const teamProofs = [
         </ul>
       </div>
     </section>
+
+    <QuickFacts facts={[
+      `${identity.name} is an ${identity.roleLine.toLowerCase()} and a 5x Hackathon Finalist.`,
+      'His community roles include Campus Ambassador, E-Cell IIT Bombay, and SIH Student Coordinator 2026.',
+      'Dealflow360 is Team StackForge’s Odoo Hackathon 2026 Grand Finale build: an internal workspace and customer portal for quotes, approvals, inventory and billing.',
+    ]} />
 
     <section id="projects" class="page-section">
       <div class="container">
@@ -141,7 +149,7 @@ const teamProofs = [
 
     <section id="offer" class="page-section bg-light">
       <div class="container">
-        <h2 class="section-title">What I Offer a Team</h2>
+        <h2 class="section-title">Team Contributions</h2>
         <div class="offer-card card">
           <ul class="offer-list">
             {teamsPage.offer?.map(point => (
@@ -280,8 +288,8 @@ const teamProofs = [
   }
 
   .page-section { padding: var(--space-16) 0; }
-  .bg-light { background-color: #F9FAFB; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .section-title { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: var(--space-8); }
+  .bg-light { background-color: var(--surface-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-title { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: var(--ink); margin-bottom: var(--space-8); line-height: 1.2; }
   
   .projects-grid {
     display: grid;

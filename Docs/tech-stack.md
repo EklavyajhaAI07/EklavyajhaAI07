@@ -1,6 +1,6 @@
 # tech-stack.md — Technology Decisions
 
-> Read together with `CLAUDE.md`. Global rules there apply here. Facts and decisions about Eklavya and the site content: `content-brief.md` (FINAL v5, it wins on any conflict).
+> Read together with `CLAUDE.md`. Global rules there apply here. Facts and decisions about Eklavya and the site content: `content-brief.md` (FINAL v6, it wins on any conflict).
 > Implementation status: Astro, TypeScript, plain CSS, GSAP, Cloudflare Workers, Web3Forms and Umami are now selected and present in the repository.
 > Tags: **LOCKED** = approved · **PROPOSED** = needs his approval · **ASK** = must ask, never assume.
 
