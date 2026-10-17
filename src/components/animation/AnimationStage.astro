@@ -25,24 +25,14 @@ const {
   secondaryCta,
 } = Astro.props;
 
-// Selected core tools/tech for the stage 2 tech pill stream
-const toolsList = [
-  'FastAPI',
-  'Next.js',
-  'Python',
-  'TypeScript',
-  'PostgreSQL',
-  'Multi-Agent AI',
-  'Docker',
-  'Cloudflare',
-];
+const toolsList = Array.from(new Set(featuredProjects.flatMap((project) => project.tech))).slice(0, 8);
 ---
 
 <section
   id="animation-stage-container"
   class={`anim-stage audience-${audience}`}
   data-audience={audience}
-  aria-label="Interactive Presentation of Eklavya Jha"
+  aria-label={`Interactive presentation of ${identity.name}`}
 >
   <aside class="screening-edge screening-edge-left" aria-hidden="true">
     <span class="screening-edge-kicker">Cinematic portfolio</span>
@@ -98,27 +88,33 @@ const toolsList = [
           </div>
 
           <div class="anim-identity-edu edu-badge">
-            <span class="edu-icon">🎓</span>
+            <span class="edu-icon" aria-hidden="true">🎓</span>
             <span>{education.university} · {education.degree} ({education.startYear}–{education.graduationYear})</span>
           </div>
         </div>
 
         <div class="identity-photo-col">
           <div class="anim-identity-photo photo-frame">
-            <img
-              src={identity.photo.src}
-              alt={identity.photo.alt}
-              class="photo-img"
-              width="150"
-              height="150"
-            />
+            <picture>
+              <source srcset="/assets/eklavya-photo-320.avif" type="image/avif" />
+              <source srcset="/assets/eklavya-photo-320.webp" type="image/webp" />
+              <img
+                src={identity.photo.src}
+                alt={identity.photo.alt}
+                class="photo-img"
+                width="150"
+                height="150"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ================= STAGE 2: PROOF OF WORK (5.0s - 15.0s) ================= -->
-    <div id="anim-stage-2" class="stage-layer stage-proof" aria-hidden="true">
+    <div id="anim-stage-2" class="stage-layer stage-proof" aria-hidden="true" inert>
       <div class="stage-header">
         <span class="stage-eyebrow">Proof of Work</span>
         <h2 class="stage-heading">{headline}</h2>
@@ -210,7 +206,7 @@ const toolsList = [
     </div>
 
     <!-- ================= STAGE 3: HARD WORK & JOURNEY (15.0s - 21.0s) ================= -->
-    <div id="anim-stage-3" class="stage-layer stage-journey" aria-hidden="true">
+    <div id="anim-stage-3" class="stage-layer stage-journey" aria-hidden="true" inert>
       <div class="stage-header">
         <span class="stage-eyebrow">Relentless Execution</span>
         <h2 class="stage-heading">Building & Learning Journey</h2>
@@ -235,7 +231,7 @@ const toolsList = [
     </div>
 
     <!-- ================= STAGE 4: ACTION (21.0s - 25.0s) ================= -->
-    <div id="anim-stage-4" class="stage-layer stage-action" aria-hidden="true">
+    <div id="anim-stage-4" class="stage-layer stage-action" aria-hidden="true" inert>
       <div class="anim-action-glow glow-circle"></div>
 
       <div class="action-card-content">
@@ -250,6 +246,8 @@ const toolsList = [
             href={primaryCta.href}
             class="anim-action-cta anim-cta-primary btn btn-action-primary"
             data-magnetic
+            data-umami-event={primaryCta.href.endsWith('.pdf') ? 'resume_downloaded' : 'primary_cta_clicked'}
+            data-umami-event-source={audience}
           >
             <span class="magnetic-content">
               <span>{primaryCta.label}</span>
@@ -308,6 +306,28 @@ const toolsList = [
     let handoffTween: gsap.core.Tween | null = null;
 
     soundController.setAudience(audience);
+
+    const stageLayers = Array.from(stageContainer.querySelectorAll<HTMLElement>('.stage-layer'));
+    const chapterPills = Array.from(stageContainer.querySelectorAll<HTMLButtonElement>('.chapter-pill'));
+    const setActiveStage = (activeStage: number): void => {
+      stageLayers.forEach((layer, index) => {
+        const isActive = index + 1 === activeStage;
+        layer.setAttribute('aria-hidden', String(!isActive));
+        if (isActive) layer.removeAttribute('inert');
+        else layer.setAttribute('inert', '');
+      });
+      chapterPills.forEach((pill, index) => {
+        const isActive = index + 1 === activeStage;
+        pill.classList.toggle('is-active', isActive);
+        pill.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+    setActiveStage(1);
+
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      stageContainer.classList.toggle('is-offscreen', !entry?.isIntersecting);
+    }, { threshold: 0.05 });
+    visibilityObserver.observe(stageContainer);
 
     const glideToPageContent = (): void => {
       const proofSection = document.getElementById('proof-strip-section');
@@ -411,15 +431,7 @@ const toolsList = [
         }
       },
       onStageChange: (stage) => {
-        // Sync active state on chapter pills
-        const chapterPills = stageContainer.querySelectorAll('.chapter-pill');
-        chapterPills.forEach((pill, idx) => {
-          if (idx + 1 === stage) {
-            pill.classList.add('is-active');
-          } else {
-            pill.classList.remove('is-active');
-          }
-        });
+        setActiveStage(stage);
       },
       onStateChange: (state) => {
         if (state === 'playing') {
@@ -440,7 +452,6 @@ const toolsList = [
     });
 
     // ── Chapter scrubber click handling ─────────────────────────────────
-    const chapterPills = stageContainer.querySelectorAll('.chapter-pill');
     chapterPills.forEach((pill) => {
       pill.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -453,7 +464,8 @@ const toolsList = [
     });
 
     // ── Decide whether to animate or skip straight to end ────────────────
-    const alreadySeen          = sessionStorage.getItem(`eklavya_anim_seen_${audience}`) === 'true';
+    const alreadySeen = sessionStorage.getItem('eklavya_intro_seen') === 'true' ||
+      sessionStorage.getItem(`eklavya_anim_seen_${audience}`) === 'true';
 
     if (prefersReducedMotion || alreadySeen) {
       shouldHandoffOnComplete = false;
@@ -463,8 +475,8 @@ const toolsList = [
       // Defer play until the browser is idle / after first paint
       // so GSAP doesn't compete with font/image decoding on load.
       if ('requestIdleCallback' in window) {
-        (window as Window & { requestIdleCallback: (cb: () => void) => void })
-          .requestIdleCallback(() => controller.play());
+        (window as Window & { requestIdleCallback: (cb: () => void, options?: { timeout: number }) => void })
+          .requestIdleCallback(() => controller.play(), { timeout: 500 });
       } else {
         // Fallback: small timeout gives the paint cycle room to finish
         setTimeout(() => controller.play(), 80);
@@ -487,6 +499,8 @@ const toolsList = [
 
     skipBtn?.addEventListener('click', (e) => {
       e.stopPropagation();
+      (window as typeof window & { umami?: { track: (name: string, data?: Record<string, string>) => void } })
+        .umami?.track('intro_skipped', { audience });
       shouldHandoffOnComplete = true;
       controller.skip();
     });
@@ -509,6 +523,7 @@ const toolsList = [
     // ── Cleanup on SPA page swap (Astro View Transitions) ────────────────
     document.addEventListener('astro:before-swap', () => {
       interactionAbort.abort();
+      visibilityObserver.disconnect();
       handoffTween?.kill();
       controller.destroy();
     }, { once: true });
@@ -634,6 +649,14 @@ const toolsList = [
   @keyframes subtleGridDrift {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(20px, 20px, 0); }
+  }
+
+  .anim-stage.is-offscreen .bg-mesh-gradient,
+  .anim-stage.is-offscreen .bg-subtle-grid,
+  .anim-stage.anim-completed .bg-mesh-gradient,
+  .anim-stage.anim-completed .bg-subtle-grid {
+    animation-play-state: paused;
+    will-change: auto;
   }
 
   .anim-viewport {
@@ -1183,7 +1206,7 @@ const toolsList = [
   }
 
   .btn-action-primary {
-    background-color: var(--accent);
+    background-color: var(--accent-strong);
     color: #fff;
     padding: 12px 28px;
     border-radius: var(--radius-button);
@@ -1197,7 +1220,7 @@ const toolsList = [
   }
 
   .btn-action-primary:hover {
-    background-color: #2563EB;
+    background-color: #173FB5;
   }
 
   .btn-action-secondary {

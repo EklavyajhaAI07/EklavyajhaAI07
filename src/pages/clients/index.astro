@@ -6,7 +6,8 @@ import ConnectSection from '../../components/ConnectSection.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import AnimationStage from '../../components/animation/AnimationStage.astro';
 import StickyCtaBar from '../../components/StickyCtaBar.astro';
-import { 
+import {
+  identity,
   copyDeck, 
   getProjectById,
   stats,
@@ -15,14 +16,20 @@ import {
 } from '../../lib/content';
 import type { ProjectData } from '../../lib/schema';
 
-const title = `Eklavya Jha | AI-Powered Full Stack Developer`;
-const description = copyDeck.clients.headline[0];
+const title = `${identity.name} | AI-Powered Web Apps for Businesses`;
+const description = `Explore practical AI-powered web applications, client work, prototypes, and collaboration options from ${identity.name}.`;
 
 // Specific projects for clients page
 const vasudha = getProjectById('vasudha-manager');
 const viralAi = getProjectById('viral-content-ai');
 const demoSahi = getProjectById('demo-sahi-gulab-jamun');
 const demoTuition = getProjectById('demo-eklavya-tuition');
+const finalistStat = stats.find((stat) => stat.id === 'finalist-4x');
+const clientProofs = [
+  vasudha && `Live client system: ${vasudha.title}`,
+  finalistStat && `${finalistStat.value}${finalistStat.suffix ?? ''} ${finalistStat.label}`,
+  `${identity.roleLine} builds`,
+].filter(Boolean) as string[];
 
 // Data bindings for Animation Stage
 const featuredProjects = clientsPage.animation.projects
@@ -57,9 +64,7 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
     <section id="proof-strip-section" class="proof-strip">
       <div class="container">
         <ul class="proof-list">
-          <li>A live client system (Vasudha)</li>
-          <li>4x Hackathon Finalist</li>
-          <li>AI-powered full stack builds</li>
+          {clientProofs.map((proof) => <li>{proof}</li>)}
         </ul>
       </div>
     </section>
@@ -152,16 +157,16 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
   .hero-stage { background-color: var(--stage-bg); color: var(--stage-text); padding: var(--space-12) 0 var(--space-16); position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
   .stage-inner { display: flex; flex-direction: column; gap: var(--space-10); }
   .hero-content { max-width: 820px; display: flex; flex-direction: column; gap: var(--space-4); }
-  .profile-photo { width: 120px; height: 120px; border-radius: var(--radius-md); background-color: #fff; padding: 4px; object-fit: cover; margin-bottom: var(--space-4); }
+  .profile-photo { width: 120px; height: 120px; border-radius: var(--radius-card); background-color: #fff; padding: 4px; object-fit: cover; margin-bottom: var(--space-4); }
   .display-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--stage-text); }
   .supporting-text { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--stage-muted); line-height: 1.55; max-width: 680px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-2) 0; }
   .tag { font-size: 0.85rem; padding: 4px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-pill); color: var(--stage-muted); }
   .availability { font-size: 0.95rem; color: #10B981; font-weight: 500; }
   .hero-actions { display: flex; gap: var(--space-4); margin-top: var(--space-4); }
-  .btn { padding: 10px 20px; border-radius: var(--radius-btn); font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
-  .btn-primary { background-color: var(--accent); color: #fff; }
-  .btn-primary:hover { background-color: var(--accent-strong); }
+  .btn { padding: 10px 20px; border-radius: var(--radius-button); font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+  .btn-primary { background-color: var(--accent-strong); color: #fff; }
+  .btn-primary:hover { background-color: #173FB5; }
   .btn-secondary { background-color: rgba(255, 255, 255, 0.1); color: var(--stage-text); }
   .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.2); }
   
@@ -177,7 +182,7 @@ const animStats = stats.filter(s => clientsPage.animation.stats.includes(s.id));
   .large-text { font-size: 1.3rem; color: var(--ink); font-weight: 500; }
   
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-6); }
-  .card { background-color: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-6); }
+  .card { background-color: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-6); }
   
   .case-study-card { max-width: 800px; margin: 0 auto; padding: var(--space-8); }
   .cs-title { font-size: 1.6rem; color: var(--ink); margin-bottom: 4px; }

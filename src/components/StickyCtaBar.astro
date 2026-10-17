@@ -1,5 +1,7 @@
 ---
 // StickyCtaBar.astro
+import { identity } from '../lib/content';
+
 interface Props {
   currentAudience: 'recruiter' | 'teams' | 'clients' | 'home';
 }
@@ -26,7 +28,7 @@ if (currentAudience === 'recruiter') {
 <div class="sticky-cta-bar" id="sticky-cta-bar" role="region" aria-label="Quick Action">
   <div class="container bar-inner">
     <div class="bar-info">
-      <span class="bar-name">Eklavya Jha</span>
+      <span class="bar-name">{identity.name}</span>
       <span class="bar-status">· Available for opportunities</span>
     </div>
     <div class="bar-actions">
@@ -36,8 +38,10 @@ if (currentAudience === 'recruiter') {
           download="Eklavya_Jha_Resume.pdf"
           class="btn-bar-primary"
           id="sticky-btn-resume"
+          data-umami-event="resume_downloaded"
+          data-umami-event-source="sticky_bar"
         >
-          <span class="icon">📄</span>
+          <span class="icon" aria-hidden="true">📄</span>
           <span>{ctaLabel}</span>
         </a>
       ) : (
@@ -139,7 +143,7 @@ if (currentAudience === 'recruiter') {
     align-items: center;
     gap: 8px;
     padding: 8px 18px;
-    background-color: var(--accent);
+    background-color: var(--accent-strong);
     color: #fff;
     font-size: 0.88rem;
     font-weight: 600;
@@ -150,7 +154,7 @@ if (currentAudience === 'recruiter') {
   }
 
   .btn-bar-primary:hover {
-    background-color: #2563EB;
+    background-color: #173FB5;
     transform: translateY(-1px);
   }
 

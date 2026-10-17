@@ -1,5 +1,5 @@
 ---
-import { connect } from '../lib/content';
+import { connect, identity } from '../lib/content';
 
 interface Props {
   currentAudience?: 'recruiter' | 'teams' | 'clients' | 'home';
@@ -16,6 +16,13 @@ const prefillMap: Record<string, string> = {
   home: 'Not sure',
 };
 const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
+const getChannel = (id: string) => connect.channels.find((channel) => channel.id === id);
+const channelUrl = (id: string) => {
+  const channel = getChannel(id);
+  return channel && 'url' in channel ? channel.url : '#';
+};
+const discord = getChannel('discord');
+const discordUsername = discord && 'username' in discord ? discord.username : '';
 ---
 
 <section id="connect" class="section connect-section">
@@ -40,8 +47,10 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
               download="Eklavya_Jha_Resume.pdf"
               class="channel-btn btn-primary"
               id="btn-download-resume"
+              data-umami-event="resume_downloaded"
+              data-umami-event-source={currentAudience}
             >
-              <span class="icon">📄</span>
+              <span class="icon" aria-hidden="true">📄</span>
               <span>Download Resume (PDF)</span>
             </a>
           )}
@@ -51,42 +60,42 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
             type="button"
             class="channel-btn btn-mail"
             id="btn-click-to-mail"
-            aria-label="Send an email to Eklavya Jha"
+            aria-label={`Send an email to ${identity.name}`}
           >
-            <span class="icon">✉️</span>
+            <span class="icon" aria-hidden="true">✉️</span>
             <span>Send an Email</span>
           </button>
 
           <!-- LinkedIn -->
           <a
-            href="https://www.linkedin.com/in/eklavya-jha-23a54b377"
+            href={channelUrl('linkedin')}
             target="_blank"
             rel="noopener"
             class="channel-btn"
           >
-            <span class="icon">🔗</span>
+            <span class="icon" aria-hidden="true">🔗</span>
             <span>LinkedIn Profile</span>
           </a>
 
           <!-- GitHub -->
           <a
-            href="https://github.com/EklavyajhaAI07"
+            href={channelUrl('github')}
             target="_blank"
             rel="noopener"
             class="channel-btn"
           >
-            <span class="icon">🐙</span>
+            <span class="icon" aria-hidden="true">🐙</span>
             <span>GitHub Profile</span>
           </a>
 
           <!-- X / Twitter -->
           <a
-            href="https://x.com/EklavyajhaAI07"
+            href={channelUrl('x')}
             target="_blank"
             rel="noopener"
             class="channel-btn"
           >
-            <span class="icon">✖️</span>
+            <span class="icon" aria-hidden="true">✖️</span>
             <span>X (Twitter)</span>
           </a>
 
@@ -95,22 +104,22 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
             type="button"
             class="channel-btn btn-discord"
             id="btn-copy-discord"
-            data-username="eklavyajha0207"
+            data-username={discordUsername}
             aria-label="Copy Discord username"
           >
-            <span class="icon">💬</span>
+            <span class="icon" aria-hidden="true">💬</span>
             <span id="discord-btn-text">Copy Discord Username</span>
           </button>
 
           <!-- Instagram (Clients page only) -->
           {currentAudience === 'clients' && (
             <a
-              href="https://www.instagram.com/eklavyajha_"
+              href={channelUrl('instagram')}
               target="_blank"
               rel="noopener"
               class="channel-btn"
             >
-              <span class="icon">📷</span>
+              <span class="icon" aria-hidden="true">📷</span>
               <span>Instagram (@eklavyajha_)</span>
             </a>
           )}
@@ -161,7 +170,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
               name="email"
               required
               maxlength="120"
-              placeholder="e.g. yourname (at) organisation"
+              placeholder="Work or personal email"
               autocomplete="email"
             />
           </div>
@@ -214,10 +223,14 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
             <p class="form-config-note">Contact form is temporarily unavailable.</p>
           )}
 
+          <p class="form-privacy-note">
+            Your contact details are used only to respond to this inquiry and are not sent to analytics.
+          </p>
+
           <button type="submit" class="btn btn-submit" id="btn-submit-form" disabled={!turnstileSiteKey}>
             Send Message
           </button>
-          <div id="form-result" class="form-feedback" aria-live="polite"></div>
+          <div id="form-result" class="form-feedback" aria-live="polite" aria-atomic="true"></div>
         </form>
       </div>
     </div>
@@ -262,7 +275,11 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
     render: (container: HTMLElement, options: Record<string, unknown>) => string;
     reset: (widgetId: string) => void;
   };
-  const browserWindow = window as typeof window & { turnstile?: TurnstileApi };
+  type UmamiApi = { track: (eventName: string, eventData?: Record<string, string>) => void };
+  const browserWindow = window as typeof window & { turnstile?: TurnstileApi; umami?: UmamiApi };
+  const trackEvent = (eventName: string, eventData?: Record<string, string>): void => {
+    browserWindow.umami?.track(eventName, eventData);
+  };
   const turnstileContainer = document.getElementById('contact-turnstile');
   let turnstileWidgetId: string | null = null;
 
@@ -299,6 +316,11 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   const result = document.getElementById('form-result');
   const submitButton = document.getElementById('btn-submit-form') as HTMLButtonElement | null;
   if (form && result) {
+    const sourcePage = form.querySelector<HTMLInputElement>('[name="sourcePage"]')?.value || 'unknown';
+    form.addEventListener('focusin', () => {
+      trackEvent('contact_started', { source: sourcePage });
+    }, { once: true });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       result.textContent = 'Sending message...';
@@ -315,6 +337,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
       }
+      form.setAttribute('aria-busy', 'true');
 
       try {
         const res = await fetch('/api/contact', {
@@ -322,27 +345,31 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
           body: formData,
         });
 
-        const data = await res.json();
+        const data = await res.json().catch(() => ({ ok: false, error: 'Unexpected server response. Please retry.' }));
         if (res.ok && data.ok) {
           result.textContent = 'Thank you! Your message has been sent successfully.';
           result.className = 'form-feedback success';
           form.reset();
           if (renderTimeInput) renderTimeInput.value = Date.now().toString();
+          trackEvent('contact_succeeded', { source: sourcePage });
         } else {
           result.textContent = data.error || 'Something went wrong. Please reach out via LinkedIn or email.';
           result.className = 'form-feedback error';
+          trackEvent('contact_failed', { source: sourcePage, reason: String(res.status) });
         }
       } catch (error) {
         result.textContent = 'Unable to send message right now. Please connect via LinkedIn or email.';
         result.className = 'form-feedback error';
+        trackEvent('contact_failed', { source: sourcePage, reason: 'network' });
       } finally {
         if (turnstileWidgetId && browserWindow.turnstile) {
           browserWindow.turnstile.reset(turnstileWidgetId);
         }
         if (submitButton) {
-          submitButton.disabled = false;
+          submitButton.disabled = !turnstileContainer?.dataset.sitekey;
           submitButton.textContent = 'Send Message';
         }
+        form.removeAttribute('aria-busy');
       }
     });
   }
@@ -357,6 +384,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
 
   .section-header {
     margin-bottom: var(--space-8);
+    text-align: center;
   }
 
   .section-title {
@@ -384,7 +412,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   .channels-card, .form-card {
     background-color: var(--surface-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     padding: var(--space-6);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
@@ -414,7 +442,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
     gap: var(--space-3);
     padding: 12px 16px;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-button);
     background-color: var(--surface-bg);
     color: var(--ink);
     font-size: 0.95rem;
@@ -478,6 +506,13 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
     margin: 0;
   }
 
+  .form-privacy-note {
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -503,7 +538,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   input, select, textarea {
     padding: 10px 14px;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-button);
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--ink);
@@ -522,7 +557,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
     color: #FFFFFF;
     padding: 12px 24px;
     border: none;
-    border-radius: var(--radius-btn);
+    border-radius: var(--radius-button);
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
@@ -547,7 +582,7 @@ const defaultAudienceOption = prefillMap[currentAudience] || 'Not sure';
   }
 
   .form-feedback.success {
-    color: var(--success);
+    color: #166534;
     font-weight: 600;
   }
 

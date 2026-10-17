@@ -1,7 +1,15 @@
 ---
-import { identity } from '../lib/content';
+import { connect, identity } from '../lib/content';
 
 const currentYear = new Date().getFullYear();
+const socialLabels: Record<string, string> = {
+  linkedin: 'LinkedIn',
+  github: 'GitHub',
+  x: 'X (Twitter)',
+};
+const socialChannels = connect.channels.filter(
+  (channel) => channel.id in socialLabels && 'url' in channel,
+);
 ---
 
 <footer class="site-footer">
@@ -10,8 +18,9 @@ const currentYear = new Date().getFullYear();
       <div class="footer-brand">
         <a href="/" class="footer-logo-link">
           <img
-            src="/assets/logo.svg"
-            alt="Eklavya Jha Logo"
+            src="/assets/brand/mark-1.svg"
+            alt=""
+            aria-hidden="true"
             width="32"
             height="32"
             class="footer-logo"
@@ -36,9 +45,11 @@ const currentYear = new Date().getFullYear();
 
         <div class="nav-column">
           <span class="col-title">Connect</span>
-          <a href="https://www.linkedin.com/in/eklavya-jha-23a54b377" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/EklavyajhaAI07" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://x.com/EklavyajhaAI07" target="_blank" rel="noopener">X (Twitter)</a>
+          {socialChannels.map((channel) => (
+            <a href={channel.url} target="_blank" rel="noopener">
+              {socialLabels[channel.id]}
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -91,7 +102,7 @@ const currentYear = new Date().getFullYear();
   .footer-logo {
     width: 32px;
     height: 32px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-card);
   }
 
   .footer-name {

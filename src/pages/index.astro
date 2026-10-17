@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 import ConnectSection from '../components/ConnectSection.astro';
 import { identity, homePage } from '../lib/content';
 
-const title = "Eklavya Jha | AI-Powered Full Stack Developer";
-const description = "Eklavya Jha is an AI-powered full stack developer in Ahmedabad, learning AI engineering. Choose your path: recruiters, teams or clients.";
+const title = `${identity.name} | ${identity.roleLine}`;
+const description = `${identity.name} is an ${identity.roleLine.toLowerCase()} in ${identity.location.city}, ${identity.supportingLine.toLowerCase()}. Choose your path: recruiters, teams, or clients.`;
 ---
 
 <Base
@@ -37,7 +37,13 @@ const description = "Eklavya Jha is an AI-powered full stack developer in Ahmeda
         <!-- 3 Audience Route Cards -->
         <div class="audience-grid" role="region" aria-label="Choose your audience path">
           {homePage.cards.map((card) => (
-            <a href={card.url} class="audience-card" id={`card-${card.id}`}>
+            <a
+              href={card.url}
+              class="audience-card"
+              id={`card-${card.id}`}
+              data-umami-event="audience_selected"
+              data-umami-event-audience={card.id}
+            >
               <div class="card-top">
                 <span class="path-badge">Explore Path</span>
                 <span class="card-arrow" aria-hidden="true">→</span>
@@ -129,7 +135,7 @@ const description = "Eklavya Jha is an AI-powered full stack developer in Ahmeda
   .audience-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     padding: var(--space-8) var(--space-6);
     display: flex;
     flex-direction: column;

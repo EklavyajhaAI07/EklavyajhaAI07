@@ -16,7 +16,7 @@
 | Font | Inter, self-hosted WOFF2 | `brand.md §4`; `font-display: swap`; no render-blocking external sheet |
 | Contact form | **Web3Forms** (free, 250/month) | Zero-code HTML form; no server function needed for delivery |
 | Spam protection | Honeypot + time-trap + Cloudflare Turnstile | `connect-and-forms.md §5` |
-| Hosting | **Cloudflare Pages** (free) | Static + Pages Functions for the contact endpoint; auto-deploy from GitHub |
+| Hosting | **Cloudflare Workers** (free) | Static assets + Worker contact endpoint; auto-deploy from GitHub |
 | Domain | `eklavya.dpdns.org` (keep existing) | `deployment.md §1` |
 | Analytics | **Umami Cloud, Hobby** (free) | `deployment.md §10`; no cookies; 100k events/month |
 | Repo | Existing GitHub repo, `rebuild` branch | `deployment.md §5`; `main` stays live until cutover |
@@ -122,7 +122,7 @@ eklavyajhaAI07/
 |   +-- ecell-iitb-campus-ambassador-offer-letter.png
 |   +-- bharatiya-antariksh-certificate.png
 |
-+-- functions/api/contact.ts (Cloudflare Pages Function)
++-- src/worker.ts (Cloudflare Worker entry and contact API)
 +-- scripts/check-forbidden.mjs
 +-- scripts/export-reel.mjs  (Phase 2 only)
 +-- .github/workflows/ci.yml
@@ -149,5 +149,5 @@ eklavyajhaAI07/
 9.  **Three Dedicated Pages:** `/recruiter-hr/`, `/teams-communities/`, `/clients/`.
 10. **Assets:** Move photo/proofs, capture screenshots, draft resume.
 11. **SEO:** Titles, descriptions, Open Graph, JSON-LD, sitemap, `check-forbidden.mjs`.
-12. **Contact Form Wiring:** Web3Forms + Turnstile + Cloudflare Pages Function.
-13. **CI & Deployment:** GitHub Actions, Cloudflare Pages integration.
+12. **Contact Form Wiring:** Web3Forms + Turnstile + Cloudflare Worker.
+13. **CI & Deployment:** GitHub Actions, Cloudflare Workers integration.

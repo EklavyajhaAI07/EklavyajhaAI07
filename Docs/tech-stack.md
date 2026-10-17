@@ -1,7 +1,7 @@
 # tech-stack.md — Technology Decisions
 
 > Read together with `CLAUDE.md`. Global rules there apply here. Facts and decisions about Eklavya and the site content: `content-brief.md` (FINAL v5, it wins on any conflict).
-> Implementation status: Astro, TypeScript, plain CSS, GSAP, Cloudflare Pages, Web3Forms and Umami are now selected and present in the repository.
+> Implementation status: Astro, TypeScript, plain CSS, GSAP, Cloudflare Workers, Web3Forms and Umami are now selected and present in the repository.
 > Tags: **LOCKED** = approved · **PROPOSED** = needs his approval · **ASK** = must ask, never assume.
 
 ---
@@ -58,7 +58,7 @@
 - Form service: **ASK** (agent proposes free options).
 
 ### 3.7 Hosting, domain, deployment
-- Cloudflare Pages with Git integration. Build command: `npm run build`; output directory: `dist/client`. The root `/functions` directory provides `/api/contact`.
+- Cloudflare Workers with static assets and Git integration. Build command: `npm run build`; deploy command: `npx wrangler deploy`. `src/worker.ts` provides `/api/contact`, and the `ASSETS` binding serves `dist/client`.
 - Auto-deploy from a GitHub repository (main branch to production, pull requests to previews).
 - Custom domain: needed or not, name, and budget: **ASK**. Domain purchase is a paid item and requires his approval.
 - HTTPS enforced, `www` and non-`www` redirect rules defined.
@@ -104,7 +104,7 @@ Exact layout depends on the chosen framework.
 ## 7. Decisions already implemented
 - Framework: Astro with TypeScript and static output.
 - Styling and animation: plain CSS plus GSAP; core visuals use DOM and SVG only.
-- Hosting: Cloudflare Pages with Git integration and Pages Functions.
+- Hosting: Cloudflare Workers with static assets and Git integration.
 - Domain: keep the existing custom domain.
 - Analytics: Umami.
 - Contact delivery: Turnstile plus server-side Web3Forms forwarding; no call-booking tool.

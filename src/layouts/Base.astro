@@ -2,13 +2,17 @@
 import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/animations.css';
-import { site, identity } from '../lib/content';
+import { site, identity, connect } from '../lib/content';
 
 interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  robots?: string;
   audience?: 'recruiter' | 'teams' | 'clients' | 'home';
 }
 
@@ -16,12 +20,19 @@ const {
   title,
   description,
   canonicalPath = '',
-  ogImage = '/assets/eklavya-photo.png',
+  ogImage = '/assets/og/portfolio-card.png',
+  ogImageAlt = `${identity.name} — ${identity.roleLine}`,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
+  robots = 'index,follow',
   audience = 'home',
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, site.siteUrl).href;
 const fullOgImageUrl = new URL(ogImage, site.siteUrl).href;
+const socialProfiles = connect.channels
+  .filter((channel) => ['linkedin', 'github', 'x'].includes(channel.id) && 'url' in channel)
+  .map((channel) => channel.url);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,11 +48,7 @@ const jsonLd = {
     "addressRegion": identity.location.region,
     "addressCountry": "IN"
   },
-  "sameAs": [
-    "https://www.linkedin.com/in/eklavya-jha-23a54b377",
-    "https://github.com/EklavyajhaAI07",
-    "https://x.com/EklavyajhaAI07"
-  ],
+  "sameAs": socialProfiles,
   "knowsAbout": [
     "Full stack web development",
     "AI-powered applications",
@@ -63,6 +70,7 @@ const jsonLd = {
     
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <meta name="google-site-verification" content="pP37ynd8Y2uvdp7ORYWUig7xiha37z1aXjTTmPbBo2g" />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -72,6 +80,9 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:site_name" content={identity.name} />
     <meta property="og:locale" content="en_IN" />
 
@@ -81,6 +92,7 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullOgImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -101,6 +113,7 @@ const jsonLd = {
     ></script>
   </head>
   <body class={`audience-${audience}`}>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <slot />
   </body>
 </html>

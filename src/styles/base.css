@@ -17,6 +17,24 @@ body {
   font-size: var(--text-body);
 }
 
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 1000;
+  padding: 10px 14px;
+  border-radius: var(--radius-button);
+  background: var(--surface-card);
+  color: var(--ink);
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;

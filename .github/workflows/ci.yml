@@ -25,5 +25,14 @@ jobs:
       - name: Verify zero forbidden patterns
         run: npm run check:forbidden
 
+      - name: Run contact Worker tests
+        run: npm test
+
+      - name: Check Astro and TypeScript
+        run: npm run check
+
+      - name: Verify portfolio regression budgets
+        run: npm run check:portfolio
+
       - name: Build Astro static site
         run: npm run build

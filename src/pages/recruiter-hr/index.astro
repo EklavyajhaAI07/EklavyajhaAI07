@@ -6,7 +6,8 @@ import ConnectSection from '../../components/ConnectSection.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import AnimationStage from '../../components/animation/AnimationStage.astro';
 import StickyCtaBar from '../../components/StickyCtaBar.astro';
-import { 
+import {
+  identity,
   copyDeck, 
   getProjectsForAudience,
   getSkillsForAudience,
@@ -15,13 +16,14 @@ import {
   hackathons,
   education,
   programs,
+  community,
   journey,
   recruiterPage
 } from '../../lib/content';
 import type { ProjectData } from '../../lib/schema';
 
-const title = `Eklavya Jha | AI-Powered Full Stack Developer`;
-const description = copyDeck.recruiter.headline[0];
+const title = `${identity.name} | Developer Portfolio for Recruiters`;
+const description = `Review ${identity.name}'s AI-powered full-stack projects, technical skills, verified hackathon results, education, and downloadable resume.`;
 const projects = getProjectsForAudience('recruiter');
 const skills = getSkillsForAudience('recruiter');
 
@@ -33,6 +35,15 @@ const featuredProjects = recruiterPage.animation.projects
   .filter(Boolean) as ProjectData[];
 
 const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id));
+const finalistStat = stats.find((stat) => stat.id === 'finalist-4x');
+const eliteProgram = programs.find((program) => program.id === 'iitr-microsoft-elite-ai-ds');
+const campusRole = community.find((item) => item.id === 'ecell-iitb-campus-ambassador');
+const recruiterProofs = [
+  finalistStat && `${finalistStat.value}${finalistStat.suffix ?? ''} ${finalistStat.label}`,
+  `${education.degree}, ${education.university} (${education.startYear} to ${education.graduationYear})`,
+  eliteProgram && `${eliteProgram.title} (${eliteProgram.start} to ${eliteProgram.end ?? 'present'}, ${eliteProgram.status.replace('-', ' ')})`,
+  campusRole?.title,
+].filter(Boolean) as string[];
 
 ---
 
@@ -60,10 +71,7 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
     <section id="proof-strip-section" class="proof-strip">
       <div class="container">
         <ul class="proof-list">
-          <li>4x Hackathon Finalist</li>
-          <li>{education.degree}, {education.university} ({education.startYear} to {education.graduationYear})</li>
-          <li>IIT Roorkee + Microsoft Elite AI & DS (2026 to 2027, in progress)</li>
-          <li>Campus Ambassador, E-Cell IIT Bombay</li>
+          {recruiterProofs.map((proof) => <li>{proof}</li>)}
         </ul>
       </div>
     </section>
@@ -195,7 +203,7 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
   .profile-photo {
     width: 120px;
     height: 120px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     background-color: #fff;
     padding: 4px;
     object-fit: cover;
@@ -247,19 +255,19 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
 
   .btn {
     padding: 10px 20px;
-    border-radius: var(--radius-btn);
+    border-radius: var(--radius-button);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
   .btn-primary {
-    background-color: var(--accent);
+    background-color: var(--accent-strong);
     color: #fff;
   }
 
   .btn-primary:hover {
-    background-color: var(--accent-strong);
+    background-color: #173FB5;
   }
 
   .btn-secondary {
@@ -328,7 +336,7 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
   .card {
     background-color: var(--surface-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-card);
     padding: var(--space-6);
   }
 
@@ -385,9 +393,9 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
     font-weight: 500;
   }
 
-  .level-strong { background: #ECFDF5; color: #059669; }
+  .level-strong { background: #ECFDF5; color: #047857; }
   .level-working { background: #EFF6FF; color: #2563EB; }
-  .level-learning { background: #FEF3C7; color: #D97706; }
+  .level-learning { background: #FEF3C7; color: #92400E; }
 
   .skill-proof {
     font-size: 0.8rem;
@@ -431,7 +439,7 @@ const animStats = stats.filter(s => recruiterPage.animation.stats.includes(s.id)
     text-transform: uppercase;
   }
 
-  .badge-finalist { background: #FDF4FF; color: #C026D3; border: 1px solid #F5D0FE; }
+  .badge-finalist { background: #FDF4FF; color: #A21CAF; border: 1px solid #F5D0FE; }
   .badge-participant { background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; }
 
   .hack-project {

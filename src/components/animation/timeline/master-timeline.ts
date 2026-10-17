@@ -132,7 +132,7 @@ export class MasterTimelineController {
     if (this.isCompleted) return; // Guard against double-fire
     this.isCompleted = true;
 
-    sessionStorage.setItem(`eklavya_anim_seen_${this.audience}`, 'true');
+    sessionStorage.setItem('eklavya_intro_seen', 'true');
     this.options.onStateChange?.('completed');
     this.revealPageContent();
   }
@@ -168,6 +168,8 @@ export class MasterTimelineController {
   public restart(): void {
     this.isCompleted = false;
     this._lastProgress = -1;
+    this.lastStage = 1;
+    this.options.onStageChange?.(1);
     this.container.classList.remove('anim-completed');
     document.body.classList.remove('animation-finished');
     this.tl.restart();
@@ -179,6 +181,8 @@ export class MasterTimelineController {
     // Jump to the resolved end-state without firing nested callbacks first;
     // handleComplete remains the single completion path for UI and hand-off.
     this.tl.pause(25.0, true);
+    this.lastStage = 4;
+    this.options.onStageChange?.(4);
     this.handleComplete();
   }
 

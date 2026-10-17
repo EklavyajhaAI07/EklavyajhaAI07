@@ -12,10 +12,10 @@
     "astro": "astro",
     "check": "astro check",
     "test": "node --experimental-strip-types tests/contact-worker.test.ts",
-    "check:forbidden": "node scripts/check-forbidden.mjs"
+    "check:forbidden": "node scripts/check-forbidden.mjs",
+    "check:portfolio": "node scripts/check-portfolio.mjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.3.4",
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.8",
     "gsap": "^3.12.5"

@@ -12,10 +12,10 @@
 |---|---|---|
 | Repository | The existing GitHub repo. The new portfolio replaces the old code. Built on a branch first. | LOCKED |
 | Repo visibility | Private, switched **after** the new host is live | DECIDED |
-| Host | **Cloudflare Pages with Git integration**; the existing root `/functions` directory supplies the contact endpoint | DECIDED |
+| Host | **Cloudflare Workers with static assets**; `src/worker.ts` supplies the contact endpoint and serves the Astro build | DECIDED |
 | Domain | Keep `eklavya.dpdns.org` for now. No purchase. | LOCKED |
 | Old-site redirect | Not needed: same domain, same repo, old code is replaced | LOCKED |
-| Contact form | Cloudflare Pages Function plus Turnstile and Web3Forms (`connect-and-forms.md`) | DECIDED |
+| Contact form | Cloudflare Worker plus Turnstile and Web3Forms (`connect-and-forms.md`) | DECIDED |
 | Analytics | Umami Cloud, free Hobby plan | DECIDED |
 | Cost | 0 | |
 
@@ -28,12 +28,12 @@
 
 | Option | Works for this site? | Trade-off |
 |---|---|---|
-| **A. Cloudflare Pages** (selected) | Yes: Astro static pages plus the existing Pages Function, previews and custom domain | Use Git integration so the root `/functions` directory is deployed. |
-| B. Cloudflare Workers with static assets | Possible after migrating the Pages Function into the Worker entrypoint | Do not select this without making that code migration first. |
+| A. Cloudflare Pages | Static hosting works, but the current contact Worker would not be deployed by a Pages-only configuration | Not selected. |
+| **B. Cloudflare Workers with static assets** (selected) | Yes: `src/worker.ts` handles `/api/contact`; the `ASSETS` binding serves `dist/client` | Configuration lives in `wrangler.jsonc`. |
 | C. Stay on GitHub Pages | Static site only | Repo must stay public, form needs a third-party service, no own endpoint |
 | D. Netlify or Vercel | Possible | Free-plan terms for a portfolio that wins paid work were not checked. **ASK** before considering. |
 
-The choice between A and B is not visible to visitors. This repository currently implements option A.
+The choice between A and B is not visible to visitors. This repository currently implements option B.
 
 ## 4. The domain: what to know
 - `eklavya.dpdns.org` is a free name from DigitalPlat FreeDomain. DigitalPlat does not host DNS, so you point the name to an outside DNS provider by setting nameservers in their dashboard. Cloudflare's free DNS is the standard choice.
@@ -48,7 +48,7 @@ The choice between A and B is not visible to visitors. This repository currently
 
 ## 6. Cutover steps (do in order)
 1. Create a free Cloudflare account.
-2. In Cloudflare: **Workers & Pages -> Create -> Pages -> Connect to Git**. Select this GitHub repository and start with the working branch for a preview. Use build command `npm run build`, build output directory `dist/client`, root directory `/`, and Node.js `22` or newer. Do not use Direct Upload because this site needs the root `/functions` directory.
+2. In Cloudflare: **Workers & Pages -> Create -> Import a repository**. Select this GitHub repository. Use root directory `/`, build command `npm run build`, deploy command `npx wrangler deploy`, and Node.js `22` or newer. `wrangler.jsonc` serves `dist/client` and routes `/api/*` through the Worker.
 3. Add the secrets from section 7.
 4. Test the generated `pages.dev` preview with `qa-checklist.md`, including a real contact-form submission. **Nothing changes for visitors yet.**
 5. **Cutover day.** In Cloudflare, add `eklavya.dpdns.org` as a site on the **Free** plan. Copy the two nameservers it gives you.
@@ -70,12 +70,13 @@ The choice between A and B is not visible to visitors. This repository currently
 | `PUBLIC_TURNSTILE_SITE_KEY` | public | Turnstile widget on the form (Astro exposes only `PUBLIC_` variables to browser code) |
 | `TURNSTILE_SECRET` | secret | Server-side token check |
 | `WEB3FORMS_ACCESS_KEY` | secret | Server-side delivery; Web3Forms links this key to the recipient inbox |
+| `TURNSTILE_HOSTNAMES` | variable | Comma-separated production and preview hostnames accepted by server-side Turnstile validation |
 | `UMAMI_WEBSITE_ID` | public | Analytics script |
 
 Secrets are set in the Cloudflare dashboard. Local copies live in git-ignored files. A `.env.example` with empty values is committed so you can see what is needed.
 
 ## 8. Branches, previews and checks
-- `main` deploys to production. Any other branch or pull request gets its own preview address.
+- `main` deploys to production when Cloudflare Git integration is enabled. Keep preview builds enabled for pull requests.
 - On every push, GitHub Actions runs: install, lint, type-check, content validation (`content-schema.md` section 5), build, forbidden-pattern scan, Lighthouse, axe accessibility check, link check (details in `qa-checklist.md`).
 - **PROPOSED:** make these checks required on `main`, so a red build never goes live.
 
