@@ -11,7 +11,12 @@
     { "label": "Demo", "url": "https://dealflow360-iota.vercel.app/", "type": "demo" },
     { "label": "Presentation Video", "url": "https://youtu.be/ylkIJPtoX-8", "type": "video" }
   ],
-  "screenshots": [],
+  "screenshots": [
+  {
+    "src": "/assets/projects/dealflow360/image.png",
+    "alt": "Dealflow360 dashboard showing its internal workspace and customer portal features"
+  }
+],
   "roadmap": [],
   "featured": true,
   "featuredOrder": 2,

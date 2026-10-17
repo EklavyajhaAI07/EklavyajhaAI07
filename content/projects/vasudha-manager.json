@@ -6,10 +6,15 @@
   "kind": "client-work",
   "clientLabel": "a packaging trading business",
   "description": "Manages invoices, bills, payments, double-entry bookkeeping, financial reports, team access, backups and an owner assistant.",
-  "role": "Full-stack development, plus debugging and security checks.",
-  "tech": ["MongoDB", "Full-stack web app"],
+  "role": "Full-stack application development, debugging, and security checks.",
+  "tech": ["MongoDB", "Full-Stack Development"],
   "links": [{ "label": "Live", "url": "https://vasudha-the-manager.vercel.app/", "type": "live" }],
-  "screenshots": [],
+  "screenshots": [
+  {
+    "src": "/assets/projects/vasudha-manager/image.png",
+    "alt": "Vasudha: The Manager dashboard showing its accounting and management features"
+  }
+],
   "roadmap": [],
   "featured": true,
   "featuredOrder": 1,

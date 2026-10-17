@@ -57,6 +57,7 @@ const isLive = project.status === 'live' && (!isHackathonBuild || hasPublicDemo)
 
     {project.tech.length > 0 && (
       <div class="tech-stack">
+        <span class="tech-stack-label">Stack &amp; product scope</span>
         {project.tech.map((t) => (
           <span class="tech-pill">{t}</span>
         ))}
@@ -222,7 +223,17 @@ const isLive = project.status === 'live' && (!isHackathonBuild || hasPublicDemo)
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 6px;
+  }
+
+  .tech-stack-label {
+    flex-basis: 100%;
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .tech-pill {

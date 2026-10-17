@@ -97,7 +97,7 @@ const recruiterProofs = [
 
     <section id="skills" class="page-section bg-light">
       <div class="container">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title">Engineering Skills</h2>
         <div class="skills-grid">
           {categories.map(category => {
             const catSkills = skills.filter(s => s.category === category);
@@ -106,15 +106,17 @@ const recruiterProofs = [
               <div class="skill-category card">
                 <h3 class="category-title">{category}</h3>
                 <ul class="skill-list">
-                  {catSkills.map(skill => (
-                    <li class="skill-item">
-                      <div class="skill-header">
-                        <span class="skill-name">{skill.name}</span>
-                        <span class={`skill-level level-${skill.level}`}>{skill.level}</span>
-                      </div>
-                      <span class="skill-proof">Proof: {skill.proofProject}</span>
-                    </li>
-                  ))}
+                  {catSkills.map(skill => {
+                    const proofProject = getProjectById(skill.proofProject);
+                    return (
+                      <li class="skill-item">
+                        <div class="skill-header">
+                          <span class="skill-name">{skill.name}</span>
+                        </div>
+                        <span class="skill-proof">Applied in {proofProject?.title ?? skill.proofProject}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             );
@@ -393,18 +395,6 @@ const recruiterProofs = [
     font-weight: 600;
     font-size: 0.95rem;
   }
-
-  .skill-level {
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: var(--radius-pill);
-    text-transform: capitalize;
-    font-weight: 500;
-  }
-
-  .level-strong { background: #ECFDF5; color: #047857; }
-  .level-working { background: #EFF6FF; color: #2563EB; }
-  .level-learning { background: #FEF3C7; color: #92400E; }
 
   .skill-proof {
     font-size: 0.8rem;

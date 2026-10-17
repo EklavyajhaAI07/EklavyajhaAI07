@@ -2,10 +2,16 @@
   { "id": "typescript", "name": "TypeScript", "category": "Languages", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams", "clients"] },
   { "id": "javascript", "name": "JavaScript", "category": "Languages", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter", "teams"] },
   { "id": "python", "name": "Python", "category": "Languages", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams"] },
-  { "id": "multi-agent", "name": "Multi-agent systems (CrewAI, Browser Use)", "category": "AI / ML", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams", "clients"] },
-  { "id": "fastapi", "name": "FastAPI", "category": "Web / Backend", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams"] },
-  { "id": "nextjs", "name": "Next.js", "category": "Web / Backend", "level": "working", "proofProject": "demo-sahi-gulab-jamun", "audiences": ["recruiter", "clients"] },
-  { "id": "mongodb", "name": "MongoDB", "category": "Web / Backend", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter"] },
-  { "id": "tailwind", "name": "Tailwind CSS", "category": "Web / Backend", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
-  { "id": "security", "name": "Security Enhancements", "category": "Web / Backend", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter", "teams"] }
+  { "id": "multi-agent", "name": "Multi-Agent AI Systems (CrewAI, Browser Use)", "category": "AI Engineering", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams", "clients"] },
+  { "id": "fastapi", "name": "FastAPI", "category": "Backend & APIs", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "teams"] },
+  { "id": "nextjs", "name": "Next.js App Router", "category": "Web Application Engineering", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter", "clients"] },
+  { "id": "mongodb", "name": "MongoDB", "category": "Data & Persistence", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter"] },
+  { "id": "sqlalchemy", "name": "SQLAlchemy ORM", "category": "Data & Persistence", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "alembic", "name": "Alembic Database Migrations", "category": "Data & Persistence", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "redis", "name": "Redis", "category": "Data & Persistence", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "tailwind", "name": "Tailwind CSS", "category": "Web Application Engineering", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "pytest", "name": "Automated Testing (pytest)", "category": "Quality & Security", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "authentication", "name": "Authentication", "category": "Quality & Security", "level": "working", "proofProject": "viral-content-ai", "audiences": ["recruiter"] },
+  { "id": "full-stack-development", "name": "Full-Stack Application Development", "category": "Web Application Engineering", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter"] },
+  { "id": "application-security", "name": "Application Security Checks", "category": "Quality & Security", "level": "working", "proofProject": "vasudha-manager", "audiences": ["recruiter", "teams"] }
 ]
