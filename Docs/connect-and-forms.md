@@ -85,7 +85,9 @@ Browser -> POST /api/contact -> validate -> verify Turnstile -> send mail to Ekl
 - **No auto-reply** (DECIDED). The brief has no reply-time promise.
 - Nothing is stored after sending (DECIDED). If he later wants a record, **ASK** first.
 
-Configuration names only (never values in the repo): public `PUBLIC_TURNSTILE_SITE_KEY`; server secrets `TURNSTILE_SECRET` and `WEB3FORMS_ACCESS_KEY`. Web3Forms associates its access key with the verified recipient inbox. Local copies live in git-ignored files.
+Production configuration names only (never secret values in the repo): public Worker variable `TURNSTILE_SITE_KEY` (alias `PUBLIC_TURNSTILE_SITE_KEY`); server secrets `TURNSTILE_SECRET` and `WEB3FORMS_ACCESS_KEY`; hostname allowlist `TURNSTILE_HOSTNAMES`. The browser reads public configuration from `/api/contact/config`, so runtime variables work with static Astro pages. Web3Forms associates its access key with the verified recipient inbox; `CONTACT_TO_EMAIL` is not used by this implementation. Local copies live in git-ignored files and do not configure deployed Workers automatically.
+
+The Worker verifies each token before delivery and sends explicit `replyto`, `audience`, `source_page` and `organisation` fields. Diagnostic logs contain only configuration names, response status, error categories and audience/source identifiers; never contact details, message text, tokens or secret values.
 
 ## 7. Form states
 

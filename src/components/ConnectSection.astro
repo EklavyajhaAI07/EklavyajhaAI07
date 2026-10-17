@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { currentAudience = 'home' } = Astro.props;
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || import.meta.env.TURNSTILE_SITE_KEY;
 
 // Audience select prefill mapping
 const prefillMap: Record<string, string> = {
@@ -219,15 +219,13 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
             data-sitekey={turnstileSiteKey || ''}
             aria-label="Spam protection"
           ></div>
-          {!turnstileSiteKey && (
-            <p class="form-config-note">Contact form is temporarily unavailable.</p>
-          )}
+          <p id="contact-config-status" class="form-config-note" role="status">Loading spam protection...</p>
 
           <p class="form-privacy-note">
             Your contact details are used only to respond to this inquiry and are not sent to analytics.
           </p>
 
-          <button type="submit" class="btn btn-submit" id="btn-submit-form" disabled={!turnstileSiteKey}>
+          <button type="submit" class="btn btn-submit" id="btn-submit-form" disabled>
             Send Message
           </button>
           <div id="form-result" class="form-feedback" aria-live="polite" aria-atomic="true"></div>
@@ -281,7 +279,16 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
     browserWindow.umami?.track(eventName, eventData);
   };
   const turnstileContainer = document.getElementById('contact-turnstile');
+  const configStatus = document.getElementById('contact-config-status');
+  const submitButton = document.getElementById('btn-submit-form') as HTMLButtonElement | null;
   let turnstileWidgetId: string | null = null;
+
+  const showProtectionStatus = (message: string, isError = false): void => {
+    if (configStatus) {
+      configStatus.textContent = message;
+      configStatus.classList.toggle('is-error', isError);
+    }
+  };
 
   const renderTurnstile = (): void => {
     const sitekey = turnstileContainer?.dataset.sitekey;
@@ -292,10 +299,22 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
       action: 'contact',
       theme: 'auto',
       size: 'flexible',
+      callback: () => {
+        if (submitButton) submitButton.disabled = false;
+        showProtectionStatus('Spam protection ready.');
+      },
+      'expired-callback': () => {
+        if (submitButton) submitButton.disabled = true;
+        showProtectionStatus('Spam protection expired. Please complete the check again.', true);
+      },
+      'error-callback': () => {
+        if (submitButton) submitButton.disabled = true;
+        showProtectionStatus('Spam protection could not load. Refresh to retry or use a direct channel.', true);
+      },
     });
   };
 
-  if (turnstileContainer?.dataset.sitekey) {
+  const loadTurnstile = (): void => {
     if (browserWindow.turnstile) {
       renderTurnstile();
     } else if (!document.querySelector('script[data-turnstile-script]')) {
@@ -305,16 +324,39 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
       script.defer = true;
       script.dataset.turnstileScript = 'true';
       script.addEventListener('load', renderTurnstile, { once: true });
+      script.addEventListener('error', () => showProtectionStatus('Spam protection could not load. Refresh to retry or use a direct channel.', true), { once: true });
       document.head.appendChild(script);
     } else {
       document.querySelector('script[data-turnstile-script]')?.addEventListener('load', renderTurnstile, { once: true });
     }
-  }
+  };
+
+  const initializeContact = async (): Promise<void> => {
+    if (!turnstileContainer) return;
+    try {
+      const response = await fetch('/api/contact/config', { cache: 'no-store', signal: AbortSignal.timeout(10_000) });
+      const config = await response.json();
+      if (config.available === false) {
+        showProtectionStatus('Contact form is temporarily unavailable. Please use a direct channel.', true);
+        return;
+      }
+      if (response.ok && config.available === true && typeof config.sitekey === 'string' && config.sitekey) {
+        turnstileContainer.dataset.sitekey = config.sitekey;
+      }
+    } catch {
+      // A build-time public key still supports static previews without the Worker.
+    }
+    if (!turnstileContainer.dataset.sitekey) {
+      showProtectionStatus('Contact form could not load. Refresh to retry or use a direct channel.', true);
+      return;
+    }
+    loadTurnstile();
+  };
+  void initializeContact();
 
   // Form AJAX submission handling
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const result = document.getElementById('form-result');
-  const submitButton = document.getElementById('btn-submit-form') as HTMLButtonElement | null;
   if (form && result) {
     const sourcePage = form.querySelector<HTMLInputElement>('[name="sourcePage"]')?.value || 'unknown';
     form.addEventListener('focusin', () => {
@@ -363,10 +405,10 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
         trackEvent('contact_failed', { source: sourcePage, reason: 'network' });
       } finally {
         if (turnstileWidgetId && browserWindow.turnstile) {
+          if (submitButton) submitButton.disabled = true;
           browserWindow.turnstile.reset(turnstileWidgetId);
         }
         if (submitButton) {
-          submitButton.disabled = !turnstileContainer?.dataset.sitekey;
           submitButton.textContent = 'Send Message';
         }
         form.removeAttribute('aria-busy');
@@ -501,9 +543,13 @@ const discordUsername = discord && 'username' in discord ? discord.username : ''
   }
 
   .form-config-note {
-    color: var(--error);
+    color: var(--ink-muted);
     font-size: 0.85rem;
     margin: 0;
+  }
+
+  .form-config-note.is-error {
+    color: var(--error);
   }
 
   .form-privacy-note {

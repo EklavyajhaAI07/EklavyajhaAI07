@@ -3,6 +3,10 @@
   "name": "eklavya-jha-portfolio",
   "main": "src/worker.ts",
   "compatibility_date": "2026-10-12",
+  "keep_vars": true,
+  "vars": {
+    "TURNSTILE_HOSTNAMES": "eklavya-jha-portfolio.eklavya.dpdns.org"
+  },
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS",

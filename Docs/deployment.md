@@ -67,13 +67,20 @@ The choice between A and B is not visible to visitors. This repository currently
 
 | Name | Type | Purpose |
 |---|---|---|
-| `PUBLIC_TURNSTILE_SITE_KEY` | public | Turnstile widget on the form (Astro exposes only `PUBLIC_` variables to browser code) |
+| `TURNSTILE_SITE_KEY` | public Worker variable | Public widget key served by `GET /api/contact/config`; available without rebuilding static HTML |
+| `PUBLIC_TURNSTILE_SITE_KEY` | optional public alias | Supported as a runtime alias or build-time fallback for static previews |
 | `TURNSTILE_SECRET` | secret | Server-side token check |
 | `WEB3FORMS_ACCESS_KEY` | secret | Server-side delivery; Web3Forms links this key to the recipient inbox |
 | `TURNSTILE_HOSTNAMES` | variable | Comma-separated production and preview hostnames accepted by server-side Turnstile validation |
 | `UMAMI_WEBSITE_ID` | public | Analytics script |
 
 Secrets are set in the Cloudflare dashboard. Local copies live in git-ignored files. A `.env.example` with empty values is committed so you can see what is needed.
+
+For the existing production Worker `eklavya-jha-portfolio`, configure the site key and both secrets under **Settings > Variables and Secrets**, not only **Build > Variables and Secrets**. Local `.env` values are not uploaded as production secrets. `TURNSTILE_HOSTNAMES` is declared in `wrangler.jsonc`; `keep_vars` preserves dashboard-managed public variables during deployments. The widget must allow `eklavya-jha-portfolio.eklavya.dpdns.org`.
+
+Verification order: request `/api/contact/config` (only the public key is returned), load a fresh Turnstile token with action `contact`, submit once, and check Worker logs for `contact_delivery_accepted`. Provider acceptance alone does not prove inbox arrival; inspect the received email and its Reply-To.
+
+Production verification on 2026-10-17: the Worker originally had only the `ASSETS` binding, while the static frontend expected a missing `PUBLIC_TURNSTILE_SITE_KEY`. Restored both secret bindings, the public runtime site key and the exact hostname allowlist. All three live widgets generated tokens with action `contact` and the production hostname. A labelled Recruiter test was accepted by Web3Forms and Eklavya confirmed arrival in the primary inbox. Explicit Reply-To/audience/source fields are covered by Worker tests; received email headers were not independently inspected.
 
 ## 8. Branches, previews and checks
 - `main` deploys to production when Cloudflare Git integration is enabled. Keep preview builds enabled for pull requests.
